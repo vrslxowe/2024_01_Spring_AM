@@ -1,48 +1,81 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Controller
 public class UsrHomeController {
 
-	private int count;
-
-	public UsrHomeController() {
-		count = 0;
-	}
-
-	@RequestMapping("/usr/home/main5")
+	@RequestMapping("/usr/home/getArticle")
 	@ResponseBody
-	public String showMain5() {
-		count = 0;
-		return "count의 값이 0으로 초기화 되었습니다.";
+	public Article getArticle() {
+		Article article = new Article(1, "제목1");
+
+		return article;
 	}
 
-	@RequestMapping("/usr/home/main4")
+	@RequestMapping("/usr/home/getList")
 	@ResponseBody
-	public int showMain4() {
-		return count++;
+	public List<String> getList() {
+		List<String> list = new ArrayList<>();
+
+		list.add("철수나이");
+		list.add("영수나이");
+
+		return list;
 	}
 
-	@RequestMapping("/usr/home/main")
+	@RequestMapping("/usr/home/getMap")
 	@ResponseBody
-	public String showMain() {
-		return "안녕하세요";
+	public Map<String, Object> getMap() {
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("철수나이", 11);
+		map.put("영수나이", 12);
+
+		return map;
 	}
 
-	@RequestMapping("/usr/home/main2")
+	@RequestMapping("/usr/home/getDouble")
 	@ResponseBody
-	public String showMain2() {
-		return "잘가";
+	public double getDouble() {
+		return 3.3;
 	}
 
-	@RequestMapping("/usr/home/main3")
+	@RequestMapping("/usr/home/getBoolean")
 	@ResponseBody
-	public int showMain3() {
-		int a = 1;
-		int b = 2;
-		return a + b;
+	public boolean getBoolean() {
+		return true;
 	}
+
+	@RequestMapping("/usr/home/getString")
+	@ResponseBody
+	public String getString() {
+		return "abc";
+	}
+
+	@RequestMapping("/usr/home/getInt")
+	@ResponseBody
+	public int getInt() {
+		return 1;
+	}
+}
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Article {
+	int id;
+	String title;
+
 }
