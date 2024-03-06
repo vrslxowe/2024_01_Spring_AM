@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
 
 <script>
+
+	<!-- 달력 그리기  -->
 	!(function() {
 		var today = moment();
 
@@ -32,7 +34,9 @@
 			//Draw Month
 			this.drawMonth();
 		};
-
+		
+		<!-- 달력 헤더 부분  -->
+		
 		Calendar.prototype.drawHeader = function() {
 			var self = this;
 			if (!this.header) {
@@ -61,7 +65,7 @@
 
 			this.title.innerHTML = this.current.format("MMM YYYY");
 		};
-
+		<!-- 달력 월 부분  -->
 		Calendar.prototype.drawMonth = function() {
 			var self = this;
 
@@ -102,7 +106,7 @@
 				this.month.className = "month new";
 			}
 		};
-
+		<!-- 월 시작 부분과 끝난 부분에 전 달, 다음 달 날짜로 채움 -->
 		Calendar.prototype.backFill = function() {
 			var clone = this.current.clone();
 			var dayOfWeek = clone.day();
@@ -131,7 +135,7 @@
 				this.drawDay(clone.add("days", 1));
 			}
 		};
-
+		<!-- 달력을 주단위로 나눠서 표시 -->
 		Calendar.prototype.currentMonth = function() {
 			var clone = this.current.clone();
 
@@ -147,7 +151,7 @@
 				this.month.appendChild(this.week);
 			}
 		};
-
+		<!-- 달력의 각 날짜를 그려주고 해당 날짜의 이벤트를 표시  -->
 		Calendar.prototype.drawDay = function(day) {
 			var self = this;
 			this.getWeek(day);
@@ -173,7 +177,7 @@
 			outer.appendChild(events);
 			this.week.appendChild(outer);
 		};
-
+		<!-- 특정 날짜에 해당하는 이벤트를 그리고 이를 해당 엘리먼트에 추가  -->
 		Calendar.prototype.drawEvents = function(day, element) {
 			if (day.month() === this.current.month()) {
 				var todaysEvents = this.events.reduce(function(memo, ev) {
@@ -189,7 +193,7 @@
 				});
 			}
 		};
-
+		<!-- 각 날짜에 대한 클래스를 설정하고 반환합니다. 이 클래스들은 CSS를 통해 달력에서 각 날짜를 스타일링하는 데 사용  -->
 		Calendar.prototype.getDayClass = function(day) {
 			classes = [ "day" ];
 			if (day.month() !== this.current.month()) {
@@ -199,7 +203,7 @@
 			}
 			return classes.join(" ");
 		};
-
+		<!-- 특정 날짜를 클릭했을 때 해당 날짜의 이벤트를 표시하는 역할, 이벤트 상세정보 열고 닫기  -->
 		Calendar.prototype.openDay = function(el) {
 			var details, arrow;
 			var dayNumber = +el.querySelectorAll(".day-number")[0].innerText
@@ -234,7 +238,7 @@
 					});
 					currentOpened.className = "details out";
 				}
-
+				<!-- 클릭한 날짜에 해당하는 이벤트를 상세 정보로 표시하고, 화살표를 통해 해당 날짜를 가리키는 역할  -->
 				//Create the Details Container
 				details = createElement("div", "details in");
 
@@ -259,7 +263,7 @@
 			arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27
 					+ "px";
 		};
-
+		<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
 		Calendar.prototype.renderEvents = function(events, ele) {
 			//Remove any events in the current details element
 			var currentWrapper = ele.querySelector(".events");
@@ -310,19 +314,19 @@
 				ele.appendChild(wrapper);
 			}
 		};
-
+		<!-- 현재 달력을 다음 달로 이동  -->
 		Calendar.prototype.nextMonth = function() {
 			this.current.add("months", 1);
 			this.next = true;
 			this.draw();
 		};
-
+		<!-- 현재 달력을 이전 달로 이동  -->
 		Calendar.prototype.prevMonth = function() {
 			this.current.subtract("months", 1);
 			this.next = false;
 			this.draw();
 		};
-
+		<!-- Calendar 객체에서 엘리먼트를 동적으로 생성하고 클래스를 추가하거나 텍스트를 설정하는 기능  -->
 		window.Calendar = Calendar;
 
 		function createElement(tagName, className, innerText) {
@@ -336,7 +340,7 @@
 			return ele;
 		}
 	})();
-
+	<!-- 이벤트 데이터를 사용하여 캘린더 생성(이벤트 이름, 캘린더의 종류, 이벤트를 표시할 때 사용할 색)  -->
 	!(function() {
 		var data = [ {
 			eventName : "Lunch Meeting w/ Mark",

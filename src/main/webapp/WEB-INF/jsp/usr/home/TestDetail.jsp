@@ -11,8 +11,6 @@
 	
 </script>
 
-
-
 <!doctype html>
 
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
@@ -44,8 +42,6 @@
     <button class="btn btn-circle">음악</button>
   </div>
 </div>
-</div>
-
 
 <style type="text/css">
 
