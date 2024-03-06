@@ -19,7 +19,7 @@
 
 
   <div class="top_bar">
-    <button class="btn top_btn btn-ghost">뒤로가기</button>
+    <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
   </div>
 
 

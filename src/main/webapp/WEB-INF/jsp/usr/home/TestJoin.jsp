@@ -18,7 +18,7 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 
   <div class="top_bar">
-    <button class="btn top_btn btn-ghost">뒤로가기</button>
+    <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
   </div>
 
 <div class="member_join">회원가입
