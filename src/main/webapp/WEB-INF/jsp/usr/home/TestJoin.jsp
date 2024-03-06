@@ -34,8 +34,8 @@ body {
   overflow: hidden;
   font-family: "Exo 2";
   font-weight: normal;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -59,44 +59,45 @@ body {
 .top_bar {
   height: 61.7px;
   width: 100%;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   position: absolute;
-  top: 0px;
+  top: 0;
   text-align: center;
   font-family: "Exo 2";
   font-weight: normal;
   display: flex;
   margin-left: 20px;
 }
+
 .top_btn {
   margin-top: 15.5px;
   height: 30px;
   margin-right: 20px;
-  display: inline-block;
 }
+
 .member_join {
   text-align: center;
   font-size: 25px;
 }
+
 .box {
   margin-top: 30px;
-  margin-left: 0%;
+  margin-left: 0;
   background: rgba(226, 226, 226, 1);
   width: 350px;
   height: 47px;
   opacity: 0.5;
   border-radius: 35px;
-  background: #e2e2e2;
-  display: block;
-  padding-top: 5px;
-  font-size: 20px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
+
 .modify_btn {
   margin-top: 15px;
-  margin-left: 0%;
+  margin-left: 0;
   font-size: 19px;
   border-radius: 15px;
 }
+
+
 </style>

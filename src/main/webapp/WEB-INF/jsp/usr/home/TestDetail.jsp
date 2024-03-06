@@ -39,12 +39,13 @@
 
 <style type="text/css">
 
+/* 기본 스타일 */
 body {
   overflow: hidden;
   font-family: "Exo 2";
   font-weight: normal;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -62,25 +63,31 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+/* 상단 바 */
 .top_bar {
   height: 61.7px;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   position: fixed;
-  top: 0px;
+  top: 0;
   text-align: center;
   font-family: "Exo 2";
   font-weight: normal;
   display: flex;
 }
+
 .left {
   margin-right: 95%;
   justify-content: flex-start;
 }
+
 .right {
   margin-left: 95%;
   justify-content: flex-end;
 }
+
+/* 박스 스타일 */
 .box {
   margin-top: -90px;
   opacity: 0.5;
@@ -89,6 +96,7 @@ body {
   box-shadow: 5px 5px 30px 3px rgba(0, 0, 0, 0.25);
   position: fixed;
 }
+
 .box_1 {
   width: 1195px;
   height: 805px;
@@ -98,6 +106,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 .box_2 {
   width: 1050px;
   height: 544px;
@@ -106,45 +115,56 @@ body {
   top: 418px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
+
+/* 텍스트 스타일 */
 .diary_text,
 .address_text,
 .date_text,
 .dday_text {
   opacity: 0.5;
-  height: 0px;
+  height: 0;
   margin-left: 100px;
   background: #e2e2e2;
 }
+
 .diary_text,
 .date_text,
 .dday_text {
   margin-top: 100px;
   width: 450px;
 }
+
 .diary_text {
   margin-right: 0;
 }
+
 .address_text {
   margin-top: 30px;
   width: 329px;
 }
+
 .dday_text {
   margin-right: -350px;
   font-weight: bold;
 }
+
 .date_text {
   margin-right: 80px;
 }
+
+/* 버튼 스타일 */
 .btn-circle {
   opacity: 0.6;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25);
 }
+
 .box_4 button {
   margin-right: 10px;
 }
+
 .box_4 {
   width: 430px;
-  height: 0px;
+  height: 0;
   margin-top: -20px;
   margin-left: 580px;
   display: flex;

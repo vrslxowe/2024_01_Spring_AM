@@ -433,19 +433,20 @@
 <style type="text/css">
 
 body {
+  color: #5e5e5e;
   overflow: hidden;
   font-family: "Exo 2";
   font-weight: normal;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -458,22 +459,25 @@ body {
   background-size: cover;
 }
 
-.top_bar{
+.top_bar {
   height: 61.7px;
-  width:100%;
-  padding:0px;
-  margin:0px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   position: absolute;
-  top: 0px;
+  top: 0;
   text-align: center;
   font-family: "Exo 2";
   font-weight: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .top_btn {
-  margin-top:15.5px;
+  margin-top: 15.5px;
   height: 30px;
   margin-right: 20px;
-  display :inline-block;
+  display: inline-block;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -482,20 +486,16 @@ body {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   width: 900px;
-  margin: 0px;
+  margin: 0;
   height: 650px;
   overflow: hidden;
   backdrop-filter: blur(0px);
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 55px;
-  border-top-right-radius: 55px;
-  border-bottom-left-radius: 55px;
-  border-bottom-right-radius: 55px;
+  border-radius: 55px;
 }
 
 .header {
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding: 20px 0 40px;
   height: 14px;
   width: 215px;
   text-align: center;
@@ -515,10 +515,8 @@ body {
 .left,
 .right {
   position: absolute;
-  width: 0px;
-  height: 0px;
-  margin-left: 10px;
-  border-style: solid;
+  width: 0;
+  height: 0;
   top: 30px;
   margin-top: -7.5px;
   cursor: pointer;
@@ -535,7 +533,6 @@ body {
   border-color: transparent transparent transparent rgba(160, 159, 160, 1);
   right: 25px;
 }
-
 .month {
   /*overflow: hidden;*/
   opacity: 0;
@@ -604,7 +601,6 @@ body {
   color: black;
   letter-spacing: 3px;
   font-weight: normal;
-  color:gray;
 }
 
 .day-number {
