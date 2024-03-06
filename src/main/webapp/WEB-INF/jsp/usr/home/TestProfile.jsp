@@ -9,6 +9,9 @@
 
 <!doctype html>
 
+<div class="top_bar">
+  <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+</div>
   <div class="top_bar">
     <button class="btn top_btn btn-ghost">검색🔍</button>
     <button class="btn top_btn btn-ghost">설정⚙</button>

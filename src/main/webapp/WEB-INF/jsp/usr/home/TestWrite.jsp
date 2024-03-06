@@ -44,11 +44,6 @@
     </div>
   </div>
 </div>
-<style>
-  .icon-pink path {
-    fill: pink;
-  }
-</style>
 
 <style type="text/css">
 
@@ -166,6 +161,5 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
 
 </style>
