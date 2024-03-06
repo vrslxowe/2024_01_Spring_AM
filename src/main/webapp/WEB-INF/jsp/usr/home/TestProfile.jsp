@@ -14,7 +14,6 @@
     <button class="btn top_btn btn-ghost">설정⚙</button>
   </div>
 
-  <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 
 
 <div class="box">내 정보
