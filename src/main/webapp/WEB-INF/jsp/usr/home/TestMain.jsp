@@ -284,7 +284,7 @@
 
 			if (!events.length) {
 				var div = createElement("div", "event empty");
-				var span = createElement("span", "", "No Events");
+				var span = createElement("span", "", "일정이 없습니다.");
 
 				div.appendChild(span);
 				wrapper.appendChild(div);
@@ -419,14 +419,25 @@
 
 		var calendar = new Calendar("#calendar", data);
 	})();
+	
+    <!-- 글쓰기 -->
+        // 글쓰기 버튼 요소 가져오기
+        const writeButton = document.getElementById('write');
+
+        // 버튼 클릭 이벤트 처리
+        write.addEventListener('click', function() {
+            // 글쓰기 페이지로 이동
+            window.location.href = 'writing-page.jsp'; // 실제 글쓰기 페이지의 경로로 변경해야 합니다.
+        });
+        
 </script>
 
 
 <!doctype html>
 
-<div class="top_bar" style="display: flex; justify-content: flex-end;">
+<div class="top_bar">
     <button class="btn top_btn btn-ghost">검색🔍</button>
-    <button class="btn top_btn btn-ghost">글쓰기🖊</button>
+    <button class="btn top_btn btn-ghost write">글쓰기🖊</button>
     <button class="btn top_btn btn-ghost">내 정보😀</button>
 </div>
 
@@ -435,7 +446,7 @@
 body {
   color: #5e5e5e;
   overflow: hidden;
-  font-family: "Exo 2";
+  font-family: "Exo 2", "S-CoreDream-3Light";
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -458,7 +469,6 @@ body {
   background-position: center;
   background-size: cover;
 }
-
 .top_bar {
   height: 61.7px;
   width: 100%;
@@ -470,10 +480,11 @@ body {
   font-family: "Exo 2";
   font-weight: normal;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 .top_btn {
+  font-family: "S-CoreDream-3Light";
   margin-top: 15.5px;
   height: 30px;
   margin-right: 20px;
@@ -778,6 +789,13 @@ body {
   background: rgba(249, 233, 0, 1);
 }
 
+
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 /* Animations are cool!  */
 @-webkit-keyframes moveFromTopFade {
   from {

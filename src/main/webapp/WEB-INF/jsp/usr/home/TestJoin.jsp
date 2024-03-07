@@ -32,7 +32,7 @@
 body {
   color: #5e5e5e;
   overflow: hidden;
-  font-family: "Exo 2";
+  font-family: "Exo 2", "S-CoreDream-3Light";
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -69,11 +69,21 @@ body {
   display: flex;
   margin-left: 20px;
 }
-
+.top_btn,
+.modify_btn {
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
+}
 .top_btn {
+  font-family: "S-CoreDream-3Light";
   margin-top: 15.5px;
   height: 30px;
   margin-right: 20px;
+}
+.modify_btn {
+  margin-top: 15px;
+  margin-left: 0;
+  font-size: 19px;
+  border-radius: 15px;
 }
 
 .member_join {
@@ -92,12 +102,11 @@ body {
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
-.modify_btn {
-  margin-top: 15px;
-  margin-left: 0;
-  font-size: 19px;
-  border-radius: 15px;
+
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
 }
-
-
 </style>

@@ -13,7 +13,7 @@
   <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 <div class="top_bar right">
-  <button class="btn top_btn btn-ghost">글쓰기</button>
+  <button class="btn top_btn btn-ghost" onclick="">글쓰기</button>
 </div>
 
 <div class="box box_1"></div>
@@ -42,7 +42,7 @@
 /* 기본 스타일 */
 body {
   overflow: hidden;
-  font-family: "Exo 2";
+  font-family: "Exo 2", "S-CoreDream-3Light";
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -76,7 +76,10 @@ body {
   font-weight: normal;
   display: flex;
 }
-
+.btn-ghost {
+	font-family: "S-CoreDream-3Light";
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
+}
 .left {
   margin-right: 95%;
   justify-content: flex-start;
@@ -171,5 +174,10 @@ body {
   justify-content: space-between;
 }
 
-
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 </style>
