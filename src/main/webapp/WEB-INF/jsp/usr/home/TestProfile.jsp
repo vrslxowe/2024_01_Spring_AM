@@ -14,7 +14,8 @@
 </div>
 <div class="top_bar right">
 	<button class="btn top_btn btn-ghost">검색🔍</button>
-	<button class="btn top_btn btn-ghost">설정⚙</button>
+	<a href="../home/TestSetting">
+	<button class="btn top_btn btn-ghost">설정⚙</button></a>
 </div>
 
 

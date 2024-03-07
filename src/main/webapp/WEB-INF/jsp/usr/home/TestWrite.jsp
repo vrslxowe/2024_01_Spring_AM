@@ -18,20 +18,16 @@
 </div>
 
 <div class="box box_1"></div>
-<input class="box content_box" autocomplete="off" type="text"
-							placeholder="내용을 입력해주세요" name="content" />
+<input class="box content_box" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content" />
 
 
 <div class="box_1">
-	<input class="title_box" autocomplete="off" type="text"
-							placeholder="제목을 입력해주세요" name="title" />
-	<input class="date_box" autocomplete="off" type="text"
-							placeholder="날짜를 입력해주세요" name="date" />
+	<input class="title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
+	<input class="date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
 </div>
 
 <div class="box_1">
-	<input class="address_box" autocomplete="off" type="text"
-							placeholder="주소를 입력해주세요" name="address" />
+	<input class="address_box" autocomplete="off" type="text" placeholder="주소를 입력해주세요" name="address" />
 </div>
 
 <div class="box_1">

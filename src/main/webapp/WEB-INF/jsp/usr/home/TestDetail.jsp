@@ -13,7 +13,8 @@
   <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 <div class="top_bar right">
-  <button class="btn top_btn btn-ghost" onclick="">글쓰기</button>
+  <a href="../home/TestWrite">
+  <button class="btn top_btn btn-ghost">글쓰기</button></a>
 </div>
 
 <div class="box box_1"></div>

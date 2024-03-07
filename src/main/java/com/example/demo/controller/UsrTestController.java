@@ -41,5 +41,10 @@ public class UsrTestController {
 
 		return "/usr/home/TestDetail";
 	}
+	
+	@RequestMapping("/usr/home/TestSetting")
+	public String TestSetting() {
 
+		return "/usr/home/TestSetting";
+	}
 }

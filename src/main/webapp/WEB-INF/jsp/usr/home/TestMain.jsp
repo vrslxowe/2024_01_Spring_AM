@@ -437,8 +437,10 @@
 
 <div class="top_bar">
     <button class="btn top_btn btn-ghost">검색🔍</button>
-    <button class="btn top_btn btn-ghost write">글쓰기🖊</button>
-    <button class="btn top_btn btn-ghost">내 정보😀</button>
+    <a href="../home/TestWrite">
+    <button class="btn top_btn btn-ghost write">글쓰기🖊</button></a>
+    <a href="../home/TestProfile">
+    <button class="btn top_btn btn-ghost">내 정보😀</button></a>
 </div>
 
 <style type="text/css">
