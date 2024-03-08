@@ -65,7 +65,8 @@ body {
 	margin-left: 20px;
 }
 
-.top_btn, .btn-ghost {
+.top_btn,
+.btn-ghost {
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 	font-family: "S-CoreDream-3Light";
 	margin-top: 15.5px;

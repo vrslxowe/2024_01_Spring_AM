@@ -193,7 +193,7 @@
 				});
 			}
 		};
-		<!-- 각 날짜에 대한 클래스를 설정하고 반환합니다. 이 클래스들은 CSS를 통해 달력에서 각 날짜를 스타일링하는 데 사용  -->
+		<!-- 각 날짜에 대한 클래스를 설정하고 반환, CSS를 통해 달력에서 각 날짜를 스타일링하는 데 사용  -->
 		Calendar.prototype.getDayClass = function(day) {
 			classes = [ "day" ];
 			if (day.month() !== this.current.month()) {
@@ -442,7 +442,7 @@
 </div>
 
 <div class="top_bar top_bar_right">
-	<button class="btn top_btn btn-ghost">검색🔍</button>
+	<button class="btn top_btn btn-ghost" onclick="history.back();">검색🔍</button>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
 	</a>
@@ -548,6 +548,42 @@ body {
 	top: 30px;
 	margin-top: -7.5px;
 	cursor: pointer;
+}
+
+.header h1 {
+	margin: 0px;
+	padding: 10px;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 0px;
+	letter-spacing: 1px;
+}
+
+.left, .right {
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 30px;
+	margin-top: -7.5px;
+	cursor: pointer;
+}
+
+.left {
+	border-width: 7.5px 10px 7.5px 0;
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
+	left: 20px;
+}
+
+.right {
+	border-width: 7.5px 0 7.5px 10px;
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
+	right: 25px;
+}
+
+.month {
+	/*overflow: hidden;*/
+	opacity: 0;
+	padding-left: 10%;
 }
 
 .left {
@@ -821,176 +857,181 @@ body {
 	font-weight: normal;
 	font-style: normal;
 }
+
 /* Animations are cool!  */
-@
--webkit-keyframes moveFromTopFade {from { opacity:0.3;
-	height: 0px;
-	margin-top: 0px;
-	-webkit-transform: translateY(-100%);
+
+@-webkit-keyframes moveFromTopFade {
+  from {
+    opacity: 0.3;
+    height: 0px;
+    margin-top: 0px;
+    -webkit-transform: translateY(-100%);
+  }
+}
+@-moz-keyframes moveFromTopFade {
+  from {
+    height: 0px;
+    margin-top: 0px;
+    -moz-transform: translateY(-100%);
+  }
+}
+@keyframes moveFromTopFade {
+  from {
+    height: 0px;
+    margin-top: 0px;
+    transform: translateY(-100%);
+  }
 }
 
+@-webkit-keyframes moveToTopFade {
+  to {
+    opacity: 0.3;
+    height: 0px;
+    margin-top: 0px;
+    opacity: 0.3;
+    -webkit-transform: translateY(-100%);
+  }
 }
-@
--moz-keyframes moveFromTopFade {from { height:0px;
-	margin-top: 0px;
-	-moz-transform: translateY(-100%);
+@-moz-keyframes moveToTopFade {
+  to {
+    height: 0px;
+    -moz-transform: translateY(-100%);
+  }
 }
-
-}
-@
-keyframes moveFromTopFade {from { height:0px;
-	margin-top: 0px;
-	transform: translateY(-100%);
-}
-
-}
-@
--webkit-keyframes moveToTopFade {to { opacity:0.3;
-	height: 0px;
-	margin-top: 0px;
-	opacity: 0.3;
-	-webkit-transform: translateY(-100%);
-}
-
-}
-@
--moz-keyframes moveToTopFade {to { height:0px;
-	-moz-transform: translateY(-100%);
+@keyframes moveToTopFade {
+  to {
+    height: 0px;
+    transform: translateY(-100%);
+  }
 }
 
+@-webkit-keyframes moveToTopFadeMonth {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-30%) scale(0.95);
+  }
 }
-@
-keyframes moveToTopFade {to { height:0px;
-	transform: translateY(-100%);
+@-moz-keyframes moveToTopFadeMonth {
+  to {
+    opacity: 0;
+    -moz-transform: translateY(-30%);
+  }
 }
-
-}
-@
--webkit-keyframes moveToTopFadeMonth {to { opacity:0;
-	-webkit-transform: translateY(-30%) scale(0.95);
-}
-
-}
-@
--moz-keyframes moveToTopFadeMonth {to { opacity:0;
-	-moz-transform: translateY(-30%);
-}
-
-}
-@
-keyframes moveToTopFadeMonth {to { opacity:0;
-	-moz-transform: translateY(-30%);
+@keyframes moveToTopFadeMonth {
+  to {
+    opacity: 0;
+    -moz-transform: translateY(-30%);
+  }
 }
 
+@-webkit-keyframes moveFromTopFadeMonth {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30%) scale(0.95);
+  }
 }
-@
--webkit-keyframes moveFromTopFadeMonth {from { opacity:0;
-	-webkit-transform: translateY(30%) scale(0.95);
+@-moz-keyframes moveFromTopFadeMonth {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(30%);
+  }
 }
-
-}
-@
--moz-keyframes moveFromTopFadeMonth {from { opacity:0;
-	-moz-transform: translateY(30%);
-}
-
-}
-@
-keyframes moveFromTopFadeMonth {from { opacity:0;
-	-moz-transform: translateY(30%);
-}
-
-}
-@
--webkit-keyframes moveToBottomFadeMonth {to { opacity:0;
-	-webkit-transform: translateY(30%) scale(0.95);
+@keyframes moveFromTopFadeMonth {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(30%);
+  }
 }
 
+@-webkit-keyframes moveToBottomFadeMonth {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(30%) scale(0.95);
+  }
 }
-@
--moz-keyframes moveToBottomFadeMonth {to { opacity:0;
-	-webkit-transform: translateY(30%);
+@-moz-keyframes moveToBottomFadeMonth {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(30%);
+  }
 }
-
-}
-@
-keyframes moveToBottomFadeMonth {to { opacity:0;
-	-webkit-transform: translateY(30%);
-}
-
-}
-@
--webkit-keyframes moveFromBottomFadeMonth {from { opacity:0;
-	-webkit-transform: translateY(-30%) scale(0.95);
-}
-
-}
-@
--moz-keyframes moveFromBottomFadeMonth {from { opacity:0;
-	-webkit-transform: translateY(-30%);
+@keyframes moveToBottomFadeMonth {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(30%);
+  }
 }
 
+@-webkit-keyframes moveFromBottomFadeMonth {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-30%) scale(0.95);
+  }
 }
-@
-keyframes moveFromBottomFadeMonth {from { opacity:0;
-	-webkit-transform: translateY(-30%);
+@-moz-keyframes moveFromBottomFadeMonth {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-30%);
+  }
 }
-
-}
-@
--webkit-keyframes fadeIn {from { opacity:0;
-	
-}
-
-}
-@
--moz-keyframes fadeIn {from { opacity:0;
-	
-}
-
-}
-@
-keyframes fadeIn {from { opacity:0;
-	
+@keyframes moveFromBottomFadeMonth {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-30%);
+  }
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 }
-@
--webkit-keyframes fadeOut {to { opacity:0;
-	
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 }
-
-}
-@
--moz-keyframes fadeOut {to { opacity:0;
-	
-}
-
-}
-@
-keyframes fadeOut {to { opacity:0;
-	
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 }
 
+@-webkit-keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
 }
-@
--webkit-keyframes fadeOutShink {to { opacity:0;
-	padding: 0px;
-	height: 0px;
+@-moz-keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
 }
 
+@-webkit-keyframes fadeOutShink {
+  to {
+    opacity: 0;
+    padding: 0px;
+    height: 0px;
+  }
 }
-@
--moz-keyframes fadeOutShink {to { opacity:0;
-	padding: 0px;
-	height: 0px;
+@-moz-keyframes fadeOutShink {
+  to {
+    opacity: 0;
+    padding: 0px;
+    height: 0px;
+  }
 }
-
-}
-@
-keyframes fadeOutShink {to { opacity:0;
-	padding: 0px;
-	height: 0px;
-}
+@keyframes fadeOutShink {
+  to {
+    opacity: 0;
+    padding: 0px;
+    height: 0px;
+  }
 }
 </style>

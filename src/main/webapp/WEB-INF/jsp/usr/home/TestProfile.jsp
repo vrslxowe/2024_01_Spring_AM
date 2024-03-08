@@ -27,12 +27,12 @@
 	<div class="profile">
 		<button class="btn btn-ghost">프로필 사진📷</button>
 	</div>
-	<div class="box2"></div>
-	<div class="box2"></div>
-	<div class="box2"></div>
-	<div class="box2"></div>
-	<div class="box2"></div>
-	<div class="box2"></div>
+	<div class="box2">아이디</div>
+	<div class="box2">별명</div>
+	<div class="box2">이름</div>
+	<div class="box2">생년월일</div>
+	<div class="box2">전화번호</div>
+	<div class="box2">이메일</div>
 	<div class="modify_btn">
 		<button class="btn btn-ghost">정보 수정</button>
 	</div>
@@ -92,10 +92,9 @@ body {
 .box {
 	font-size: 30px;
 	width: 1334px;
-	height: 862px;
+	height: 780px;
 	margin: 0px;
 	padding-top: 35px;
-	height: 650px;
 	overflow: hidden;
 	backdrop-filter: blur(0px);
 	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
@@ -107,22 +106,20 @@ body {
 }
 
 .profile {
-	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-top: 55px;
+	margin-bottom: 65px;
 }
 
 .box2 {
-	margin-top: 25px;
-	margin-left: 41%;
-	background-color: red;
-	background: rgba(226, 226, 226, 1);
-	width: 250px;
+	background: #e2e2e2;
+	margin-top: 40px;
+	margin-left: 39.5%;
+	width: 280px;
 	height: 47px;
 	opacity: 0.5;
 	border-radius: 35px;
-	background: #e2e2e2;
 	display: block;
-	padding-top: 5px;
+	padding-top: 11px;
 	font-size: 20px;
 	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
@@ -140,10 +137,14 @@ body {
 	font-family: "S-CoreDream-3Light";
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
+
+
 @font-face {
      font-family: 'S-CoreDream-3Light';
      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
      font-weight: normal;
      font-style: normal;
 }
+
+
 </style>

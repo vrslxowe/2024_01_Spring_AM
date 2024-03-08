@@ -17,7 +17,9 @@
 </div>
 <div class="top_bar right">
 	<button class="btn top_btn btn-ghost">임시저장</button>
+	<a href="../home/TestDetail">
 	<button class="btn top_btn btn-ghost">등록</button>
+	</a>
 </div>
 
 <div class="box box_1"></div>
@@ -89,8 +91,9 @@ body {
 
 .btn-circle {
 	font-family: "S-CoreDream-3Light";
+	opacity: 0.6;
+	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25);
 }
-
 .left {
 	margin-right: 95%;
 	justify-content: flex-start;
@@ -158,11 +161,6 @@ body {
 
 .date_box {
 	margin-right: 80px;
-}
-
-.btn-circle {
-	opacity: 0.6;
-	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
 .box_3 {
