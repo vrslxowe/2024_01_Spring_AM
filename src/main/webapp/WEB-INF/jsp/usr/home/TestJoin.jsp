@@ -11,6 +11,8 @@
 
   <div class="top_bar">
     <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+    <a href="../home/TestMain">
+    <button class="btn top_btn btn-ghost">💖</button></a>
   </div>
 
 <div class="member_join">회원가입
@@ -36,12 +38,6 @@ body {
   font-weight: normal;
   margin: 0;
   padding: 0;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   width: 100%;
   height: 100%;
   min-height: 100vh;

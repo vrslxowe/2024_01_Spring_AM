@@ -435,542 +435,562 @@
 
 <!doctype html>
 
-<div class="top_bar">
-    <button class="btn top_btn btn-ghost">검색🔍</button>
-    <a href="../home/TestWrite">
-    <button class="btn top_btn btn-ghost write">글쓰기🖊</button></a>
-    <a href="../home/TestProfile">
-    <button class="btn top_btn btn-ghost">내 정보😀</button></a>
+<div class="top_bar top_bar_left">
+	<a href="../home/TestMain">
+		<button class="btn top_btn btn-ghost">💖</button>
+	</a>
+</div>
+
+<div class="top_bar top_bar_right">
+	<button class="btn top_btn btn-ghost">검색🔍</button>
+	<a href="../home/TestWrite">
+		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
+	</a>
+	<a href="../home/TestProfile">
+		<button class="btn top_btn btn-ghost">내 정보😀</button>
+	</a>
 </div>
 
 <style type="text/css">
-
 body {
-  color: #5e5e5e;
-  overflow: hidden;
-  font-family: "Exo 2", "S-CoreDream-3Light";
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+	color: #5e5e5e;
+	overflow: hidden;
+	font-family: "Exo 2", "S-CoreDream-3Light";
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-image:
+		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
+
 .top_bar {
   height: 61.7px;
-  width: 100%;
   padding: 0;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   text-align: center;
   font-family: "Exo 2";
   font-weight: normal;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
 }
+.top_bar_left {
+	margin-right: 95%;
+	justify-content: flex-start;
+}
+
+.top_bar_right {
+  margin-left: 82%;
+  justify-content: flex-end;
+}
+
 .top_btn {
-  font-family: "S-CoreDream-3Light";
-  margin-top: 15.5px;
-  height: 30px;
-  margin-right: 20px;
-  display: inline-block;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+	font-family: "S-CoreDream-3Light";
+	margin-top: 15.5px;
+	height: 30px;
+	margin-right: 20px;
+	display: inline-block;
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
 
 #calendar {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  width: 900px;
-  margin: 0;
-  height: 650px;
-  overflow: hidden;
-  backdrop-filter: blur(0px);
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
-  border-radius: 55px;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	width: 900px;
+	margin: 0;
+	height: 650px;
+	overflow: hidden;
+	backdrop-filter: blur(0px);
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+	border-radius: 55px;
 }
 
 .header {
-  padding: 20px 0 40px;
-  height: 14px;
-  width: 215px;
-  text-align: center;
-  position: relative;
-  z-index: 1000;
+	padding: 20px 0 40px;
+	height: 14px;
+	width: 215px;
+	text-align: center;
+	position: relative;
+	z-index: 1000;
 }
 
 .header h1 {
-  margin: 0px;
-  padding: 10px;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 0px;
-  letter-spacing: 1px;
+	margin: 0px;
+	padding: 10px;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 0px;
+	letter-spacing: 1px;
 }
 
-.left,
-.right {
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 30px;
-  margin-top: -7.5px;
-  cursor: pointer;
+.left, .right {
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 30px;
+	margin-top: -7.5px;
+	cursor: pointer;
 }
 
 .left {
-  border-width: 7.5px 10px 7.5px 0;
-  border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
-  left: 20px;
+	border-width: 7.5px 10px 7.5px 0;
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
+	left: 20px;
 }
 
 .right {
-  border-width: 7.5px 0 7.5px 10px;
-  border-color: transparent transparent transparent rgba(160, 159, 160, 1);
-  right: 25px;
+	border-width: 7.5px 0 7.5px 10px;
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
+	right: 25px;
 }
+
 .month {
-  /*overflow: hidden;*/
-  opacity: 0;
-  padding-left: 10%;
+	/*overflow: hidden;*/
+	opacity: 0;
+	padding-left: 10%;
 }
 
 .month.new {
-  -webkit-animation: fadeIn 1s ease-out;
-  opacity: 1;
+	-webkit-animation: fadeIn 1s ease-out;
+	opacity: 1;
 }
 
 .month.in.next {
-  -webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
-  -moz-animation: moveFromTopFadeMonth 0.4s ease-out;
-  animation: moveFromTopFadeMonth 0.4s ease-out;
-  opacity: 1;
+	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
+	-moz-animation: moveFromTopFadeMonth 0.4s ease-out;
+	animation: moveFromTopFadeMonth 0.4s ease-out;
+	opacity: 1;
 }
 
 .month.out.next {
-  -webkit-animation: moveToTopFadeMonth 0.4s ease-in;
-  -moz-animation: moveToTopFadeMonth 0.4s ease-in;
-  animation: moveToTopFadeMonth 0.4s ease-in;
-  opacity: 1;
+	-webkit-animation: moveToTopFadeMonth 0.4s ease-in;
+	-moz-animation: moveToTopFadeMonth 0.4s ease-in;
+	animation: moveToTopFadeMonth 0.4s ease-in;
+	opacity: 1;
 }
 
 .month.in.prev {
-  -webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
-  -moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
-  animation: moveFromBottomFadeMonth 0.4s ease-out;
-  opacity: 1;
+	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	animation: moveFromBottomFadeMonth 0.4s ease-out;
+	opacity: 1;
 }
 
 .month.out.prev {
-  -webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
-  -moz-animation: moveToBottomFadeMonth 0.4s ease-in;
-  animation: moveToBottomFadeMonth 0.4s ease-in;
-  opacity: 1;
+	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
+	-moz-animation: moveToBottomFadeMonth 0.4s ease-in;
+	animation: moveToBottomFadeMonth 0.4s ease-in;
+	opacity: 1;
 }
 
 .day {
-  display: inline-block;
-  width: 100px;
-  text-align: center;
-  vertical-align: top;
-  cursor: pointer;
-  position: relative;
-  z-index: 100;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	vertical-align: top;
+	cursor: pointer;
+	position: relative;
+	z-index: 100;
 }
 
 .day.other {
-  color: lightgrey;
+	color: lightgrey;
 }
 
 .day {
-  color: gray;
+	color: gray;
 }
 
 .day.today {
-  color: rgba(156, 202, 235, 1);
+	color: rgba(156, 202, 235, 1);
 }
 
 .day-name {
-  font-size: 10px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  color: black;
-  letter-spacing: 3px;
-  font-weight: normal;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	color: black;
+	letter-spacing: 3px;
+	font-weight: normal;
 }
 
 .day-number {
-  font-size: 24px;
-  letter-spacing: 1.5px;
-  font-weight: normal;
+	font-size: 24px;
+	letter-spacing: 1.5px;
+	font-weight: normal;
 }
 
 .day .day-events {
-  list-style: none;
-  margin-top: 13px;
-  text-align: center;
-  height: 12px;
-  line-height: 6px;
-  overflow: hidden;
+	list-style: none;
+	margin-top: 13px;
+	text-align: center;
+	height: 12px;
+	line-height: 6px;
+	overflow: hidden;
 }
 
 .day .day-events span {
-  vertical-align: top;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  width: 5px;
-  height: 5px;
-  line-height: 5px;
-  margin: 0 1px;
-  border-radius: 5px;
+	vertical-align: top;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	width: 5px;
+	height: 5px;
+	line-height: 5px;
+	margin: 0 1px;
+	border-radius: 5px;
 }
 
 .blue {
-  background: cornflowerblue;
+	background: cornflowerblue;
 }
+
 .orange {
-  background: darkorange;
+	background: darkorange;
 }
+
 .green {
-  background: mediumseagreen;
+	background: mediumseagreen;
 }
+
 .yellow {
-  background: gold;
+	background: gold;
 }
 
 .details {
-  position: relative;
-  margin-left:27px;
-  width: 640px;
-  height: 85px;
-  border: 1px dashed rgba(164, 164, 164, 1);
-  margin-top: 5px;
-  border-radius: 14px;
-  font-weight: normal;
-  color: dimgray;
+	position: relative;
+	margin-left: 27px;
+	width: 640px;
+	height: 85px;
+	border: 1px dashed rgba(164, 164, 164, 1);
+	margin-top: 5px;
+	border-radius: 14px;
+	font-weight: normal;
+	color: dimgray;
 }
 
 .details.in {
-  -webkit-animation: moveFromTopFade 0.5s ease both;
-  -moz-animation: moveFromTopFade 0.5s ease both;
-  animation: moveFromTopFade 0.5s ease both;
+	-webkit-animation: moveFromTopFade 0.5s ease both;
+	-moz-animation: moveFromTopFade 0.5s ease both;
+	animation: moveFromTopFade 0.5s ease both;
 }
 
 .details.out {
-  -webkit-animation: moveToTopFade 0.5s ease both;
-  -moz-animation: moveToTopFade 0.5s ease both;
-  animation: moveToTopFade 0.5s ease both;
+	-webkit-animation: moveToTopFade 0.5s ease both;
+	-moz-animation: moveToTopFade 0.5s ease both;
+	animation: moveToTopFade 0.5s ease both;
 }
 
 .arrow {
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  margin-left: -9px;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 0 5px 5px 5px;
-  border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
-  transition: all 0.7s ease;
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	margin-left: -9px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 5px 5px 5px;
+	border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+	transition: all 0.7s ease;
 }
 
 .events {
-  height: 83px;
-  padding: 7px 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-radius: 14px;
+	height: 83px;
+	padding: 7px 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-radius: 14px;
 }
 
 .events.in {
-  -webkit-animation: fadeIn 0.3s ease both;
-  -moz-animation: fadeIn 0.3s ease both;
-  animation: fadeIn 0.3s ease both;
+	-webkit-animation: fadeIn 0.3s ease both;
+	-moz-animation: fadeIn 0.3s ease both;
+	animation: fadeIn 0.3s ease both;
 }
 
 .events.in {
-  -webkit-animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+	-webkit-animation-delay: 0.3s;
+	-moz-animation-delay: 0.3s;
+	animation-delay: 0.3s;
 }
 
 .details.out .events {
-  -webkit-animation: fadeOutShrink 0.4s ease both;
-  -moz-animation: fadeOutShink 0.4s ease both;
-  animation: fadeOutShink 0.4s ease both;
+	-webkit-animation: fadeOutShrink 0.4s ease both;
+	-moz-animation: fadeOutShink 0.4s ease both;
+	animation: fadeOutShink 0.4s ease both;
 }
 
 .events.out {
-  -webkit-animation: fadeOut 0.3s ease both;
-  -moz-animation: fadeOut 0.3s ease both;
-  animation: fadeOut 0.3s ease both;
+	-webkit-animation: fadeOut 0.3s ease both;
+	-moz-animation: fadeOut 0.3s ease both;
+	animation: fadeOut 0.3s ease both;
 }
 
 .event {
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.5px;
-  padding: 2px 16px;
-  vertical-align: top;
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0.5px;
+	padding: 2px 16px;
+	vertical-align: top;
 }
 
 .event.empty {
-  color: #777;
+	color: #777;
 }
 
 .event-category {
-  height: 10px;
-  width: 10px;
-  display: inline-block;
-  margin: 6px 0 0;
-  vertical-align: top;
-  border-radius: 10px;
+	height: 10px;
+	width: 10px;
+	display: inline-block;
+	margin: 6px 0 0;
+	vertical-align: top;
+	border-radius: 10px;
 }
 
 .event span {
-  display: inline-block;
-  padding: 0 0 0 7px;
+	display: inline-block;
+	padding: 0 0 0 7px;
 }
 
 .legend {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-  background: rgba(60, 60, 60, 1);
-  line-height: 30px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	background: rgba(60, 60, 60, 1);
+	line-height: 30px;
 }
 
 .entry {
-  position: relative;
-  padding: 0 0 0 25px;
-  font-size: 13px;
-  display: inline-block;
-  line-height: 30px;
-  background: transparent;
+	position: relative;
+	padding: 0 0 0 25px;
+	font-size: 13px;
+	display: inline-block;
+	line-height: 30px;
+	background: transparent;
 }
 
 .entry:after {
-  position: absolute;
-  content: "";
-  height: 5px;
-  width: 5px;
-  top: 12px;
-  left: 14px;
+	position: absolute;
+	content: "";
+	height: 5px;
+	width: 5px;
+	top: 12px;
+	left: 14px;
 }
 
 .entry.blue:after {
-  background: rgba(156, 202, 235, 1);
-}
-.entry.orange:after {
-  background: rgba(247, 167, 0, 1);
-}
-.entry.green:after {
-  background: rgba(153, 198, 109, 1);
-}
-.entry.yellow:after {
-  background: rgba(249, 233, 0, 1);
+	background: rgba(156, 202, 235, 1);
 }
 
+.entry.orange:after {
+	background: rgba(247, 167, 0, 1);
+}
+
+.entry.green:after {
+	background: rgba(153, 198, 109, 1);
+}
+
+.entry.yellow:after {
+	background: rgba(249, 233, 0, 1);
+}
 
 @font-face {
-     font-family: 'S-CoreDream-3Light';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 /* Animations are cool!  */
-@-webkit-keyframes moveFromTopFade {
-  from {
-    opacity: 0.3;
-    height: 0px;
-    margin-top: 0px;
-    -webkit-transform: translateY(-100%);
-  }
-}
-@-moz-keyframes moveFromTopFade {
-  from {
-    height: 0px;
-    margin-top: 0px;
-    -moz-transform: translateY(-100%);
-  }
-}
-@keyframes moveFromTopFade {
-  from {
-    height: 0px;
-    margin-top: 0px;
-    transform: translateY(-100%);
-  }
+@
+-webkit-keyframes moveFromTopFade {from { opacity:0.3;
+	height: 0px;
+	margin-top: 0px;
+	-webkit-transform: translateY(-100%);
 }
 
-@-webkit-keyframes moveToTopFade {
-  to {
-    opacity: 0.3;
-    height: 0px;
-    margin-top: 0px;
-    opacity: 0.3;
-    -webkit-transform: translateY(-100%);
-  }
 }
-@-moz-keyframes moveToTopFade {
-  to {
-    height: 0px;
-    -moz-transform: translateY(-100%);
-  }
-}
-@keyframes moveToTopFade {
-  to {
-    height: 0px;
-    transform: translateY(-100%);
-  }
+@
+-moz-keyframes moveFromTopFade {from { height:0px;
+	margin-top: 0px;
+	-moz-transform: translateY(-100%);
 }
 
-@-webkit-keyframes moveToTopFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(-30%) scale(0.95);
-  }
 }
-@-moz-keyframes moveToTopFadeMonth {
-  to {
-    opacity: 0;
-    -moz-transform: translateY(-30%);
-  }
-}
-@keyframes moveToTopFadeMonth {
-  to {
-    opacity: 0;
-    -moz-transform: translateY(-30%);
-  }
+@
+keyframes moveFromTopFade {from { height:0px;
+	margin-top: 0px;
+	transform: translateY(-100%);
 }
 
-@-webkit-keyframes moveFromTopFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(30%) scale(0.95);
-  }
 }
-@-moz-keyframes moveFromTopFadeMonth {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(30%);
-  }
-}
-@keyframes moveFromTopFadeMonth {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(30%);
-  }
+@
+-webkit-keyframes moveToTopFade {to { opacity:0.3;
+	height: 0px;
+	margin-top: 0px;
+	opacity: 0.3;
+	-webkit-transform: translateY(-100%);
 }
 
-@-webkit-keyframes moveToBottomFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(30%) scale(0.95);
-  }
 }
-@-moz-keyframes moveToBottomFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(30%);
-  }
-}
-@keyframes moveToBottomFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(30%);
-  }
+@
+-moz-keyframes moveToTopFade {to { height:0px;
+	-moz-transform: translateY(-100%);
 }
 
-@-webkit-keyframes moveFromBottomFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-30%) scale(0.95);
-  }
 }
-@-moz-keyframes moveFromBottomFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-30%);
-  }
-}
-@keyframes moveFromBottomFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-30%);
-  }
+@
+keyframes moveToTopFade {to { height:0px;
+	transform: translateY(-100%);
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
 }
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+@
+-webkit-keyframes moveToTopFadeMonth {to { opacity:0;
+	-webkit-transform: translateY(-30%) scale(0.95);
 }
 
-@-webkit-keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
 }
-@-moz-keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
-}
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
+@
+-moz-keyframes moveToTopFadeMonth {to { opacity:0;
+	-moz-transform: translateY(-30%);
 }
 
-@-webkit-keyframes fadeOutShink {
-  to {
-    opacity: 0;
-    padding: 0px;
-    height: 0px;
-  }
 }
-@-moz-keyframes fadeOutShink {
-  to {
-    opacity: 0;
-    padding: 0px;
-    height: 0px;
-  }
+@
+keyframes moveToTopFadeMonth {to { opacity:0;
+	-moz-transform: translateY(-30%);
 }
-@keyframes fadeOutShink {
-  to {
-    opacity: 0;
-    padding: 0px;
-    height: 0px;
-  }
+
+}
+@
+-webkit-keyframes moveFromTopFadeMonth {from { opacity:0;
+	-webkit-transform: translateY(30%) scale(0.95);
+}
+
+}
+@
+-moz-keyframes moveFromTopFadeMonth {from { opacity:0;
+	-moz-transform: translateY(30%);
+}
+
+}
+@
+keyframes moveFromTopFadeMonth {from { opacity:0;
+	-moz-transform: translateY(30%);
+}
+
+}
+@
+-webkit-keyframes moveToBottomFadeMonth {to { opacity:0;
+	-webkit-transform: translateY(30%) scale(0.95);
+}
+
+}
+@
+-moz-keyframes moveToBottomFadeMonth {to { opacity:0;
+	-webkit-transform: translateY(30%);
+}
+
+}
+@
+keyframes moveToBottomFadeMonth {to { opacity:0;
+	-webkit-transform: translateY(30%);
+}
+
+}
+@
+-webkit-keyframes moveFromBottomFadeMonth {from { opacity:0;
+	-webkit-transform: translateY(-30%) scale(0.95);
+}
+
+}
+@
+-moz-keyframes moveFromBottomFadeMonth {from { opacity:0;
+	-webkit-transform: translateY(-30%);
+}
+
+}
+@
+keyframes moveFromBottomFadeMonth {from { opacity:0;
+	-webkit-transform: translateY(-30%);
+}
+
+}
+@
+-webkit-keyframes fadeIn {from { opacity:0;
+	
+}
+
+}
+@
+-moz-keyframes fadeIn {from { opacity:0;
+	
+}
+
+}
+@
+keyframes fadeIn {from { opacity:0;
+	
+}
+
+}
+@
+-webkit-keyframes fadeOut {to { opacity:0;
+	
+}
+
+}
+@
+-moz-keyframes fadeOut {to { opacity:0;
+	
+}
+
+}
+@
+keyframes fadeOut {to { opacity:0;
+	
+}
+
+}
+@
+-webkit-keyframes fadeOutShink {to { opacity:0;
+	padding: 0px;
+	height: 0px;
+}
+
+}
+@
+-moz-keyframes fadeOutShink {to { opacity:0;
+	padding: 0px;
+	height: 0px;
+}
+
+}
+@
+keyframes fadeOutShink {to { opacity:0;
+	padding: 0px;
+	height: 0px;
+}
 }
 </style>

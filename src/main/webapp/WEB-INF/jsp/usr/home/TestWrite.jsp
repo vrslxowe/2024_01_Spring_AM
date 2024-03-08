@@ -11,6 +11,9 @@
 
 <div class="top_bar left">
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+	<a href="../home/TestMain">
+		<button class="btn top_btn btn-ghost">💖</button>
+	</a>
 </div>
 <div class="top_bar right">
 	<button class="btn top_btn btn-ghost">임시저장</button>
@@ -53,12 +56,6 @@ body {
 	font-weight: normal;
 	margin: 0px;
 	padding: 0px;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
@@ -123,23 +120,29 @@ body {
 	justify-content: space-between;
 }
 .content_box {
-	width: 1050px;
-	height: 497px;
-	position: fixed;
-	left: 424px;
-	top: 418px;
-	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 25px;
+  width: 1050px;
+  height: 497px;
+  position: fixed;
+  left: 424px;
+  top: 418px;
+  box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
-.title_box, .address_box, .date_box {
-	opacity: 0.5;
-	border-radius: 35px;
-	height: 47px;
-	margin-left: 60px;
-	background: #e2e2e2;
-	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+.title_box,
+.address_box,
+.date_box {
+  padding-top: 8px;
+  padding-left: 25px;
+  opacity: 0.5;
+  border-radius: 35px;
+  height: 47px;
+  margin-left: 60px;
+  background: #e2e2e2;
+  box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
-.title_box, .date_box {
+.title_box,
+.date_box {
 	margin-top: 100px;
 	width: 450px;
 }

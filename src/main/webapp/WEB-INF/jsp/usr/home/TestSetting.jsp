@@ -9,99 +9,91 @@
 
 <!doctype html>
 
-  <div class="top_bar">
-    <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
-  </div>
+<div class="top_bar">
+	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+	<a href="../home/TestMain">
+		<button class="btn top_btn btn-ghost">💖</button>
+	</a>
+</div>
 
-<div class="member_join">설정
-	<button class="btn btn-ghost">회원가입</button>
-	<button class="btn btn-ghost">회원가입</button>
-	<button class="btn btn-ghost">회원가입</button>
-	<button class="btn btn-ghost">회원가입</button>
+<div class="member_join">
+	설정
+	<div class="btn-group">
+		<button class="btn btn-ghost">글꼴 설정</button>
+		<button class="btn btn-ghost">시작요일 변경</button>
+		<button class="btn btn-ghost">기록 백업</button>
+		<button class="btn btn-ghost">기록 복구</button>
+		<button class="btn btn-ghost">문의하기</button>
 	</div>
-
+</div>
 
 
 <style type="text/css">
-
 body {
-  color: #5e5e5e;
-  overflow: hidden;
-  font-family: "Exo 2", "S-CoreDream-3Light";
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+	color: #5e5e5e;
+	overflow: hidden;
+	font-family: "Exo 2", "S-CoreDream-3Light";
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-image:
+		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .top_bar {
-  height: 61.7px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  text-align: center;
-  font-family: "Exo 2";
-  font-weight: normal;
-  display: flex;
-  margin-left: 20px;
+	height: 61.7px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	font-family: "Exo 2";
+	font-weight: normal;
+	display: flex;
+	margin-left: 20px;
 }
-.top_btn,
-.modify_btn {
+
+.top_btn, .btn-ghost {
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
-}
-.top_btn {
-  font-family: "S-CoreDream-3Light";
-  margin-top: 15.5px;
-  height: 30px;
-  margin-right: 20px;
-}
-.modify_btn {
-  margin-top: 15px;
-  margin-left: 0;
-  font-size: 19px;
-  border-radius: 15px;
+	font-family: "S-CoreDream-3Light";
+	margin-top: 15.5px;
+	height: 30px;
+	margin-right: 20px;
 }
 
 .member_join {
-  text-align: center;
-  font-size: 25px;
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 150px;
 }
 
-.box {
-  margin-top: 30px;
-  margin-left: 0;
-  background: rgba(226, 226, 226, 1);
-  width: 350px;
-  height: 47px;
-  opacity: 0.5;
-  border-radius: 35px;
-  box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+.btn-group {
+  width: 100%;
+  display: flex;
+  margin-left: 7%;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 50px;
 }
-
 
 @font-face {
-     font-family: 'S-CoreDream-3Light';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 </style>

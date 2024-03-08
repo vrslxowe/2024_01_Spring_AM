@@ -11,6 +11,9 @@
 
 <div class="top_bar left">
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+	<a href="../home/TestMain">
+		<button class="btn top_btn btn-ghost">💖</button>
+	</a>
 </div>
 <div class="top_bar right">
 	<button class="btn top_btn btn-ghost">검색🔍</button>
@@ -77,12 +80,12 @@ body {
 }
 
 .left {
-	margin-right: 95%;
+	margin-right: 91%;
 	justify-content: flex-start;
 }
 
 .right {
-	margin-left: 95%;
+	margin-left: 90%;
 	justify-content: flex-end;
 }
 
