@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
 
 <script>
+console.log();
 
-	<!-- 달력 그리기  -->
+<!-- 달력 그리기  -->
 	!(function() {
 		var today = moment();
 
@@ -28,10 +29,10 @@
 		}
 
 		Calendar.prototype.draw = function() {
-			//Create Header
+			//헤더 생성
 			this.drawHeader();
 
-			//Draw Month
+			//달 그리기
 			this.drawMonth();
 		};
 		
@@ -40,7 +41,7 @@
 		Calendar.prototype.drawHeader = function() {
 			var self = this;
 			if (!this.header) {
-				//Create the header elements
+				//헤더 요소 생성
 				this.header = createElement("div", "header");
 				this.header.className = "header";
 
@@ -56,7 +57,7 @@
 					self.prevMonth();
 				});
 
-				//Append the Elements
+				//요소 추가
 				this.header.appendChild(this.title);
 				this.header.appendChild(right);
 				this.header.appendChild(left);
@@ -156,19 +157,19 @@
 			var self = this;
 			this.getWeek(day);
 
-			//Outer Day
+			//날짜를 감싸는 외부 요소
 			var outer = createElement("div", this.getDayClass(day));
 			outer.addEventListener("click", function() {
 				self.openDay(this);
 			});
 
-			//Day Name
+			//날짜 이름 요소
 			var name = createElement("div", "day-name", day.format("ddd"));
 
-			//Day Number
+			//날짜 숫자 요소
 			var number = createElement("div", "day-number", day.format("DD"));
 
-			//Events
+			//이벤트 요소
 			var events = createElement("div", "day-events");
 			this.drawEvents(day, events);
 
@@ -181,18 +182,18 @@
 		Calendar.prototype.drawEvents = function(day, element) {
 			if (day.month() === this.current.month()) {
 				var todaysEvents = this.events.reduce(function(memo, ev) {
-					if (ev.date.isSame(day, "day")) {
-						memo.push(ev);
-					}
-					return memo;
-				}, []);
+    	if (moment(ev.date).isSame(day, "day")) { // ev.date를 moment 객체로 변환하여 사용
+       	 	memo.push(ev);
+   		 }
+   		 return memo;
+		}, []);
 
-				todaysEvents.forEach(function(ev) {
-					var evSpan = createElement("span", ev.color);
-					element.appendChild(evSpan);
-				});
-			}
-		};
+		todaysEvents.forEach(function(ev) {
+			var evSpan = createElement("span", ev.color);
+			element.appendChild(evSpan);
+			});
+		}
+	};
 		<!-- 각 날짜에 대한 클래스를 설정하고 반환, CSS를 통해 달력에서 각 날짜를 스타일링하는 데 사용  -->
 		Calendar.prototype.getDayClass = function(day) {
 			classes = [ "day" ];
@@ -204,116 +205,122 @@
 			return classes.join(" ");
 		};
 		<!-- 특정 날짜를 클릭했을 때 해당 날짜의 이벤트를 표시하는 역할, 이벤트 상세정보 열고 닫기  -->
-		Calendar.prototype.openDay = function(el) {
-			var details, arrow;
-			var dayNumber = +el.querySelectorAll(".day-number")[0].innerText
-					|| +el.querySelectorAll(".day-number")[0].textContent;
-			var day = this.current.clone().date(dayNumber);
+Calendar.prototype.openDay = function(el) {
+    var self = this;
+    var dayNumber = +el.querySelectorAll(".day-number")[0].innerText || +el.querySelectorAll(".day-number")[0].textContent;
+    var day = this.current.clone().date(dayNumber);
 
-			var currentOpened = document.querySelector(".details");
+// 현재 행에 열린 세부 정보 상자가 있는지 확인
+    var currentOpened = document.querySelector(".details");
+    if (currentOpened && currentOpened.parentNode === el.parentNode) {
+        details = currentOpened;
+        arrow = document.querySelector(".arrow");
+    } else {
+        // 다른 주 행에 열린 이벤트 닫기
+        if (currentOpened) {
+            currentOpened.addEventListener("webkitAnimationEnd", function() {
+                currentOpened.parentNode.removeChild(currentOpened);
+            });
+            currentOpened.addEventListener("oanimationend", function() {
+                currentOpened.parentNode.removeChild(currentOpened);
+            });
+            currentOpened.addEventListener("msAnimationEnd", function() {
+                currentOpened.parentNode.removeChild(currentOpened);
+            });
+            currentOpened.addEventListener("animationend", function() {
+                currentOpened.parentNode.removeChild(currentOpened);
+            });
+            currentOpened.className = "details out";
+        }
 
-			//Check to see if there is an open detais box on the current row
-			if (currentOpened && currentOpened.parentNode === el.parentNode) {
-				details = currentOpened;
-				arrow = document.querySelector(".arrow");
-			} else {
-				//Close the open events on differnt week row
-				//currentOpened && currentOpened.parentNode.removeChild(currentOpened);
-				if (currentOpened) {
-					currentOpened.addEventListener("webkitAnimationEnd",
-							function() {
-								currentOpened.parentNode
-										.removeChild(currentOpened);
-							});
-					currentOpened.addEventListener("oanimationend", function() {
-						currentOpened.parentNode.removeChild(currentOpened);
-					});
-					currentOpened.addEventListener("msAnimationEnd",
-							function() {
-								currentOpened.parentNode
-										.removeChild(currentOpened);
-							});
-					currentOpened.addEventListener("animationend", function() {
-						currentOpened.parentNode.removeChild(currentOpened);
-					});
-					currentOpened.className = "details out";
-				}
-				<!-- 클릭한 날짜에 해당하는 이벤트를 상세 정보로 표시하고, 화살표를 통해 해당 날짜를 가리키는 역할  -->
-				//Create the Details Container
-				details = createElement("div", "details in");
+        // 클릭한 날짜에 해당하는 이벤트를 상세 정보로 표시하고, 화살표를 통해 해당 날짜를 가리키는 역할
+        // 상세 정보 컨테이너 생성
+        details = createElement("div", "details in");
 
-				//Create the arrow
-				var arrow = createElement("div", "arrow");
+        // 화살표 생성
+        var arrow = createElement("div", "arrow");
 
-				//Create the event wrapper
+        // 이벤트 래퍼 생성
+        details.appendChild(arrow);
+        el.parentNode.appendChild(details);
+    }
+  
+var todaysEvents = this.events.reduce(function(memo, ev) {
+        if (ev.date.isSame(day, "day")) {
+            memo.push(ev);
+        }
+        return memo;
+    }, []);
 
-				details.appendChild(arrow);
-				el.parentNode.appendChild(details);
-			}
+    this.renderEvents(todaysEvents, details);
 
-			var todaysEvents = this.events.reduce(function(memo, ev) {
-				if (ev.date.isSame(day, "day")) {
-					memo.push(ev);
-				}
-				return memo;
-			}, []);
+    arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
+};
 
-			this.renderEvents(todaysEvents, details);
+	<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
+	Calendar.prototype.renderEvents = function(events, ele, dday) {
+	    // 현재 세부 정보 요소에서 모든 이벤트를 제거
+	    var currentWrapper = ele.querySelector(".events");
+	    var wrapper = createElement("div", "events in" + (currentWrapper ? " new" : ""));
 
-			arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27
-					+ "px";
-		};
-		<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
-		Calendar.prototype.renderEvents = function(events, ele) {
-			//Remove any events in the current details element
-			var currentWrapper = ele.querySelector(".events");
-			var wrapper = createElement("div", "events in"
-					+ (currentWrapper ? " new" : ""));
+	    // D-day가 정의되어 있으면 표시
+	    if (dday) {
+	        var ddayDiv = createElement("div", "event dday");
+	        var daysUntilDday = dday.diff(moment(), 'days'); // 디데이까지 남은 일 수 계산
+	        var ddayText = daysUntilDday >= 0 ? "D-day: -" + daysUntilDday + " days" : "D-day: +" + Math.abs(daysUntilDday) + " days";
+	        var ddaySpan = createElement("span", "", ddayText);
+	        ddayDiv.appendChild(ddaySpan);
+	        wrapper.appendChild(ddayDiv);
+	    }
 
-			events
-					.forEach(function(ev) {
-						var div = createElement("div", "event");
-						var square = createElement("div", "event-category "
-								+ ev.color);
-						var span = createElement("span", "", ev.eventName);
+	 // 24년 3월 12일을 "시험" 디데이로 추가
+	    var testDday = moment("2024-03-20");
+	    var daysUntilTestDday = testDday.diff(moment(), 'days');
+	    var testDdayDiv = createElement("div", "event dday");
+	    var testDdayText = daysUntilTestDday >= 0 ? "D-" + daysUntilTestDday + " 시험" : "D+" + Math.abs(daysUntilTestDday) + " 시험";
+	    var testDdaySpan = createElement("span", "", testDdayText);
+	    testDdayDiv.appendChild(testDdaySpan);
+	    wrapper.appendChild(testDdayDiv);
+	    
+	    events.forEach(function(ev) {
+	        var div = createElement("div", "event");
+	        var square = createElement("div", "event-category " + ev.color);
+	        var span = createElement("span", "", ev.eventName);
 
-						div.appendChild(square);
-						div.appendChild(span);
-						wrapper.appendChild(div);
-					});
+	        div.appendChild(square);
+	        div.appendChild(span);
+	        wrapper.appendChild(div);
+	    });
 
-			if (!events.length) {
-				var div = createElement("div", "event empty");
-				var span = createElement("span", "", "일정이 없습니다.");
+	    if (!events.length) {
+	        var div = createElement("div", "event empty");
+	        var span = createElement("span", "", "일정이 없습니다.");
+	        div.appendChild(span);
+	        wrapper.appendChild(div);
+	    }
 
-				div.appendChild(span);
-				wrapper.appendChild(div);
-			}
-
-			if (currentWrapper) {
-				currentWrapper.className = "events out";
-				currentWrapper.addEventListener("webkitAnimationEnd",
-						function() {
-							currentWrapper.parentNode
-									.removeChild(currentWrapper);
-							ele.appendChild(wrapper);
-						});
-				currentWrapper.addEventListener("oanimationend", function() {
-					currentWrapper.parentNode.removeChild(currentWrapper);
-					ele.appendChild(wrapper);
-				});
-				currentWrapper.addEventListener("msAnimationEnd", function() {
-					currentWrapper.parentNode.removeChild(currentWrapper);
-					ele.appendChild(wrapper);
-				});
-				currentWrapper.addEventListener("animationend", function() {
-					currentWrapper.parentNode.removeChild(currentWrapper);
-					ele.appendChild(wrapper);
-				});
-			} else {
-				ele.appendChild(wrapper);
-			}
-		};
+	    if (currentWrapper) {
+	        currentWrapper.className = "events out";
+	        currentWrapper.addEventListener("webkitAnimationEnd", function() {
+	            currentWrapper.parentNode.removeChild(currentWrapper);
+	            ele.appendChild(wrapper);
+	        });
+	        currentWrapper.addEventListener("oanimationend", function() {
+	            currentWrapper.parentNode.removeChild(currentWrapper);
+	            ele.appendChild(wrapper);
+	        });
+	        currentWrapper.addEventListener("msAnimationEnd", function() {
+	            currentWrapper.parentNode.removeChild(currentWrapper);
+	            ele.appendChild(wrapper);
+	        });
+	        currentWrapper.addEventListener("animationend", function() {
+	            currentWrapper.parentNode.removeChild(currentWrapper);
+	            ele.appendChild(wrapper);
+	        });
+	    } else {
+	        ele.appendChild(wrapper);
+	    }
+	};
 		<!-- 현재 달력을 다음 달로 이동  -->
 		Calendar.prototype.nextMonth = function() {
 			this.current.add("months", 1);
@@ -340,6 +347,7 @@
 			return ele;
 		}
 	})();
+	
 	<!-- 이벤트 데이터를 사용하여 캘린더 생성(이벤트 이름, 캘린더의 종류, 이벤트를 표시할 때 사용할 색)  -->
 	!(function() {
 		var data = [ {
@@ -421,14 +429,28 @@
 	})();
 	
     <!-- 글쓰기 -->
-        // 글쓰기 버튼 요소 가져오기
-        const writeButton = document.getElementById('write');
+// 글쓰기 버튼 요소 가져오기
+const write = document.getElementsByClassName('write');
 
+// 버튼 클릭 이벤트 처리 함수 정의
+function handleWriteClick() {
+    // 글쓰기 페이지로 이동
+    window.location.href = "../home/TestWrite"; // 변경 가능한 경로
+}
+
+// HTML 문서가 완전히 로드되었을 때 버튼 클릭 이벤트 처리
+document.addEventListener('DOMContentLoaded', function() {
+    // 글쓰기 버튼 요소 가져오기
+    const writeButton = document.querySelector('.write');
+
+    // writeButton이 null이 아닌지 확인
+    if (writeButton) {
         // 버튼 클릭 이벤트 처리
-        write.addEventListener('click', function() {
-            // 글쓰기 페이지로 이동
-            window.location.href = 'writing-page.jsp'; // 실제 글쓰기 페이지의 경로로 변경해야 합니다.
-        });
+        writeButton.addEventListener('click', handleWriteClick);
+    } else {
+        console.error("write를 찾을 수 없습니다.");
+    }
+});
         
 </script>
 
@@ -450,6 +472,8 @@
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
 </div>
+<div id="dday" class="events"></div>
+
 
 <style type="text/css">
 body {
@@ -481,24 +505,25 @@ body {
 }
 
 .top_bar {
-  height: 61.7px;
-  padding: 0;
-  margin: 0;
-  position: fixed;
-  top: 0;
-  text-align: center;
-  font-family: "Exo 2";
-  font-weight: normal;
-  display: flex;
+	height: 61.7px;
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	text-align: center;
+	font-family: "Exo 2";
+	font-weight: normal;
+	display: flex;
 }
+
 .top_bar_left {
 	margin-right: 95%;
 	justify-content: flex-start;
 }
 
 .top_bar_right {
-  margin-left: 82%;
-  justify-content: flex-end;
+	margin-left: 82%;
+	justify-content: flex-end;
 }
 
 .top_btn {
@@ -859,7 +884,6 @@ body {
 }
 
 /* Animations are cool!  */
-
 @-webkit-keyframes moveFromTopFade {
   from {
     opacity: 0.3;
