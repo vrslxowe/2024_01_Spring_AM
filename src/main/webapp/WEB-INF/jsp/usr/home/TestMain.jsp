@@ -272,8 +272,8 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	        wrapper.appendChild(ddayDiv);
 	    }
 
-	 // 24년 3월 12일을 "시험" 디데이로 추가
-	    var testDday = moment("2024-03-20");
+	 // 24년 3월 20일을 "시험" 디데이로 추가
+	    var testDday = moment();
 	    var daysUntilTestDday = testDday.diff(moment(), 'days');
 	    var testDdayDiv = createElement("div", "event dday");
 	    var testDdayText = daysUntilTestDday >= 0 ? "D-" + daysUntilTestDday + " 시험" : "D+" + Math.abs(daysUntilTestDday) + " 시험";
@@ -281,13 +281,13 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	    testDdayDiv.appendChild(testDdaySpan);
 	    wrapper.appendChild(testDdayDiv);
 	    
-	  //Assume you have a function to initialize your calendar called initCalendar()
-	  //This function sets up your calendar and renders the initial events
+	 // 당신이 당신의 캘린더를 초기화하는 함수가 있다고 가정하자.
+	 //이 함수는 캘린더를 설정하고 초기 이벤트를 렌더링
 	  function initCalendar() {
-	   // Your calendar initialization logic goes here
+		  // 캘린더 초기화 로직을 여기에 작성
 	  }
 
-	  //Function to update the D-Day number based on the selected date
+	// 선택된 날짜를 기반으로 D-Day 번호를 업데이트하는 함수
 	  function updateDday(selectedDate) {
 		  var testDday = moment("2024-03-20");
 		  var daysUntilTestDday = testDday.diff(moment(), 'days');
@@ -301,28 +301,28 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	  }
 
 	  document.addEventListener("DOMContentLoaded", function() {
-	   // Initialize the calendar when the DOM is loaded
+		// DOM이 로드될 때 캘린더 초기화
 	   initCalendar();
 
-	   // Add event listener to the calendar dates
+	// 캘린더 날짜에 이벤트 리스너를 추가
 	   var calendarDates = document.querySelectorAll('.calendar-date');
 	   calendarDates.forEach(function(date) {
 	       date.addEventListener('click', function(event) {
-	           // Extract the selected date from the clicked calendar date
-	           var selectedDate = moment(event.target.dataset.date); // Assuming data-date attribute stores the date
-	           // Update the D-Day number based on the selected date
+	    	// 클릭한 캘린더 날짜에서 선택된 날짜를 추출
+	           var selectedDate = moment(event.target.dataset.date); // data-date 속성이 날짜를 저장한다고 했을때
+	        // 선택된 날짜를 기반으로 D-Day 번호를 업데이트
 	           updateDday(selectedDate);
 	       });
 	   });
 	  });
 	    
-	 // Store the selected date
-	    var selectedDate = moment("2024-03-20"); // Example selected date
+	 // 선택된 날짜를 저장
+	    var selectedDate = moment("2024-03-20"); // 예시 선택된 날짜
 
-	    // Calculate the difference between the selected date and the current date
+	    // 선택된 날짜와 현재 날짜 사이의 차이를 계산
 	    var daysUntilSelectedDate = selectedDate.diff(moment(), 'days');
 
-	    // Update the displayed D-day number
+	    // 표시된 D-day 번호를 업데이트
 	    var ddayText = daysUntilSelectedDate >= 0 ? "D-day: +" + daysUntilSelectedDate + " days left" : "D-day: " + daysUntilSelectedDate + " days left";
 	    var ddaySpan = createElement("span", "", ddayText);
 	    
