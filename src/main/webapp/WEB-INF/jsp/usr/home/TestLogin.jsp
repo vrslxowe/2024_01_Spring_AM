@@ -22,10 +22,11 @@
 		<input type="text" class="box2">
 	</div>
   <div class="modify_btn"><button class="btn btn-ghost">확인</button></div>
+  </form>
   <div class="modify_btn">
   <a href="../home/TestJoin">
   <button class="btn btn-ghost">회원가입</button></a></div>
-  </form>
+
 </div>
 
 <style type="text/css">

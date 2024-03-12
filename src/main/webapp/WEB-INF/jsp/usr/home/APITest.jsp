@@ -25,8 +25,17 @@
 	}
 	
 	getData2();
-
+	http://www.maniadb.com/api/search/BTS/?sr=artist&display=10&key=yourapikey&v=1
+			
+		async function getData3() {
+		const API_KEY = 'ixQo%2FUislf4YkHMgIBaDkwtFr%2FjmxRZLI55pNfsWntbXQewj3hrI50T6IoARyuZNWhk10ra5m39wMU57zRKeIw%3D%3D';
+		const url = 'https://www.yuseong.go.kr/ys_parking/ysparkingList/ORP/getJSONData.do?_wadl&type=json';
+		const response = await fetch(url);
+		const data = await response.json();
+		console.log("data", data);
+	}
 	
+	getData3();
 </script>
 
 <%@ include file="../common/foot.jspf"%>

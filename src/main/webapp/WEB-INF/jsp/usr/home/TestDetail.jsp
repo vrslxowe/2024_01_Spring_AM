@@ -99,7 +99,7 @@ body {
 
 .box_1 {
   width: 1195px;
-  height: 805px;
+  height: 830px;
   position: fixed;
   left: 362px;
   top: 156px;
