@@ -502,8 +502,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <!doctype html>
 
 <div class="top_bar top_bar_left">
-	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+	<a href="../home/TestLogin">
+		<button class="btn top_btn btn-ghost">🧝‍♀️</button>
 	</a>
 </div>
 

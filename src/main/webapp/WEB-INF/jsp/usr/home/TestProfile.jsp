@@ -27,12 +27,12 @@
 	<div class="profile">
 		<button class="btn btn-ghost">프로필 사진📷</button>
 	</div>
-	<div class="box2">아이디</div>
-	<div class="box2">별명</div>
-	<div class="box2">이름</div>
-	<div class="box2">생년월일</div>
-	<div class="box2">전화번호</div>
-	<div class="box2">이메일</div>
+	<input type="text" autocomplete="off" placeholder="아이디" class="box2">
+	<input type="text" autocomplete="off" placeholder="별명" class="box2">
+	<input type="text" autocomplete="off" placeholder="이름" class="box2">
+	<input type="text" autocomplete="off" placeholder="생년월일" class="box2">
+	<input type="text" autocomplete="off" placeholder="전화번호" class="box2">
+	<input type="text" autocomplete="off" placeholder="이메일" class="box2">
 	<div class="modify_btn">
 		<button class="btn btn-ghost">정보 수정</button>
 	</div>

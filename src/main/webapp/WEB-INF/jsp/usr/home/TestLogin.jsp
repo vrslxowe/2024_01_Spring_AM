@@ -15,10 +15,17 @@
     <button class="btn top_btn btn-ghost">💖</button></a>
   </div>
 
-<div class="login">로그인
-  <div class="box2"></div>
-  <div class="box2"></div>
-  <div class="modify_btn"><button class="btn btn-ghost">정보 수정</button></div>
+<div class="login">
+<form action="../home/TestMain" method="post">로그인
+	<div>
+		<input type="text" class="box2"><div></div>
+		<input type="text" class="box2">
+	</div>
+  <div class="modify_btn"><button class="btn btn-ghost">확인</button></div>
+  <div class="modify_btn">
+  <a href="../home/TestJoin">
+  <button class="btn btn-ghost">회원가입</button></a></div>
+  </form>
 </div>
 
 <style type="text/css">

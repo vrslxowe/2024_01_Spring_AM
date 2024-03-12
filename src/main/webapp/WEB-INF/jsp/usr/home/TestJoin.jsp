@@ -15,16 +15,20 @@
     <button class="btn top_btn btn-ghost">💖</button></a>
   </div>
 
-<div class="member_join">회원가입
-    <div class="box"></div>
-    <div class="box member_id"></div>
-    <div class="box member_password"></div>
-    <div class="box member_id"></div>
-    <div class="box member_name"></div>
-    <div class="box member_birth"></div>
-    <div class="box member_phoneNumber"></div>
-    <div class="box member_email"></div>
+<div class="member_join">
+<form action="../home/TestLogin" method="post">회원가입
+	<div class="join_box">
+    <input type="text" autocomplete="off" placeholder="아이디" class="box member_id"><div></div>
+    <input type="text" autocomplete="off" placeholder="비밀번호" class="box member_password"><div></div>
+    <input type="text" autocomplete="off" placeholder="비밀번호 확인" class="box member_password_1"><div></div>
+    <input type="text" autocomplete="off" placeholder="별명" class="box member_nikname"><div></div>
+    <input type="text" autocomplete="off" placeholder="이름" class="box member_name"><div></div>
+    <input type="text" autocomplete="off" placeholder="생년월일" class="box member_birth"><div></div>
+    <input type="text" autocomplete="off" placeholder="핸드폰 번호" class="box member_phoneNumber"><div></div>
+    <input type="text" autocomplete="off" placeholder="이메일" class="box member_email"><div></div>
+    </div>
     <div class="modify_btn"><button class="btn btn-ghost">회원가입</button></div>
+    </form>
   </div>
 
 
@@ -96,6 +100,10 @@ body {
   opacity: 0.5;
   border-radius: 35px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.join_box {
+	font-size: 20px;
+	padding-left: 0px;
 }
 
 
