@@ -1,0 +1,78 @@
+Table Member {
+  user_id int
+  password VARCHAR(255)
+  name VARCHAR(50)
+  phone_number VARCHAR(20)
+  birth_date DATE
+  email VARCHAR(255)
+  nickname VARCHAR(50)
+  authLevel SMALLINT(2)
+  PRIMARY KEY(user_id)
+}
+
+Table Setting {
+  user_id int
+  font_setting VARCHAR(50)
+  start_day VARCHAR(10)
+  record_backup BOOLEAN
+  record_recovery BOOLEAN
+  contact_us VARCHAR(255)
+  FOREIGN KEY(user_id) REFERENCES Member(user_id)
+  }
+
+Table MemberState {
+  state_id INT AUTO_INCREMENT
+  location VARCHAR(255)
+  weather VARCHAR(50)
+  emotion VARCHAR(50)
+  music VARCHAR(255)
+  PRIMARY KEY(state_id)
+}
+
+Table PostStyle {
+  style_id INT AUTO_INCREMENT
+  font_size INT
+  alignment VARCHAR(50)
+  original_size_attachment BOOLEAN
+  attachment_placement VARCHAR(50)
+  PRIMARY KEY(style_id)
+}
+
+Table MainCalendar {
+  date DATE
+  user_id VARCHAR(20)
+  event VARCHAR(255)
+  is_recorded BOOLEAN
+  record_content TEXT
+  d_day VARCHAR(10)
+  to_do VARCHAR(255)
+  to_do_status ENUM('미완료', '진행 중', '완료')
+  PRIMARY KEY(date, user_id)
+  FOREIGN KEY(user_id) REFERENCES Member(user_id)
+}
+
+Table Write {
+  post_id INT AUTO_INCREMENT
+  user_id INT
+  state_id INT
+  style_id INT
+  title VARCHAR(255)
+  content TEXT
+  temp_save BOOLEAN
+  post_date DATE
+  link VARCHAR(255)
+  date_setting DATE
+  PRIMARY KEY(post_id)
+  FOREIGN KEY(user_id) REFERENCES Member(user_id)
+  FOREIGN KEY(state_id) REFERENCES MemberState(state_id)
+  FOREIGN KEY(style_id) REFERENCES PostStyle(style_id)
+}
+
+Table Post {
+ post_id INT
+  state_id INT
+  d_day INT
+  read_date DATE
+  FOREIGN KEY(post_id) REFERENCES Write(post_id)
+  FOREIGN KEY(state_id) REFERENCES MemberState(state_id)
+}

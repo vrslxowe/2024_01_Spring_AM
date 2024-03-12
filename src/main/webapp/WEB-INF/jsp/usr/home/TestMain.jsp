@@ -256,7 +256,6 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 
     arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
 };
-
 	<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
 	Calendar.prototype.renderEvents = function(events, ele, dday) {
 	    // 현재 세부 정보 요소에서 모든 이벤트를 제거
@@ -281,6 +280,51 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	    var testDdaySpan = createElement("span", "", testDdayText);
 	    testDdayDiv.appendChild(testDdaySpan);
 	    wrapper.appendChild(testDdayDiv);
+	    
+	  //Assume you have a function to initialize your calendar called initCalendar()
+	  //This function sets up your calendar and renders the initial events
+	  function initCalendar() {
+	   // Your calendar initialization logic goes here
+	  }
+
+	  //Function to update the D-Day number based on the selected date
+	  function updateDday(selectedDate) {
+		  var testDday = moment("2024-03-20");
+		  var daysUntilTestDday = testDday.diff(moment(), 'days');
+	   var daysUntilDday = dday.diff(selectedDate, 'days');
+	   var testDdayDiv = createElement("div", "event dday");
+	   var ddayText = daysUntilDday >= 0 ? "D-day: -" + daysUntilDday + " days" : "D-day: +" + Math.abs(daysUntilDday) + " days";
+	   var testDdaySpan = createElement("span", "", testDdayText);
+	   document.getElementById('dday-display').innerText = ddayText;
+	   testDdayDiv.appendChild(testDdaySpan);
+	    wrapper.appendChild(testDdayDiv);
+	  }
+
+	  document.addEventListener("DOMContentLoaded", function() {
+	   // Initialize the calendar when the DOM is loaded
+	   initCalendar();
+
+	   // Add event listener to the calendar dates
+	   var calendarDates = document.querySelectorAll('.calendar-date');
+	   calendarDates.forEach(function(date) {
+	       date.addEventListener('click', function(event) {
+	           // Extract the selected date from the clicked calendar date
+	           var selectedDate = moment(event.target.dataset.date); // Assuming data-date attribute stores the date
+	           // Update the D-Day number based on the selected date
+	           updateDday(selectedDate);
+	       });
+	   });
+	  });
+	    
+	 // Store the selected date
+	    var selectedDate = moment("2024-03-20"); // Example selected date
+
+	    // Calculate the difference between the selected date and the current date
+	    var daysUntilSelectedDate = selectedDate.diff(moment(), 'days');
+
+	    // Update the displayed D-day number
+	    var ddayText = daysUntilSelectedDate >= 0 ? "D-day: +" + daysUntilSelectedDate + " days left" : "D-day: " + daysUntilSelectedDate + " days left";
+	    var ddaySpan = createElement("span", "", ddayText);
 	    
 	    events.forEach(function(ev) {
 	        var div = createElement("div", "event");
