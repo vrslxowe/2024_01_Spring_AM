@@ -257,74 +257,40 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
     arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
 };
 	<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
-	Calendar.prototype.renderEvents = function(events, ele, dday) {
+	Calendar.prototype.renderEvents = function(events, ele, selectedDate, testDday) {
 	    // 현재 세부 정보 요소에서 모든 이벤트를 제거
 	    var currentWrapper = ele.querySelector(".events");
 	    var wrapper = createElement("div", "events in" + (currentWrapper ? " new" : ""));
 
 	    // D-day가 정의되어 있으면 표시
-	    if (dday) {
-	        var ddayDiv = createElement("div", "event dday");
-	        var daysUntilDday = dday.diff(moment(), 'days'); // 디데이까지 남은 일 수 계산
-	        var ddayText = daysUntilDday >= 0 ? "D-day: -" + daysUntilDday + " days" : "D-day: +" + Math.abs(daysUntilDday) + " days";
+	    if (selectedDate) {
+	        var daysUntilSelectedDate = selectedDate.diff(moment(), 'days'); // 선택된 날짜까지 남은 일 수 계산
+	        var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
 	        var ddaySpan = createElement("span", "", ddayText);
+	        var ddayDiv = createElement("div", "event dday");
 	        ddayDiv.appendChild(ddaySpan);
 	        wrapper.appendChild(ddayDiv);
 	    }
-
-	 // 24년 3월 20일을 "시험" 디데이로 추가
-	    var testDday = moment();
-	    var daysUntilTestDday = testDday.diff(moment(), 'days');
+	    
+	    var testDday = moment("2024-03-12");
+	    var currentDate = moment().startOf('day'); // Get the current date and set it to the start of the day
+	    var daysUntilTestDday = testDday.startOf('day').diff(currentDate, 'days'); // Calculate the difference in days	    
 	    var testDdayDiv = createElement("div", "event dday");
 	    var testDdayText = daysUntilTestDday >= 0 ? "D-" + daysUntilTestDday + " 시험" : "D+" + Math.abs(daysUntilTestDday) + " 시험";
 	    var testDdaySpan = createElement("span", "", testDdayText);
 	    testDdayDiv.appendChild(testDdaySpan);
 	    wrapper.appendChild(testDdayDiv);
 	    
-	 // 당신이 당신의 캘린더를 초기화하는 함수가 있다고 가정하자.
-	 //이 함수는 캘린더를 설정하고 초기 이벤트를 렌더링
-	  function initCalendar() {
-		  // 캘린더 초기화 로직을 여기에 작성
-	  }
+	    var ddayText;
+	    if (daysUntilTestDday < 0) {
+	        ddayText = "D+" + Math.abs(daysUntilTestDday) + " days"; // Past event
+	    } else if (daysUntilTestDday === 0) {
+	        ddayText = "D-Day: 0 days"; // Today's event
+	    } else {
+	        ddayText = "D-" + daysUntilTestDday + " days"; // Future event
+	    }
 
-	// 선택된 날짜를 기반으로 D-Day 번호를 업데이트하는 함수
-	  function updateDday(selectedDate) {
-		  var testDday = moment("2024-03-20");
-		  var daysUntilTestDday = testDday.diff(moment(), 'days');
-	   var daysUntilDday = dday.diff(selectedDate, 'days');
-	   var testDdayDiv = createElement("div", "event dday");
-	   var ddayText = daysUntilDday >= 0 ? "D-day: -" + daysUntilDday + " days" : "D-day: +" + Math.abs(daysUntilDday) + " days";
-	   var testDdaySpan = createElement("span", "", testDdayText);
-	   document.getElementById('dday-display').innerText = ddayText;
-	   testDdayDiv.appendChild(testDdaySpan);
-	    wrapper.appendChild(testDdayDiv);
-	  }
-
-	  document.addEventListener("DOMContentLoaded", function() {
-		// DOM이 로드될 때 캘린더 초기화
-	   initCalendar();
-
-	// 캘린더 날짜에 이벤트 리스너를 추가
-	   var calendarDates = document.querySelectorAll('.calendar-date');
-	   calendarDates.forEach(function(date) {
-	       date.addEventListener('click', function(event) {
-	    	// 클릭한 캘린더 날짜에서 선택된 날짜를 추출
-	           var selectedDate = moment(event.target.dataset.date); // data-date 속성이 날짜를 저장한다고 했을때
-	        // 선택된 날짜를 기반으로 D-Day 번호를 업데이트
-	           updateDday(selectedDate);
-	       });
-	   });
-	  });
-	    
-	 // 선택된 날짜를 저장
-	    var selectedDate = moment("2024-03-20"); // 예시 선택된 날짜
-
-	    // 선택된 날짜와 현재 날짜 사이의 차이를 계산
-	    var daysUntilSelectedDate = selectedDate.diff(moment(), 'days');
-
-	    // 표시된 D-day 번호를 업데이트
-	    var ddayText = daysUntilSelectedDate >= 0 ? "D-day: +" + daysUntilSelectedDate + " days left" : "D-day: " + daysUntilSelectedDate + " days left";
-	    var ddaySpan = createElement("span", "", ddayText);
+	    console.log(ddayText);
 	    
 	    events.forEach(function(ev) {
 	        var div = createElement("div", "event");
