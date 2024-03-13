@@ -205,93 +205,121 @@ console.log();
 			return classes.join(" ");
 		};
 		<!-- 특정 날짜를 클릭했을 때 해당 날짜의 이벤트를 표시하는 역할, 이벤트 상세정보 열고 닫기  -->
-Calendar.prototype.openDay = function(el) {
-    var self = this;
-    var dayNumber = +el.querySelectorAll(".day-number")[0].innerText || +el.querySelectorAll(".day-number")[0].textContent;
-    var day = this.current.clone().date(dayNumber);
+		Calendar.prototype.openDay = function(el) {
+		    var dayNumber = +el.querySelector(".day-number").innerText || +el.querySelector(".day-number").textContent;
+		    var day = moment().date(dayNumber); // Use today's date as the standard for D-day calculations
 
-// 현재 행에 열린 세부 정보 상자가 있는지 확인
-    var currentOpened = document.querySelector(".details");
-    if (currentOpened && currentOpened.parentNode === el.parentNode) {
-        details = currentOpened;
-        arrow = document.querySelector(".arrow");
-    } else {
-        // 다른 주 행에 열린 이벤트 닫기
-        if (currentOpened) {
-            currentOpened.addEventListener("webkitAnimationEnd", function() {
-                currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener("oanimationend", function() {
-                currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener("msAnimationEnd", function() {
-                currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.addEventListener("animationend", function() {
-                currentOpened.parentNode.removeChild(currentOpened);
-            });
-            currentOpened.className = "details out";
-        }
+		    var details = document.querySelector(".details");
 
-        // 클릭한 날짜에 해당하는 이벤트를 상세 정보로 표시하고, 화살표를 통해 해당 날짜를 가리키는 역할
-        // 상세 정보 컨테이너 생성
-        details = createElement("div", "details in");
+		    // Check if the clicked date's details are already open
+		    if (details && details.parentNode === el.parentNode) {
+		        // If details are already open, just update the D-day
+		        var ddayElement = details.querySelector(".event.dday span");
+		        if (ddayElement) {
+		            var daysUntilSelectedDate = day.diff(moment(), 'days');
+		            var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
+		            ddayElement.textContent = ddayText;
+		        }
+		    } else {
+		        // If details are not open, close any other open details and open details for the clicked date
+		        if (details) {
+		            details.parentNode.removeChild(details);
+		        }
 
-        // 화살표 생성
-        var arrow = createElement("div", "arrow");
+		        // Create details for the clicked date
+		        details = createElement("div", "details in");
+		        var arrow = createElement("div", "arrow");
+		        details.appendChild(arrow);
+		        el.parentNode.appendChild(details);
 
-        // 이벤트 래퍼 생성
-        details.appendChild(arrow);
-        el.parentNode.appendChild(details);
-    }
-  
-var todaysEvents = this.events.reduce(function(memo, ev) {
-        if (ev.date.isSame(day, "day")) {
-            memo.push(ev);
-        }
-        return memo;
-    }, []);
+		        // Create D-day element for the clicked date
+		        var ddayElement = createElement("span", "");
+		        var ddayText = "D-Day 정보가 없습니다.";
+		        var ddayDiv = createElement("div", "event dday");
+		        ddayElement.textContent = ddayText;
+		        ddayDiv.appendChild(ddayElement);
+		        details.appendChild(ddayDiv);
+		    }
 
-    this.renderEvents(todaysEvents, details);
+		    // Calculate and update D-day based on the clicked date
+		    var ddayElement = details.querySelector(".event.dday span");
+		    if (ddayElement) {
+		        var daysUntilSelectedDate = day.diff(moment(), 'days');
+		        var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
+		        ddayElement.textContent = ddayText;
+		    }
 
-    arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
-};
+		    // Render events for the clicked date
+		    var todaysEvents = this.events.filter(function(ev) {
+		        return moment(ev.date).isSame(day, "day");
+		    });
+		    this.renderEvents(todaysEvents, details, day); // Pass the clicked date to renderEvents
+
+		    // Position the arrow relative to the clicked date
+		    var arrow = details.querySelector(".arrow");
+		    if (arrow) {
+		        arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
+		    }
+		};
+
+		// Render events for the clicked date
+		Calendar.prototype.renderEvents = function(events, ele, selectedDate) {
+			 // Clear the existing events in the details element
+		    ele.innerHTML = "";
+
+		    // Create a wrapper for events
+		    var wrapper = createElement("div", "events");
+
+		    if (selectedDate) {
+		        var daysUntilSelectedDate = selectedDate.diff(moment(), 'days');
+		        var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
+		        var ddaySpan = createElement("span", "", ddayText);
+		        var ddayDiv = createElement("div", "event dday");
+		        ddayDiv.appendChild(ddaySpan);
+		        wrapper.appendChild(ddayDiv);
+		    }
+
+		    // Append events to the wrapper
+		    events.forEach(function(ev) {
+		        var div = createElement("div", "event");
+		        var square = createElement("div", "event-category " + ev.color);
+		        var span = createElement("span", "", ev.eventName);
+
+		        div.appendChild(square);
+		        div.appendChild(span);
+		        wrapper.appendChild(div);
+		    });
+
+		    // If no events, display a message
+		    if (events.length === 0) {
+		        var div = createElement("div", "event empty");
+		        var span = createElement("span", "", "일정이 없습니다.");
+		        div.appendChild(span);
+		        wrapper.appendChild(div);
+		    }
+
+		    // Append the wrapper to the details element
+		    ele.appendChild(wrapper);
+		};
+		
 	<!-- 각 날짜에 대한 이벤트들이 상세 정보에 표시되고 상세 정보를 엘리먼트에 추가  -->
-	Calendar.prototype.renderEvents = function(events, ele, selectedDate, testDday) {
-	    // 현재 세부 정보 요소에서 모든 이벤트를 제거
-	    var currentWrapper = ele.querySelector(".events");
-	    var wrapper = createElement("div", "events in" + (currentWrapper ? " new" : ""));
+	// Render events for the clicked date
+	Calendar.prototype.renderEvents = function(events, ele, selectedDate) {
+	    // Create a wrapper for events
+	    var wrapper = createElement("div", "events in");
 
-	    // D-day가 정의되어 있으면 표시
-	    if (selectedDate) {
-	        var daysUntilSelectedDate = selectedDate.diff(moment(), 'days'); // 선택된 날짜까지 남은 일 수 계산
-	        var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
-	        var ddaySpan = createElement("span", "", ddayText);
-	        var ddayDiv = createElement("div", "event dday");
-	        ddayDiv.appendChild(ddaySpan);
-	        wrapper.appendChild(ddayDiv);
-	    }
-	    
-	    var testDday = moment("2024-03-14");
-	    var currentDate = moment().startOf('day'); // Get the current date and set it to the start of the day
-	    var daysUntilTestDday = testDday.startOf('day').diff(currentDate, 'days'); // Calculate the difference in days	    
-	    var testDdayDiv = createElement("div", "event dday");
-	    var testDdayText = daysUntilTestDday >= 0 ? "D-" + daysUntilTestDday + " 시험" : "D+" + Math.abs(daysUntilTestDday) + " 시험";
-	    var testDdaySpan = createElement("span", "", testDdayText);
-	    testDdayDiv.appendChild(testDdaySpan);
-	    wrapper.appendChild(testDdayDiv);
-	    
-	    var ddayText;
-	    if (daysUntilTestDday < 0) {
-	        ddayText = "D+" + Math.abs(daysUntilTestDday) + " days"; // Past event
-	    } else if (daysUntilTestDday === 0) {
-	        ddayText = "D-Day: 0 days"; // Today's event
-	    } else {
-	        ddayText = "D-" + daysUntilTestDday + " days"; // Future event
-	    }
+	    // Clear the current details element
+	    ele.innerHTML = "";
 
-	    console.log(ddayText);
-	    
+	    // D-day calculation and display
+	    var daysUntilSelectedDate = selectedDate.diff(moment(), 'days');
+	    var ddayText = daysUntilSelectedDate >= 0 ? "D-" + daysUntilSelectedDate + " 시험" : "D+" + Math.abs(daysUntilSelectedDate) + " 시험";
+	    var ddaySpan = createElement("span", "", ddayText);
+	    var ddayDiv = createElement("div", "event dday");
+	    ddayDiv.appendChild(ddaySpan);
+	    wrapper.appendChild(ddayDiv);
+
+	    // Append events to the wrapper
 	    events.forEach(function(ev) {
 	        var div = createElement("div", "event");
 	        var square = createElement("div", "event-category " + ev.color);
@@ -302,35 +330,18 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	        wrapper.appendChild(div);
 	    });
 
-	    if (!events.length) {
+	    // If no events, display a message
+	    if (events.length === 0) {
 	        var div = createElement("div", "event empty");
 	        var span = createElement("span", "", "일정이 없습니다.");
 	        div.appendChild(span);
 	        wrapper.appendChild(div);
 	    }
 
-	    if (currentWrapper) {
-	        currentWrapper.className = "events out";
-	        currentWrapper.addEventListener("webkitAnimationEnd", function() {
-	            currentWrapper.parentNode.removeChild(currentWrapper);
-	            ele.appendChild(wrapper);
-	        });
-	        currentWrapper.addEventListener("oanimationend", function() {
-	            currentWrapper.parentNode.removeChild(currentWrapper);
-	            ele.appendChild(wrapper);
-	        });
-	        currentWrapper.addEventListener("msAnimationEnd", function() {
-	            currentWrapper.parentNode.removeChild(currentWrapper);
-	            ele.appendChild(wrapper);
-	        });
-	        currentWrapper.addEventListener("animationend", function() {
-	            currentWrapper.parentNode.removeChild(currentWrapper);
-	            ele.appendChild(wrapper);
-	        });
-	    } else {
-	        ele.appendChild(wrapper);
-	    }
+	    // Append the wrapper to the details element
+	    ele.appendChild(wrapper);
 	};
+
 		<!-- 현재 달력을 다음 달로 이동  -->
 		Calendar.prototype.nextMonth = function() {
 			this.current.add("months", 1);
