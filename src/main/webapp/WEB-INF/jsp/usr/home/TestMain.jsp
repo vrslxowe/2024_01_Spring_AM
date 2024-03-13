@@ -272,7 +272,7 @@ var todaysEvents = this.events.reduce(function(memo, ev) {
 	        wrapper.appendChild(ddayDiv);
 	    }
 	    
-	    var testDday = moment("2024-03-12");
+	    var testDday = moment("2024-03-14");
 	    var currentDate = moment().startOf('day'); // Get the current date and set it to the start of the day
 	    var daysUntilTestDday = testDday.startOf('day').diff(currentDate, 'days'); // Calculate the difference in days	    
 	    var testDdayDiv = createElement("div", "event dday");
@@ -840,7 +840,11 @@ body {
 	display: inline-block;
 	padding: 0 0 0 7px;
 }
-
+.event.dday {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+}
 .legend {
 	position: absolute;
 	bottom: 0;
