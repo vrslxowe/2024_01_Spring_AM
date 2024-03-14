@@ -13,6 +13,3 @@ spring:
     password: 
 mybatis:
   type-aliases-package: com.example.demo.vo
-youtube:
-  api:
-    key: {AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE}

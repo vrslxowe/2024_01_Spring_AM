@@ -7,46 +7,51 @@
 
 <button onclick="authenticateAndLoadClient()">인증 및 로드</button>
 <button onclick="execute()">실행</button>
-<div id="searchResults"></div>
+<div id="searchResults">ss</div>
 
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-        function authenticateAndLoadClient() {
-            authenticate().then(loadClient);
-        }
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+    // Google API 클라이언트 로드 및 인증
+    function authenticateAndLoadClient() {
+        authenticate().then(loadClient);
+    }
 
-        function authenticate() {
-            return gapi.auth2.getAuthInstance()
-                .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-                .then(function() { console.log("Sign-in successful"); },
-                      function(err) { console.error("Error signing in", err); });
-        }
+    // Google 사용자 인증
+    function authenticate() {
+        return gapi.auth2.getAuthInstance()
+            .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+            .then(function() { console.log("로그인 성공"); },
+                  function(err) { console.error("로그인 오류", err); });
+    }
 
-        function loadClient() {
-            gapi.client.setApiKey("AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE");
-            return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-                .then(function() { console.log("GAPI client loaded for API"); },
-                      function(err) { console.error("Error loading GAPI client for API", err); });
-        }
+    // YouTube API 클라이언트 로드
+    function loadClient() {
+        gapi.client.setApiKey(" ");
+        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+            .then(function() { console.log("YouTube API 클라이언트 로드됨"); },
+                  function(err) { console.error("YouTube API 클라이언트 로드 오류", err); });
+    }
 
-        function execute() {
-            return gapi.client.youtube.search.list({
-                "maxResults": 5,
-                "q": "riize",
-                "type": [
-                    "video"
-                ]
-            })
-                .then(function(response) {
-                    // Handle the results here (response.result has the parsed body).
-                    console.log("Response", response);
-                },
-                function(err) { console.error("Execute error", err); });
-        }
+    // YouTube 비디오 검색 실행
+    function execute() {
+        return gapi.client.youtube.search.list({
+            "maxResults": 7,
+            "q": "치이카와",
+            "type": [
+                "video"
+            ]
+        })
+        .then(function(response) {
+            // 결과를 여기서 처리합니다 (response.result에 파싱된 본문이 있습니다).
+            console.log("검색 결과", response);
+        },
+        function(err) { console.error("실행 오류", err); });
+}
+    // 클라이언트 및 인증 로드
+    gapi.load("client:auth2", function() {
+        gapi.auth2.init({client_id: " "});
+    });
 
-        gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com"});
-        });
   
 /* maniadb:
 	  url: http://maniadb.com/api/search/
