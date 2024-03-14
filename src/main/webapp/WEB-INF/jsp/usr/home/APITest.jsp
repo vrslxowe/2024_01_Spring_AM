@@ -2,19 +2,53 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="API TEST"></c:set>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1'
-    compile 'org.apache.commons:commons-lang3:3.11'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'mysql:mysql-connector-java'
+
 <%@ include file="../common/head.jspf"%>
 
+<button onclick="authenticateAndLoadClient()">인증 및 로드</button>
+<button onclick="execute()">실행</button>
+<div id="searchResults"></div>
 
-<script>
-maniadb:
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        function authenticateAndLoadClient() {
+            authenticate().then(loadClient);
+        }
+
+        function authenticate() {
+            return gapi.auth2.getAuthInstance()
+                .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+                .then(function() { console.log("Sign-in successful"); },
+                      function(err) { console.error("Error signing in", err); });
+        }
+
+        function loadClient() {
+            gapi.client.setApiKey("AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE");
+            return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+                .then(function() { console.log("GAPI client loaded for API"); },
+                      function(err) { console.error("Error loading GAPI client for API", err); });
+        }
+
+        function execute() {
+            return gapi.client.youtube.search.list({
+                "maxResults": 5,
+                "q": "riize",
+                "type": [
+                    "video"
+                ]
+            })
+                .then(function(response) {
+                    // Handle the results here (response.result has the parsed body).
+                    console.log("Response", response);
+                },
+                function(err) { console.error("Execute error", err); });
+        }
+
+        gapi.load("client:auth2", function() {
+            gapi.auth2.init({client_id: "1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com"});
+        });
+  
+/* maniadb:
 	  url: http://maniadb.com/api/search/
 	  method: song
 	  display: 10
@@ -26,9 +60,9 @@ maniadb:
 	    var daysUntilTestDday = testDday.diff(moment(), 'days');
 	    //var testDdayDiv = createElement("div", "event dday");
 	    var testDdayText = daysUntilTestDday >= 0 ? "D-" + daysUntilTestDday + " 시험" : "D+" + Math.abs(daysUntilTestDday) + " 시험";
-	    var testDdaySpan = createElement("span", "", testDdayText);
-	    testDdayDiv.appendChild(testDdaySpan);
-	    wrapper.appendChild(testDdayDiv);
+	 //   var testDdaySpan = createElement("span", "", testDdayText);
+	 //   testDdayDiv.appendChild(testDdaySpan);
+	 //   wrapper.appendChild(testDdayDiv);
 
 //선택된 날짜를 기반으로 D-Day 번호를 업데이트하는 함수
 	  function updateDday(selectedDate) {
@@ -37,10 +71,10 @@ maniadb:
 	   var daysUntilDday = dday.diff(selectedDate, 'days');
 	   //var testDdayDiv = createElement("div", "event dday");
 	   var ddayText = daysUntilDday >= 0 ? "D-" + daysUntilDday + " 시험" : "D+" + Math.abs(daysUntilDday) + " 시험";
-	   var testDdaySpan = createElement("span", "", testDdayText);
+	//   var testDdaySpan = createElement("span", "", testDdayText);
 	   document.getElementById('dday-display').innerText = ddayText;
-	   testDdayDiv.appendChild(testDdaySpan);
-	    wrapper.appendChild(testDdayDiv);
+	//   testDdayDiv.appendChild(testDdaySpan);
+	//    wrapper.appendChild(testDdayDiv);
 	  }
 
 //선택된 날짜를 저장
@@ -62,6 +96,8 @@ maniadb:
 	        div.appendChild(span);
 	        wrapper.appendChild(div);
 	    });
+	    */
+	    
 </script>
 
 <%@ include file="../common/foot.jspf"%>

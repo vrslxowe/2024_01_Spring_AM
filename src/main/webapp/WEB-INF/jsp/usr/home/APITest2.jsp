@@ -26,6 +26,10 @@
 
 		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 		var map = new kakao.maps.Map(mapContainer, mapOption);
+		
+		<iframe id="ytplayer" type="text/html" width="300" height="168.75"
+			  src="https://www.youtube.com/embed/ib87IMSzpVE?color=white"
+			  frameborder="0" allowfullscreen></iframe>
 	</script>
 </body>
 </html>
