@@ -7,7 +7,8 @@
 
 <button onclick="authenticateAndLoadClient()">인증 및 로드</button>
 <button onclick="execute()">실행</button>
-<div id="searchResults">ss</div>
+<div id="searchResults"></div>
+<div id="apiData"></div> <!-- New div to display API data -->
 
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -26,7 +27,7 @@
 
     // YouTube API 클라이언트 로드
     function loadClient() {
-        gapi.client.setApiKey(" ");
+        gapi.client.setApiKey("AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE");
         return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
             .then(function() { console.log("YouTube API 클라이언트 로드됨"); },
                   function(err) { console.error("YouTube API 클라이언트 로드 오류", err); });
@@ -44,15 +45,72 @@
         .then(function(response) {
             // 결과를 여기서 처리합니다 (response.result에 파싱된 본문이 있습니다).
             console.log("검색 결과", response);
-        },
-        function(err) { console.error("실행 오류", err); });
-}
+
+            // Display video search results
+            const searchResultsElement = document.getElementById("searchResults");
+            searchResultsElement.innerHTML = ""; // Clear previous results
+
+            if (response.result && response.result.items) {
+                response.result.items.forEach(function(item) {
+                    if (item.snippet) { // Check if snippet information exists
+                        const title = item.snippet.title;
+                        const description = item.snippet.description;
+                        const thumbnailUrl = item.snippet.thumbnails.default.url;
+                        const videoId = item.id.videoId;
+
+                        // Create HTML elements for video data
+                        const videoElement = document.createElement("div");
+                        videoElement.innerHTML = `
+                            <h2>${title}</h2>
+                            <p>${description}</p>
+                            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
+                                <img src="${thumbnailUrl}" alt="${title}">
+                            </a>
+                        `;
+
+                        // Append video element to search results
+                        searchResultsElement.appendChild(videoElement);
+                    } else {
+                        console.error("Snippet 정보가 없습니다:", item);
+                    }
+                });
+            } else {
+                console.error("API 응답에 아이템이나 결과가 없습니다:", response);
+            }
+        })
+        .catch(function(err) {
+            console.error("실행 오류", err);
+        });
+    }
+    
     // 클라이언트 및 인증 로드
     gapi.load("client:auth2", function() {
-        gapi.auth2.init({client_id: " "});
+        gapi.auth2.init({client_id: "1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com"});
+    });
+    
+    // Fetch data from the API
+    fetch('https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE&part=snippet&chart=mostPopular&maxResults=10')
+    .then(response => response.json())
+    .then(data => {
+      // Check if the response contains items
+      if (data.items && data.items.length > 0) {
+        // Assuming you want to display the first video's title and description
+        const firstVideo = data.items[0];
+        const title = firstVideo.snippet.title;
+        const description = firstVideo.snippet.description;
+
+        // Update HTML content with fetched data
+        const apiDataElement = document.getElementById('apiData');
+        apiDataElement.innerHTML = `<h2>${title}</h2><p>${description}</p>`;
+      } else {
+        console.error('No items found in API response');
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
 
-  
+ 
 /* maniadb:
 	  url: http://maniadb.com/api/search/
 	  method: song
