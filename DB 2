@@ -76,3 +76,15 @@ Table Post {
   FOREIGN KEY(post_id) REFERENCES Write(post_id)
   FOREIGN KEY(state_id) REFERENCES MemberState(state_id)
 }
+
+CREATE TABLE Event (
+  event_id INT AUTO_INCREMENT,
+  user_id INT,
+  event_name VARCHAR(255),
+  event_type VARCHAR(50),
+  event_color VARCHAR(20),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (event_id),
+  FOREIGN KEY (user_id) REFERENCES Member(user_id)
+);
