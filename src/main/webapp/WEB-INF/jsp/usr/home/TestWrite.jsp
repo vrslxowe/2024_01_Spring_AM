@@ -16,7 +16,6 @@
 	</a>
 </div>
 <div class="top_bar right">
-	<button class="btn top_btn btn-ghost">임시저장</button>
 	<a href="../home/TestDetail">
 	<button class="btn top_btn btn-ghost">등록</button>
 	</a>
@@ -38,11 +37,9 @@
 <div class="box_1">
 	<div class="box_3">
 		<button class="btn btn-circle">글꼴</button>
-		<button class="btn btn-circle">정렬</button>
 		<button class="btn btn-circle">사진</button>
 		<button class="btn btn-circle">링크</button>
 		<button class="btn btn-circle">지도</button>
-		<button class="btn btn-circle">D-day</button>
 		<div class="box_4">
 			<button class="btn btn-circle">날씨</button>
 			<button class="btn btn-circle">감정</button>

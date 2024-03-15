@@ -24,7 +24,6 @@
 
 <div class="box_1">
   <div class="diary_text">제목</div>
-  <div class="dday_text">디데이</div>
   <div class="date_text">날짜</div>
 </div>
 
