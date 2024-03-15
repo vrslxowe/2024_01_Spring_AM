@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
 
 <script>
-console.log();
 
 <!-- 달력 그리기  -->
 	!(function() {
@@ -116,16 +115,15 @@ console.log();
 				return;
 			}
 
-			clone.subtract("days", dayOfWeek + 1);
+			clone.subtract(dayOfWeek + 1, "days");
 
 			for (var i = dayOfWeek; i > 0; i--) {
-				this.drawDay(clone.add("days", 1));
+				this.drawDay(clone.add(1, "days"));
 			}
 		};
 
 		Calendar.prototype.fowardFill = function() {
-			var clone = this.current.clone().add("months", 1).subtract("days",
-					1);
+			var clone = this.current.clone().add(1, "months").subtract(1, "days");
 			var dayOfWeek = clone.day();
 
 			if (dayOfWeek === 6) {
@@ -133,7 +131,7 @@ console.log();
 			}
 
 			for (var i = dayOfWeek; i < 6; i++) {
-				this.drawDay(clone.add("days", 1));
+				this.drawDay(clone.add(1, "days"));
 			}
 		};
 		<!-- 달력을 주단위로 나눠서 표시 -->
@@ -142,7 +140,7 @@ console.log();
 
 			while (clone.month() === this.current.month()) {
 				this.drawDay(clone);
-				clone.add("days", 1);
+				clone.add(1, "days");
 			}
 		};
 
@@ -254,15 +252,16 @@ console.log();
 		    var todaysEvents = this.events.filter(function(ev) {
 		        return moment(ev.date).isSame(day, "day");
 		    });
-		    this.renderEvents(todaysEvents, details, day); // Pass the clicked date to renderEvents
+		    this.renderEvents(todaysEvents, details, day); // 클릭된 날짜를 renderEvents에 전달
 
+		    
 		 // 화살표를 클릭한 날짜의 위치에 맞춤
 		    var arrow = details.querySelector(".arrow");
 		    if (arrow) {
 		        arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + "px";
 		    }
 		};
-
+		
 		// 클릭한 날짜에 대한 이벤트 렌더링
 		Calendar.prototype.renderEvents = function(events, ele, selectedDate) {
 			// 세부 정보 요소에서 모든 이벤트를 제거
@@ -344,13 +343,13 @@ console.log();
 
 		<!-- 현재 달력을 다음 달로 이동  -->
 		Calendar.prototype.nextMonth = function() {
-			this.current.add("months", 1);
+			this.current.add(1, "months");
 			this.next = true;
 			this.draw();
 		};
 		<!-- 현재 달력을 이전 달로 이동  -->
 		Calendar.prototype.prevMonth = function() {
-			this.current.subtract("months", 1);
+			this.current.subtract(1, "months");
 			this.next = false;
 			this.draw();
 		};
@@ -493,8 +492,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
 </div>
-<div id="dday" class="events"></div>
-
 
 <style type="text/css">
 body {
