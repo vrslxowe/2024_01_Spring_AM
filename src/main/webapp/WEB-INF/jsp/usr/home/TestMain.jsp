@@ -514,7 +514,7 @@
 </div>
 
 <div class="top_bar top_bar_right">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">검색🔍</button>
+	<button class="btn top_btn btn-ghost" onclick="">검색🔍</button>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
 	</a>
@@ -937,7 +937,7 @@ body {
 
 /* Animations are cool!  */
 
-// 화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션
+/*화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션(WebKit(Chrome, Safari 등)에서 작동)*/
 @-webkit-keyframes moveFromTopFade {
   from {
     opacity: 0.3;
@@ -946,6 +946,7 @@ body {
     -webkit-transform: translateY(-100%);
   }
 }
+/*Gecko(Firefox) 엔진에서 작동*/
 @-moz-keyframes moveFromTopFade {
   from {
     height: 0px;
@@ -953,6 +954,7 @@ body {
     -moz-transform: translateY(-100%);
   }
 }
+/*모든 브라우저를 대상으로 한 기본적인 애니메이션 키프레임*/
 @keyframes moveFromTopFade {
   from {
     height: 0px;
@@ -961,7 +963,7 @@ body {
   }
 }
 
-// 화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션
+/*화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션*/
 @-webkit-keyframes moveToTopFade {
   to {
     opacity: 0.3;
@@ -984,7 +986,7 @@ body {
   }
 }
 
-// 화면 위에서 위로 이동하면서 페이드 아웃되는 애니메이션(월별)
+/*화면 위에서 위로 이동하면서 페이드 아웃되는 애니메이션(월별)*/
 @-webkit-keyframes moveToTopFadeMonth {
   to {
     opacity: 0;
@@ -1004,7 +1006,7 @@ body {
   }
 }
 
-// 화면 아래에서 위로 이동하면서 페이드 인되는 애니메이션(월별)
+/* 화면 아래에서 위로 이동하면서 페이드 인되는 애니메이션(월별)*/
 @-webkit-keyframes moveFromTopFadeMonth {
   from {
     opacity: 0;
@@ -1024,7 +1026,7 @@ body {
   }
 }
 
-// 화면 위에서 아래로 이동하면서 페이드 아웃되는 애니메이션(월별)
+/* 화면 위에서 아래로 이동하면서 페이드 아웃되는 애니메이션(월별)*/
 @-webkit-keyframes moveToBottomFadeMonth {
   to {
     opacity: 0;
@@ -1044,7 +1046,7 @@ body {
   }
 }
 
-// 화면 아래에서 위로 이동하면서 페이드 인되는 애니메이션(월별)
+/*화면 아래에서 위로 이동하면서 페이드 인되는 애니메이션(월별)*/
 @-webkit-keyframes moveFromBottomFadeMonth {
   from {
     opacity: 0;
@@ -1064,7 +1066,7 @@ body {
   }
 }
 
-// 화면에 나타나면서 서서히 나타나는 애니메이션
+/*화면에 나타나면서 서서히 나타나는 애니메이션*/
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -1081,7 +1083,7 @@ body {
   }
 }
 
-화면에서 사라지면서 서서히 사라지는 애니메이션
+/*화면에서 사라지면서 서서히 사라지는 애니메이션*/
 @-webkit-keyframes fadeOut {
   to {
     opacity: 0;
@@ -1098,7 +1100,7 @@ body {
   }
 }
 
-요소가 사라지면서 크기가 축소되는 애니메이션
+/*요소가 사라지면서 크기가 축소되는 애니메이션*/
 @-webkit-keyframes fadeOutShink {
   to {
     opacity: 0;
