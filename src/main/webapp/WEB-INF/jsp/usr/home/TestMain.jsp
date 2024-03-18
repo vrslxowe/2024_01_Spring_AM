@@ -946,22 +946,7 @@ body {
     -webkit-transform: translateY(-100%);
   }
 }
-/*Gecko(Firefox) 엔진에서 작동*/
-@-moz-keyframes moveFromTopFade {
-  from {
-    height: 0px;
-    margin-top: 0px;
-    -moz-transform: translateY(-100%);
-  }
-}
-/*모든 브라우저를 대상으로 한 기본적인 애니메이션 키프레임*/
-@keyframes moveFromTopFade {
-  from {
-    height: 0px;
-    margin-top: 0px;
-    transform: translateY(-100%);
-  }
-}
+
 
 /*화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션*/
 @-webkit-keyframes moveToTopFade {
@@ -973,36 +958,13 @@ body {
     -webkit-transform: translateY(-100%);
   }
 }
-@-moz-keyframes moveToTopFade {
-  to {
-    height: 0px;
-    -moz-transform: translateY(-100%);
-  }
-}
-@keyframes moveToTopFade {
-  to {
-    height: 0px;
-    transform: translateY(-100%);
-  }
-}
+
 
 /*화면 위에서 위로 이동하면서 페이드 아웃되는 애니메이션(월별)*/
 @-webkit-keyframes moveToTopFadeMonth {
   to {
     opacity: 0;
     -webkit-transform: translateY(-30%) scale(0.95);
-  }
-}
-@-moz-keyframes moveToTopFadeMonth {
-  to {
-    opacity: 0;
-    -moz-transform: translateY(-30%);
-  }
-}
-@keyframes moveToTopFadeMonth {
-  to {
-    opacity: 0;
-    -moz-transform: translateY(-30%);
   }
 }
 
@@ -1013,36 +975,13 @@ body {
     -webkit-transform: translateY(30%) scale(0.95);
   }
 }
-@-moz-keyframes moveFromTopFadeMonth {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(30%);
-  }
-}
-@keyframes moveFromTopFadeMonth {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(30%);
-  }
-}
+
 
 /* 화면 위에서 아래로 이동하면서 페이드 아웃되는 애니메이션(월별)*/
 @-webkit-keyframes moveToBottomFadeMonth {
   to {
     opacity: 0;
     -webkit-transform: translateY(30%) scale(0.95);
-  }
-}
-@-moz-keyframes moveToBottomFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(30%);
-  }
-}
-@keyframes moveToBottomFadeMonth {
-  to {
-    opacity: 0;
-    -webkit-transform: translateY(30%);
   }
 }
 
@@ -1053,18 +992,7 @@ body {
     -webkit-transform: translateY(-30%) scale(0.95);
   }
 }
-@-moz-keyframes moveFromBottomFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-30%);
-  }
-}
-@keyframes moveFromBottomFadeMonth {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-30%);
-  }
-}
+
 
 /*화면에 나타나면서 서서히 나타나는 애니메이션*/
 @-webkit-keyframes fadeIn {
@@ -1072,16 +1000,7 @@ body {
     opacity: 0;
   }
 }
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-}
+
 
 /*화면에서 사라지면서 서서히 사라지는 애니메이션*/
 @-webkit-keyframes fadeOut {
@@ -1089,16 +1008,7 @@ body {
     opacity: 0;
   }
 }
-@-moz-keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
-}
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-  }
-}
+
 
 /*요소가 사라지면서 크기가 축소되는 애니메이션*/
 @-webkit-keyframes fadeOutShink {
@@ -1108,18 +1018,5 @@ body {
     height: 0px;
   }
 }
-@-moz-keyframes fadeOutShink {
-  to {
-    opacity: 0;
-    padding: 0px;
-    height: 0px;
-  }
-}
-@keyframes fadeOutShink {
-  to {
-    opacity: 0;
-    padding: 0px;
-    height: 0px;
-  }
-}
+
 </style>
