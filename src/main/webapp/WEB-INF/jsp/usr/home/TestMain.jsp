@@ -525,363 +525,323 @@
 
 <style type="text/css">
 body {
-	color: #5e5e5e;
-	overflow: hidden;
-	font-family: "Exo 2", "S-CoreDream-3Light";
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	width: 100%;
-	height: 100%;
-	min-height: 100vh;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	background-image:
-		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	color: #5e5e5e; /* 본문 텍스트 색상 */
+	overflow: hidden; /* 스크롤 막기 */
+	font-family: "Exo 2", "S-CoreDream-3Light"; /* 글꼴 설정 */
+	font-weight: normal; /* 글꼴 두껍기 설정 */
+	margin: 0; /* 바깥 여백 설정 */
+	padding: 0; /* 안쪽 여백 설정 */
+	-webkit-touch-callout: none; /* iOS 길게 누르면 메뉴 뜨는 것 막기 */
+	-webkit-user-select: none; /* 텍스트 선택 방지 */
+	-khtml-user-select: none; /* 텍스트 선택 방지 (KHTML 엔진) */
+	-moz-user-select: none; /* 텍스트 선택 방지 (Gecko 엔진) */
+	-ms-user-select: none; /* 텍스트 선택 방지 (마이크로소프트 엔진) */
+	user-select: none; /* 텍스트 선택 방지 */
+	width: 100%; /* 너비 100% 설정 */
+	height: 100%; /* 높이 100% 설정 */
+	min-height: 100vh; /* 최소 높이 100% 설정 */
+	position: relative; /* 상대 위치 설정 */
+	display: flex; /* Flexbox 사용 */
+	justify-content: center; /* 가로 중앙 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+	flex-wrap: wrap; /* Flexbox 줄 바꿈 */
+	background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg"); /* 배경 이미지 설정 */
+	background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+	background-position: center; /* 배경 이미지 가운데 정렬 */
+	background-size: cover; /* 배경 이미지를 컨테이너에 맞추어 표시 */
 }
 
 .top_bar {
-	height: 61.7px;
-	padding: 0;
-	margin: 0;
-	position: fixed;
-	top: 0;
-	text-align: center;
-	font-family: "Exo 2";
-	font-weight: normal;
-	display: flex;
+	height: 61.7px; /* 상단 바 높이 설정 */
+	padding: 0; /* 안쪽 여백 없음 */
+	margin: 0; /* 바깥 여백 없음 */
+	position: fixed; /* 고정 위치 설정 */
+	top: 0; /* 위쪽으로 고정 */
+	text-align: center; /* 가운데 정렬 */
+	font-family: "Exo 2"; /* 글꼴 설정 */
+	font-weight: normal; /* 글꼴 두껍기 설정 */
+	display: flex; /* Flexbox 사용 */
 }
 
 .top_bar_left {
-	margin-right: 95%;
-	justify-content: flex-start;
+	margin-right: 95%; /* 왼쪽 여백 설정 */
+	justify-content: flex-start; /* 왼쪽 정렬 */
 }
 
 .top_bar_right {
-	margin-left: 82%;
-	justify-content: flex-end;
+	margin-left: 82%; /* 오른쪽 여백 설정 */
+	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
 .top_btn {
-	font-family: "S-CoreDream-3Light";
-	margin-top: 15.5px;
-	height: 30px;
-	margin-right: 20px;
-	display: inline-block;
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
+	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	margin-top: 15.5px; /* 위쪽 여백 설정 */
+	height: 30px; /* 높이 설정 */
+	margin-right: 20px; /* 오른쪽 여백 설정 */
+	display: inline-block; /* 인라인 블록 요소로 표시 */
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
 #calendar {
-	-webkit-transform: translate3d(0, 0, 0);
-	-moz-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-	width: 900px;
-	margin: 0;
-	height: 650px;
-	overflow: hidden;
-	backdrop-filter: blur(0px);
-	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
-	border-radius: 55px;
+	-webkit-transform: translate3d(0, 0, 0); /* 3D 변환 */
+	-moz-transform: translate3d(0, 0, 0); /* 3D 변환 */
+	transform: translate3d(0, 0, 0); /* 3D 변환 */
+	width: 900px; /* 너비 설정 */
+	margin: 0; /* 바깥 여백 없음 */
+	height: 650px; /* 높이 설정 */
+	overflow: hidden; /* 스크롤 숨김 */
+	backdrop-filter: blur(0px); /* 배경 흐리게 설정 */
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+	border-radius: 55px; /* 테두리 모양 설정 */
 }
 
 .header {
-	padding: 20px 0 40px;
-	height: 14px;
-	width: 215px;
-	text-align: center;
-	position: relative;
-	z-index: 1000;
+	padding: 20px 0 40px; /* 안쪽 여백 설정 */
+	height: 14px; /* 높이 설정 */
+	width: 215px; /* 너비 설정 */
+	text-align: center; /* 가운데 정렬 */
+	position: relative; /* 상대 위치 설정 */
+	z-index: 1000; /* 층 수 설정 */
 }
 
 .header h1 {
-	margin: 0px;
-	padding: 10px;
-	font-size: 1em;
-	font-weight: bold;
-	line-height: 0px;
-	letter-spacing: 1px;
+	margin: 0px; /* 바깥 여백 없음 */
+	padding: 10px; /* 안쪽 여백 설정 */
+	font-size: 1em; /* 글꼴 크기 설정 */
+	font-weight: bold; /* 글꼴 두껍기 설정 */
+	line-height: 0px; /* 줄 높이 설정 */
+	letter-spacing: 1px; /* 글자 간격 설정 */
 }
 
 .left, .right {
-	position: absolute;
-	width: 0;
-	height: 0;
-	top: 30px;
-	margin-top: -7.5px;
-	cursor: pointer;
-}
-
-.header h1 {
-	margin: 0px;
-	padding: 10px;
-	font-size: 1em;
-	font-weight: bold;
-	line-height: 0px;
-	letter-spacing: 1px;
-}
-
-.left, .right {
-	position: absolute;
-	width: 0;
-	height: 0;
-	top: 30px;
-	margin-top: -7.5px;
-	cursor: pointer;
+	position: absolute; /* 절대 위치 설정 */
+	width: 0; /* 너비 없음 */
+	height: 0; /* 높이 없음 */
+	top: 30px; /* 위쪽 여백 설정 */
+	margin-top: -7.5px; /* 위쪽 여백 마이너스 값 설정하여 아래로 이동 */
+	cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 모양으로 설정 */
 }
 
 .left {
-	border-width: 7.5px 10px 7.5px 0;
-	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
-	left: 20px;
+	border-width: 7.5px 10px 7.5px 0; /* 테두리 두께 설정 */
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent; /* 테두리 색상 설정 */
+	left: 20px; /* 왼쪽 여백 설정 */
 }
 
 .right {
-	border-width: 7.5px 0 7.5px 10px;
-	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
-	right: 25px;
+	border-width: 7.5px 0 7.5px 10px; /* 테두리 두께 설정 */
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1); /* 테두리 색상 설정 */
+	right: 25px; /* 오른쪽 여백 설정 */
 }
 
 .month {
-	/*overflow: hidden;*/
-	opacity: 0;
-	padding-left: 10%;
-}
-
-.left {
-	border-width: 7.5px 10px 7.5px 0;
-	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
-	left: 20px;
-}
-
-.right {
-	border-width: 7.5px 0 7.5px 10px;
-	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
-	right: 25px;
-}
-
-.month {
-	/*overflow: hidden;*/
-	opacity: 0;
-	padding-left: 10%;
+	/*overflow: hidden;*/ /* 오버플로우 숨김 설정 */
+	opacity: 0; /* 투명도 설정 */
+	padding-left: 10%; /* 왼쪽 여백 설정 */
 }
 
 .month.new {
-	-webkit-animation: fadeIn 1s ease-out;
-	opacity: 1;
+	-webkit-animation: fadeIn 1s ease-out; /* 새로운 달이 나타날 때의 애니메이션 설정 */
+	opacity: 1; /* 투명도 설정 */
 }
 
 .month.in.next {
-	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
-	-moz-animation: moveFromTopFadeMonth 0.4s ease-out;
-	animation: moveFromTopFadeMonth 0.4s ease-out;
-	opacity: 1;
+	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.next {
-	-webkit-animation: moveToTopFadeMonth 0.4s ease-in;
-	-moz-animation: moveToTopFadeMonth 0.4s ease-in;
-	animation: moveToTopFadeMonth 0.4s ease-in;
-	opacity: 1;
+	-webkit-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	opacity: 1; /* 투명도 설정 */
 }
 
 .month.in.prev {
-	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
-	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
-	animation: moveFromBottomFadeMonth 0.4s ease-out;
-	opacity: 1;
+	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.prev {
-	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
-	-moz-animation: moveToBottomFadeMonth 0.4s ease-in;
-	animation: moveToBottomFadeMonth 0.4s ease-in;
-	opacity: 1;
+	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	opacity: 1; /* 투명도 설정 */
 }
 
 .day {
-	display: inline-block;
-	width: 100px;
-	text-align: center;
-	vertical-align: top;
-	cursor: pointer;
-	position: relative;
-	z-index: 100;
+	display: inline-block; /* 인라인 블록 요소로 설정하여 다른 요소와 함께 표시 */
+	width: 100px; /* 너비 설정 */
+	text-align: center; /* 가운데 정렬 */
+	vertical-align: top; /* 위쪽 정렬 */
+	cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 모양으로 설정 */
+	position: relative; /* 상대 위치 설정 */
+	z-index: 100; /* z-index 값 설정 */
+	color: gray; /* 일반 날짜 색상 설정 */
 }
 
 .day.other {
-	color: lightgrey;
-}
-
-.day {
-	color: gray;
+	color: lightgrey; /* 다른 달의 날짜 색상 설정 */
 }
 
 .day.today {
-	color: rgba(156, 202, 235, 1);
+	color: rgba(156, 202, 235, 1); /* 오늘 날짜 색상 설정 */
 }
 
 .day-name {
-	font-size: 10px;
-	text-transform: uppercase;
-	margin-bottom: 5px;
-	color: black;
-	letter-spacing: 3px;
-	font-weight: normal;
+	font-size: 10px; /* 글꼴 크기 설정 */
+	text-transform: uppercase; /* 텍스트 대문자 변환 */
+	margin-bottom: 5px; /* 하단 여백 설정 */
+	color: black; /* 텍스트 색상 설정 */
+	letter-spacing: 3px; /* 글자 간격 설정 */
+	font-weight: normal; /* 글꼴 두껍기 설정 */
 }
 
 .day-number {
-	font-size: 24px;
-	letter-spacing: 1.5px;
-	font-weight: normal;
+	font-size: 24px; /* 글꼴 크기 설정 */
+	letter-spacing: 1.5px; /* 글자 간격 설정 */
+	font-weight: normal; /* 글꼴 두껍기 설정 */
 }
 
 .day .day-events {
-	list-style: none;
-	margin-top: 13px;
-	text-align: center;
-	height: 12px;
-	line-height: 6px;
-	overflow: hidden;
+	list-style: none; /* 목록 스타일 없앰 */
+	margin-top: 13px; /* 상단 여백 설정 */
+	text-align: center; /* 가운데 정렬 */
+	height: 12px; /* 높이 설정 */
+	line-height: 6px; /* 줄 높이 설정 */
+	overflow: hidden; /* 오버플로우 숨김 설정 */
 }
 
 .day .day-events span {
-	vertical-align: top;
-	display: inline-block;
-	padding: 0;
-	margin: 0;
-	width: 5px;
-	height: 5px;
-	line-height: 5px;
-	margin: 0 1px;
-	border-radius: 5px;
+	vertical-align: top; /* 위쪽 정렬 */
+	display: inline-block; /* 인라인 블록 요소로 설정하여 다른 요소와 함께 표시 */
+	padding: 0; /* 내부 여백 없앰 */
+	margin: 0; /* 마진 없앰 */
+	width: 5px; /* 너비 설정 */
+	height: 5px; /* 높이 설정 */
+	line-height: 5px; /* 줄 높이 설정 */
+	margin: 0 1px; /* 좌우 여백 설정 */
+	border-radius: 5px; /* 테두리 반지름 설정 */
 }
 
 .blue {
-	background: cornflowerblue;
+	background: cornflowerblue; /* 파란색 배경색 설정 */
 }
 
 .orange {
-	background: darkorange;
+	background: darkorange; /* 주황색 배경색 설정 */
 }
 
 .green {
-	background: mediumseagreen;
+	background: mediumseagreen; /* 초록색 배경색 설정 */
 }
 
 .yellow {
-	background: gold;
+	background: gold; /* 노란색 배경색 설정 */
 }
 
 .details {
-	position: relative;
-	margin-left: 27px;
-	width: 640px;
-	height: 85px;
-	border: 1px dashed rgba(164, 164, 164, 1);
-	margin-top: 5px;
-	border-radius: 14px;
-	font-weight: normal;
-	color: dimgray;
+	position: relative; /* 상대 위치 설정 */
+	margin-left: 27px; /* 왼쪽 여백 설정 */
+	width: 640px; /* 너비 설정 */
+	height: 85px; /* 높이 설정 */
+	border: 1px dashed rgba(164, 164, 164, 1); /* 테두리 설정 */
+	margin-top: 5px; /* 상단 여백 설정 */
+	border-radius: 14px; /* 테두리 반지름 설정 */
+	font-weight: normal; /* 글꼴 두껍기 설정 */
+	color: dimgray; /* 텍스트 색상 설정 */
 }
 
 .details.in {
-	-webkit-animation: moveFromTopFade 0.5s ease both;
-	-moz-animation: moveFromTopFade 0.5s ease both;
-	animation: moveFromTopFade 0.5s ease both;
+	-webkit-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
+	animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
 }
 
 .details.out {
-	-webkit-animation: moveToTopFade 0.5s ease both;
-	-moz-animation: moveToTopFade 0.5s ease both;
-	animation: moveToTopFade 0.5s ease both;
+	-webkit-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
+	animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
 }
 
 .arrow {
-	position: absolute;
-	top: -5px;
-	left: 50%;
-	margin-left: -9px;
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: 0 5px 5px 5px;
-	border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
-	transition: all 0.7s ease;
+	position: absolute; /* 절대 위치 설정 */
+	top: -5px; /* 위쪽 여백 설정 */
+	left: 50%; /* 왼쪽 여백을 부모 요소의 가로 중앙으로 설정 */
+	margin-left: -9px; /* 왼쪽 여백을 요소의 가로 너비의 절반만큼 왼쪽으로 이동 */
+	width: 0px; /* 너비 없음 */
+	height: 0px; /* 높이 없음 */
+	border-style: solid; /* 테두리 스타일 설정 */
+	border-width: 0 5px 5px 5px; /* 테두리 너비 설정 */
+	border-color: transparent transparent rgba(164, 164, 164, 1) transparent; /* 테두리 색상 설정 */
+	transition: all 0.7s ease; /* 모든 속성에 대한 변화를 0.7초 동안 부드럽게 설정 */
 }
 
 .events {
-	height: 83px;
-	padding: 7px 0;
-	overflow-y: auto;
-	overflow-x: hidden;
-	border-radius: 14px;
+	height: 83px; /* 높이 설정 */
+	padding: 7px 0; /* 내부 여백 설정 */
+	overflow-y: auto; /* 세로 스크롤이 필요한 경우 스크롤 표시 */
+	overflow-x: hidden; /* 가로 스크롤은 숨김 */
+	border-radius: 14px; /* 테두리 반경 설정 */
 }
 
 .events.in {
-	-webkit-animation: fadeIn 0.3s ease both;
-	-moz-animation: fadeIn 0.3s ease both;
-	animation: fadeIn 0.3s ease both;
+	-webkit-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
+	-moz-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
+	animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 }
 
 .events.in {
-	-webkit-animation-delay: 0.3s;
-	-moz-animation-delay: 0.3s;
-	animation-delay: 0.3s;
+	-webkit-animation-delay: 0.3s; /* 나타나는 애니메이션 지연 설정 */
+	-moz-animation-delay: 0.3s; /* 나타나는 애니메이션 지연 설정 */
+	animation-delay: 0.3s; /* 나타나는 애니메이션 지연 설정 */
 }
 
 .details.out .events {
-	-webkit-animation: fadeOutShrink 0.4s ease both;
-	-moz-animation: fadeOutShink 0.4s ease both;
-	animation: fadeOutShink 0.4s ease both;
+	-webkit-animation: fadeOutShrink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-moz-animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
+	animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
 }
 
 .events.out {
-	-webkit-animation: fadeOut 0.3s ease both;
-	-moz-animation: fadeOut 0.3s ease both;
-	animation: fadeOut 0.3s ease both;
+	-webkit-animation: fadeOut 0.3s ease both; /* fade 효과로 사라지는 애니메이션 설정 */
+	-moz-animation: fadeOut 0.3s ease both; /* fade 효과로 사라지는 애니메이션 설정 */
+	animation: fadeOut 0.3s ease both; /* fade 효과로 사라지는 애니메이션 설정 */
 }
 
 .event {
-	font-size: 16px;
-	line-height: 22px;
-	letter-spacing: 0.5px;
-	padding: 2px 16px;
-	vertical-align: top;
+	font-size: 16px; /* 글꼴 크기 설정 */
+	line-height: 22px; /* 줄 높이 설정 */
+	letter-spacing: 0.5px; /* 글자 간격 설정 */
+	padding: 2px 16px; /* 내부 여백 설정 */
+	vertical-align: top; /* 위쪽 정렬 설정 */
 }
 
 .event.empty {
-	color: #777;
+	color: #777; /* 색상 설정 */
 }
 
 .event-category {
-	height: 10px;
-	width: 10px;
-	display: inline-block;
-	margin: 6px 0 0;
-	vertical-align: top;
-	border-radius: 10px;
+	height: 10px; /* 높이 설정 */
+	width: 10px; /* 너비 설정 */
+	display: inline-block; /* 인라인 블록 요소로 설정 */
+	margin: 6px 0 0; /* 마진 설정 */
+	vertical-align: top; /* 위쪽 정렬 설정 */
+	border-radius: 10px; /* 테두리 반경 설정 */
 }
 
 .event span {
-	display: inline-block;
-	padding: 0 0 0 7px;
+	display: inline-block; /* 인라인 블록 요소로 설정 */
+	padding: 0 0 0 7px; /* 내부 여백 설정 */
 }
 .event.dday {
-    position: absolute;
-    top: 10px; /* Adjust top position as needed */
-    right: 10px; /* Adjust right position as needed */
+    position: absolute; /* 절대 위치 설정 */
+    top: 10px; /* 위쪽 여백 설정 */
+    right: 10px; /* 오른쪽 여백 설정 */
 }
 .legend {
 	position: absolute;
