@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="top_bar top_bar_right">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">검색🔍</button>
+	<button class="btn top_btn btn-ghost" onclick="">검색🔍</button>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
 	</a>

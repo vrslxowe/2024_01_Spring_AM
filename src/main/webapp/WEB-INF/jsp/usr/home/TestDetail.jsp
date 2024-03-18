@@ -16,6 +16,8 @@
 </div>
 <div class="top_bar right">
   <a href="../home/TestWrite">
+  <button class="btn top_btn btn-ghost">수정하기</button></a>
+  <a href="../home/TestWrite">
   <button class="btn top_btn btn-ghost">글쓰기</button></a>
 </div>
 
@@ -82,7 +84,7 @@ body {
 }
 
 .right {
-  margin-left: 95%;
+  margin-left: 91%;
   justify-content: flex-end;
 }
 
