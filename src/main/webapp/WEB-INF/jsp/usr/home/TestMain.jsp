@@ -470,7 +470,7 @@
 			color : "green"
 		} ];
 
-		// 날짜 추가하는 함수
+		// 날짜를 무작위로 추가하는 함수
 		function addDate(ev) {
 		}
 		
