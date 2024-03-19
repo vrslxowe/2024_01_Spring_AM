@@ -62,7 +62,7 @@
 				// 왼쪽 화살표 요소 생성 및 클릭 이벤트 추가
 				var left = createElement("div", "left");
 				left.addEventListener("click", function() {
-					self.prevMonth();
+					self.prevMonth(); 
 				});
 
 				// 요소를 헤더에 추가
