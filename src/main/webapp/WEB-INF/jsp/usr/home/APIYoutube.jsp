@@ -38,9 +38,7 @@
         return gapi.client.youtube.search.list({
             "maxResults": 5,
             "q": "치이카와",
-            "type": [
-                "video"
-            ]
+            "type": ["video"]
         })
         .then(function(response) {
             // 결과를 여기서 처리합니다 (response.result에 파싱된 본문이 있습니다).

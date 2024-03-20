@@ -7,7 +7,8 @@
 <a id="" href="https://accounts.spotify.com/authorize?client_id=1440fd0b1217439f81573cf6470a1a51&response_type=code&redirect_uri=http://localhost:8081/usr/home/RedirectSpotify&scope=user-read-private user-read-email user-read-playback-state user-modify-playback-state streaming">
 스포티파이 로그인 버튼
 </a>
-    <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+
+<a id="kakao-login-btn" href="javascript:loginWithKakao()">
     <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
       alt="카카오 로그인 버튼" />
   </a>
@@ -21,13 +22,29 @@
     // SDK 초기화 여부를 판단합니다.
     console.log(Kakao.isInitialized());
     
+    // 엑세스 토큰을 발급받고, 아래 함수를 호출시켜서 사용자 정보를 받아옴.
+    function getInfo() {
+        Kakao.API.request({
+            url: '/v2/user/me',
+            success: function (res) {
+                console.log(res);
+                // 이메일, 닉네임
+                var email = res.kakao_account.email;
+                var profile_nickname = res.kakao_account.profile.nickname;
+
+                console.log(email, profile_nickname);
+            },
+            fail: function (error) {
+                alert('카카오 로그인에 실패했습니다. 관리자에게 문의하세요.' + JSON.stringify(error));
+            }
+        });
+    }
 
     function loginWithKakao() {
       Kakao.Auth.authorize({
         redirectUri: 'http://localhost:8081/usr/home/RedirectSpotify',
       });
     }
-    
   </script>
 
 <%@ include file="../common/foot.jspf"%>
