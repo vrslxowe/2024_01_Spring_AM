@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UsrAPISpotipyController {
@@ -13,12 +15,28 @@ public class UsrAPISpotipyController {
 		return "/usr/home/APISpotify";
 	}
 	
+//	@RequestMapping("/usr/home/RedirectSpotify")
+//	public String RedirectSpotify() {
+//
+//		
+//		return "/usr/home/RedirectSpotify";
+//	}
+//	
 	@RequestMapping("/usr/home/RedirectSpotify")
-	public String RedirectSpotify() {
-
-		
-		return "/usr/home/RedirectSpotify";
-	}
+    public String RedirectSpotify(@RequestParam("code") String authorizationCode, Model model) {
+        // Pass the authorization code to the page
+        model.addAttribute("authorizationCode", authorizationCode);
+        
+        return "/usr/home/RedirectSpotify";
+    }
+//	@RequestMapping("/usr/home/RedirectSpotify")
+//	public String RedirectSpotify(@RequestParam String code, Model model) {
+//		System.err.println("code name : " + code);
+//		
+//		model.addAttribute("code", code);
+//		
+//		return "/usr/home/RedirectSpotify";
+//	}
 	
 //	@GetMapping("/RedirectSpotify")
 //	public ModelAndView RedirectSpotify(
