@@ -399,12 +399,26 @@
 	<!-- 검색 버튼 -->
 	function toggleSearch() {
         var searchBox = document.querySelector('.search_box');
-        searchBox.style.display = (searchBox.style.display === 'none' || searchBox.style.display === '') ? 'block' : 'none';
+        if (searchBox.style.display === 'none' || searchBox.style.display === '') {
+            searchBox.style.display = 'block';
+            searchBox.classList.add('fadeIn');
+            searchBox.classList.remove('fadeOut');
+        } else {
+            searchBox.classList.remove('fadeIn');
+            searchBox.classList.add('fadeOut');
+            setTimeout(function() {
+                searchBox.style.display = 'none';
+            }, 150); // fadeOut 애니메이션 지속 시간
+        }
     }
 
     function hideSearch() {
         var searchBox = document.querySelector('.search_box');
-        searchBox.style.display = 'none';
+        searchBox.classList.remove('fadeIn');
+        searchBox.classList.add('fadeOut');
+        setTimeout(function() {
+            searchBox.style.display = 'none';
+        }, 150); // fadeOut 애니메이션 지속 시간
     }
 
     function submitSearch(event) {
@@ -534,7 +548,7 @@
 <div class="top_bar top_bar_right">
 	<div class="search_box">
 	<form onsubmit="submitSearch(event)">
-		<input type="text" placeholder="검색어를 입력하세요" name="search_query">
+		<input type="text" placeholder="검색어를 입력하세요" name="search_query" autocomplete='off'>
 		<button type="submit">검색</button>
 		</form>
 	</div>
@@ -622,7 +636,17 @@ body {
 	padding-top: 5px;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 	opacity: 1;
-	-webkit-animation: fadeIn 0.1s ease-out;
+	-webkit-animation: fadeIn 0.15s ease-out;
+}
+.fadeIn {
+    -webkit-animation: fadeIn 0.15s ease-out;
+    display: block;
+}
+
+.fadeOut {
+    -webkit-animation: fadeOut 0.15s ease-out;
+    display: block;
+    -webkit-animation-fill-mode: forwards; /* 애니메이션이 끝나고 마지막 프레임을 유지 */
 }
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
