@@ -1561,3 +1561,10 @@ Unconditional classes:
 2024-03-25 09:03:38 [DEBUG] o.s.boot.devtools.restart.Restarter - Immediately restarting application
 2024-03-25 09:03:38 [DEBUG] o.s.boot.devtools.restart.Restarter - Starting application com.example.demo.DemoApplication with URLs [file:/C:/Users/admin/git/2024_01_Spring_AM/target/classes/]
 2024-03-25 09:03:38 [DEBUG] o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2024-03-25 09:15:13 [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-25 09:15:13 [INFO ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-25 09:15:13 [INFO ] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-03-25 09:15:13 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy78@701492ee'
+2024-03-25 09:15:13 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy79@391cc887'
+2024-03-25 09:15:13 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'memberService'
+2024-03-25 09:16:44 [WARN ] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'code' for method parameter type String is not present]

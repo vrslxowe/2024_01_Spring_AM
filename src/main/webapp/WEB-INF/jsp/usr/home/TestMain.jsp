@@ -406,7 +406,15 @@
         var searchBox = document.querySelector('.search_box');
         searchBox.style.display = 'none';
     }
-	
+
+    function submitSearch(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 중단
+        var form = event.target; // 폼 요소 가져오기
+        var searchQuery = form.elements.search_query.value; // 검색어 가져오기
+        // 여기서 검색어를 사용하거나 필요한 작업을 수행합니다.
+        console.log('검색어:', searchQuery);
+    }
+    
 	<!-- 이벤트 데이터를 사용하여 캘린더 생성(이벤트 이름, 캘린더의 종류, 이벤트를 표시할 때 사용할 색)  -->
 	!(function() {
 		var data = [ { // 샘플 이벤트 데이터 배열
@@ -525,8 +533,10 @@
 
 <div class="top_bar top_bar_right">
 	<div class="search_box">
-		<input type="text" placeholder="검색어를 입력하세요">
-		<button onclick="hideSearch()">닫기</button>
+	<form onsubmit="submitSearch(event)">
+		<input type="text" placeholder="검색어를 입력하세요" name="search_query">
+		<button type="submit">검색</button>
+		</form>
 	</div>
 	<button class="btn top_btn btn-ghost" onclick="toggleSearch()">검색🔍</button>
 	<a href="../home/TestWrite">
@@ -611,6 +621,8 @@ body {
 	border-radius: 35px;
 	padding-top: 5px;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+	opacity: 1;
+	-webkit-animation: fadeIn 0.1s ease-out;
 }
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
@@ -1008,7 +1020,6 @@ input {
     -webkit-transform: translateY(-30%) scale(0.95);
   }
 }
-
 
 /*화면에 나타나면서 서서히 나타나는 애니메이션*/
 @-webkit-keyframes fadeIn {
