@@ -396,6 +396,17 @@
 		}
 	})();
 	
+	<!-- 검색 버튼 -->
+	function toggleSearch() {
+        var searchBox = document.querySelector('.search_box');
+        searchBox.style.display = (searchBox.style.display === 'none' || searchBox.style.display === '') ? 'block' : 'none';
+    }
+
+    function hideSearch() {
+        var searchBox = document.querySelector('.search_box');
+        searchBox.style.display = 'none';
+    }
+	
 	<!-- 이벤트 데이터를 사용하여 캘린더 생성(이벤트 이름, 캘린더의 종류, 이벤트를 표시할 때 사용할 색)  -->
 	!(function() {
 		var data = [ { // 샘플 이벤트 데이터 배열
@@ -477,7 +488,6 @@
 		// Calendar 객체 생성
 		var calendar = new Calendar("#calendar", data);
 	})();
-	
     <!-- 글쓰기 -->
 // 글쓰기 버튼 요소 가져오기
 // const write = document.getElementsByClassName('write');
@@ -514,7 +524,11 @@
 </div>
 
 <div class="top_bar top_bar_right">
-	<button class="btn top_btn btn-ghost" onclick="">검색🔍</button>
+	<div class="search_box">
+		<input type="text" placeholder="검색어를 입력하세요">
+		<button onclick="hideSearch()">닫기</button>
+	</div>
+	<button class="btn top_btn btn-ghost" onclick="toggleSearch()">검색🔍</button>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
 	</a>
@@ -522,6 +536,7 @@
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
 </div>
+
 
 <style type="text/css">
 body {
@@ -545,7 +560,9 @@ body {
 	justify-content: center; /* 가로 중앙 정렬 */
 	align-items: center; /* 세로 중앙 정렬 */
 	flex-wrap: wrap; /* Flexbox 줄 바꿈 */
-	background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg"); /* 배경 이미지 설정 */
+	background-image:
+		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
+	/* 배경 이미지 설정 */
 	background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
 	background-position: center; /* 배경 이미지 가운데 정렬 */
 	background-size: cover; /* 배경 이미지를 컨테이너에 맞추어 표시 */
@@ -582,6 +599,22 @@ body {
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
+.search_box {
+	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	font-size: 17px;
+	display: none;
+	position: absolute; /* 절대 위치 설정 */
+	margin-top: 22px; /* 위쪽 여백 설정 */
+	margin-right: 350px;
+	width: 285px;
+	height: 35px;
+	border-radius: 35px;
+	padding-top: 5px;
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+}
+input {
+    background-color: transparent; /* 검색창 배경색 투명하게 설정 */
+}
 #calendar {
 	-webkit-transform: translate3d(0, 0, 0); /* 3D 변환 */
 	-moz-transform: translate3d(0, 0, 0); /* 3D 변환 */
@@ -624,13 +657,15 @@ body {
 
 .left {
 	border-width: 7.5px 10px 7.5px 0; /* 테두리 두께 설정 */
-	border-color: transparent rgba(160, 159, 160, 1) transparent transparent; /* 테두리 색상 설정 */
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
+	/* 테두리 색상 설정 */
 	left: 20px; /* 왼쪽 여백 설정 */
 }
 
 .right {
 	border-width: 7.5px 0 7.5px 10px; /* 테두리 두께 설정 */
-	border-color: transparent transparent transparent rgba(160, 159, 160, 1); /* 테두리 색상 설정 */
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
+	/* 테두리 색상 설정 */
 	right: 25px; /* 오른쪽 여백 설정 */
 }
 
@@ -646,30 +681,41 @@ body {
 }
 
 .month.in.next {
-	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.next {
-	-webkit-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFadeMonth 0.4s ease-in;
+	/* 다음 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFadeMonth 0.4s ease-in;
+	/* 다음 달이 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.in.prev {
-	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.prev {
-	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
-	animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
+	animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
@@ -757,14 +803,18 @@ body {
 }
 
 .details.in {
-	-webkit-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFade 0.5s ease both;
+	/* 상세정보가 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFade 0.5s ease both;
+	/* 상세정보가 나타날 때의 애니메이션 설정 */
 	animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
 }
 
 .details.out {
-	-webkit-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFade 0.5s ease both;
+	/* 상세정보가 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFade 0.5s ease both;
+	/* 상세정보가 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
 }
 
@@ -777,7 +827,8 @@ body {
 	height: 0px; /* 높이 없음 */
 	border-style: solid; /* 테두리 스타일 설정 */
 	border-width: 0 5px 5px 5px; /* 테두리 너비 설정 */
-	border-color: transparent transparent rgba(164, 164, 164, 1) transparent; /* 테두리 색상 설정 */
+	border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+	/* 테두리 색상 설정 */
 	transition: all 0.7s ease; /* 모든 속성에 대한 변화를 0.7초 동안 부드럽게 설정 */
 }
 
@@ -790,7 +841,8 @@ body {
 }
 
 .events.in {
-	-webkit-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
+	-webkit-animation: fadeIn 0.3s ease both;
+	/* fade 효과를 통해 나타나는 애니메이션 설정 */
 	-moz-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 	animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 }
@@ -802,8 +854,10 @@ body {
 }
 
 .details.out .events {
-	-webkit-animation: fadeOutShrink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
-	-moz-animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-webkit-animation: fadeOutShrink 0.4s ease both;
+	/* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-moz-animation: fadeOutShink 0.4s ease both;
+	/* fade 효과와 함께 사라지는 애니메이션 설정 */
 	animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
 }
 
@@ -838,11 +892,13 @@ body {
 	display: inline-block; /* 인라인 블록 요소로 설정 */
 	padding: 0 0 0 7px; /* 내부 여백 설정 */
 }
+
 .event.dday {
-    position: absolute; /* 절대 위치 설정 */
-    top: 10px; /* 위쪽 여백 설정 */
-    right: 10px; /* 오른쪽 여백 설정 */
+	position: absolute; /* 절대 위치 설정 */
+	top: 10px; /* 위쪽 여백 설정 */
+	right: 10px; /* 오른쪽 여백 설정 */
 }
+
 .legend {
 	position: absolute;
 	bottom: 0;
@@ -978,5 +1034,4 @@ body {
     height: 0px;
   }
 }
-
 </style>

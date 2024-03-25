@@ -11,6 +11,7 @@
 
 <script>
 $(document).ready(function() {
+	Kakao.init('f43f5c71f57f935bcf3eb2d85337b7d9');
     // Retrieve authorization code from URL query parameters
     var authorizationCode = new URLSearchParams(window.location.search).get('code');
 
