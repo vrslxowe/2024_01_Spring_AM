@@ -22,17 +22,10 @@
 </div>
 
 <div class="box box_1"></div>
-<input class="box content_box" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content" />
-
-
-<div class="box_1">
-	<input class="title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
-	<input class="date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
-</div>
-
-<div class="box_1">
-	<input class="address_box" autocomplete="off" type="text" placeholder="주소를 입력해주세요" name="address" />
-</div>
+	<input class="box content_box" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content" />
+	<input class="box title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
+	<input class="box date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
+	<input class="box address_box" autocomplete="off" type="text" placeholder="주소를 입력해주세요" name="address" />
 
 <div class="box_1">
 	<div class="box_3">
@@ -127,6 +120,7 @@ body {
   left: 424px;
   top: 418px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+  z-index: 1;
 }
 .title_box,
 .address_box,
@@ -136,28 +130,29 @@ body {
   opacity: 0.5;
   border-radius: 35px;
   height: 47px;
-  margin-left: 60px;
   background: #e2e2e2;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+  z-index: 1;
 }
 
 .title_box,
 .date_box {
-	margin-top: 100px;
+	margin-top: 255px;
 	width: 450px;
 }
 
 .title_box {
-	margin-right: 0;
+	margin-right: 32%;
 }
 
 .address_box {
-	margin-top: 30px;
+	margin-top: 185px;
 	width: 329px;
+	margin-right: 38.3%;
 }
 
 .date_box {
-	margin-right: 80px;
+	margin-left: 27%;
 }
 
 .box_3 {

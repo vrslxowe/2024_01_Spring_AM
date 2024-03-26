@@ -1561,3 +1561,9 @@ Unconditional classes:
 2024-03-26 09:06:34 [DEBUG] o.s.boot.devtools.restart.Restarter - Immediately restarting application
 2024-03-26 09:06:34 [DEBUG] o.s.boot.devtools.restart.Restarter - Starting application com.example.demo.DemoApplication with URLs [file:/C:/Users/admin/git/2024_01_Spring_AM/target/classes/]
 2024-03-26 09:06:34 [DEBUG] o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2024-03-26 09:07:09 [INFO ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-26 09:07:09 [INFO ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-26 09:07:09 [INFO ] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-03-26 09:07:09 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy78@231cda42'
+2024-03-26 09:07:09 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy79@fd69bbf'
+2024-03-26 09:07:09 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'memberService'
