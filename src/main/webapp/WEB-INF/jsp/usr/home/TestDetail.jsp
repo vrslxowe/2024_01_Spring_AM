@@ -90,7 +90,7 @@ body {
 
 /* 박스 스타일 */
 .box {
-  margin-top: -90px;
+  margin-top: -110px;
   opacity: 0.5;
   border-radius: 65px;
   background: #e2e2e2;
@@ -131,7 +131,7 @@ body {
 .diary_text,
 .date_text,
 .dday_text {
-  margin-top: 100px;
+  margin-top: 95px;
   width: 450px;
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .address_text {
-  margin-top: 30px;
+  margin-top: 25px;
   width: 329px;
 }
 
@@ -166,7 +166,7 @@ body {
 .box_4 {
   width: 430px;
   height: 0;
-  margin-top: -20px;
+  margin-top: -25px;
   margin-left: 580px;
   display: flex;
   justify-content: space-between;

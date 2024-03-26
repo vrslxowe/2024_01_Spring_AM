@@ -411,7 +411,6 @@
             }, 150); // fadeOut 애니메이션 지속 시간
         }
     }
-
     function hideSearch() {
         var searchBox = document.querySelector('.search_box');
         searchBox.classList.remove('fadeIn');
@@ -420,7 +419,6 @@
             searchBox.style.display = 'none';
         }, 150); // fadeOut 애니메이션 지속 시간
     }
-
     function submitSearch(event) {
         event.preventDefault(); // 폼 제출 기본 동작 중단
         var form = event.target; // 폼 요소 가져오기

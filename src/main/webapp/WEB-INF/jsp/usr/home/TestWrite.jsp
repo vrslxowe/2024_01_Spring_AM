@@ -89,7 +89,7 @@ body {
 .btn-circle {
 	font-family: "S-CoreDream-3Light";
 	opacity: 0.6;
-	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25);
+	box-shadow: 7px 5px 6px 4px rgba(0, 0, 0, 0.25);
 }
 .left {
 	margin-right: 95%;
