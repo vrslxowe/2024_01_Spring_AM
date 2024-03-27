@@ -34,50 +34,48 @@
   <div class="box2"></div>
 <div class="box3">3월 기록</div>
 
-  <div class="list_box1">
-    <div class="list_box1">
+<div class="list_box1">
     <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-    </div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.
     </div>
     <div class="list_box2">
-    <div class="content_box">
+        <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
-    </div>
+        </div>
     </div>
     <div class="list_box3">
-    <div class="content_box">
+        <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
-    </div>
+        </div>
     </div>
     <div class="list_box4">
-    <div class="content_box">
+        <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
-    </div>
+        </div>
     </div>
     <div class="list_box5">
-    <div class="content_box">
+        <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
-    </div>
+        </div>
     </div>
     <div class="list_box6">
-    <div class="content_box">
+        <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
             ridiculus mus.
+        </div>
     </div>
-    </div>
-  </div>
+</div>
 
 
 <style type="text/css">
@@ -196,7 +194,8 @@ input {
     top: 726.5px;
     opacity: 0.5;
     border-radius: 55px;
-	background-color: #fff;
+    
+	
 }
 
 .list_box1 > div {
@@ -210,9 +209,9 @@ input {
 }
 
 .list_box1 > div:nth-child(1) {
-    left: 312.5px;
-    top: 105.5px; /* 120.5px - 15px */
-
+    left: 512.5px;
+    top: 104.5px; /* 120.5px - 15px */
+background-color: #fff;
 }
 
 .list_box1 > div:nth-child(2) {
