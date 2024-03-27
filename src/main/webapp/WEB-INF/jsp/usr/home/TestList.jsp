@@ -32,7 +32,7 @@
 
 <div class="box"></div>
   <div class="box2"></div>
-<div class="box3">3월 기록</div>
+<div class="box3">3월 기록 ▽</div>
 
 <div class="list_box1">
     <div class="content_box">
@@ -172,15 +172,15 @@ input {
 }
 
 .box3 {
+	background-color: #fff;
     position: absolute;
-    width: 121px;
+    width: 180px;
     height: 32px;
     left: 0px;
     top: 0px;
-    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 18px;
     line-height: 30px;
     letter-spacing: 0.4em;
     color: #5e5e5e;
