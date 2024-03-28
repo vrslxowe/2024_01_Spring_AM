@@ -112,7 +112,7 @@ body {
 }
 
 .search_box {
-	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	
 	font-size: 17px;
 	display: none;
 	position: absolute; /* 절대 위치 설정 */
@@ -179,7 +179,7 @@ input {
   position: absolute;
   opacity: 0.5;
   border-radius: 55px;
-  background: white;
+  background-color: #fff;
 }
 
 .list_box1 {
@@ -213,16 +213,29 @@ input {
 }
 
 .content_box {
-  width: 512px;
-  height: 135px;
+  padding-top:18px;
+  background-color: pink;
+  overflow-y: scroll;
+  width: 425px;
+  height: 165px;
   position: absolute;
   font-size: 18px;
   text-align: center;
   color: #5e5e5e;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  left: 50%;
-  top: 65%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  left: 62%;
+  top: 59%;
   transform: translate(-50%, -50%);
+  display: flex; /* Flexbox를 사용하여 내부 요소를 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+	/* 스크롤바 숨김 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.content_box::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 @font-face {
@@ -231,4 +244,34 @@ input {
      font-weight: normal;
      font-style: normal;
 }
+
+/* 19일 */
+
+position: absolute;
+width: 63px;
+height: 32px;
+left: 1021px;
+top: 231px;
+
+font-weight: 400;
+font-size: 25px;
+line-height: 30px;
+letter-spacing: 0.15em;
+
+color: #757575;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+/* unsplash:zcUgjyqEwe8 */
+
+position: absolute;
+width: 135px;
+height: 135px;
+left: 1014px;
+top: 285px;
+background: url('https://blog.kakaocdn.net/dn/bmqXqj/btsFYN6qP5h/kPaI2XVZmxnkw8lWkeNIl0/img.jpg');
+border-radius: 20px;
+
+
+
 </style>
