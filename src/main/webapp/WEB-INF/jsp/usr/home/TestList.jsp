@@ -30,53 +30,41 @@
 	</a>
 </div>
 
-<div class="box"></div>
-  <div class="box2"></div>
+<div class="box">
 <div class="box3">3월 기록 ▽</div>
-
-<div class="list_box1">
+<div class="list_box">
+  <div class="list_box1">
     <div class="content_box">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus.
+      늘 바라왔던 작은 소원 네가 행복했으면 좋겠어 네 웃음과 눈물과 모든 것들이 소중해 이 순간의 심장 소리와 떨림을 난 영원히 기억할래 Keep on keep on loving babe 밤은 길지 않을 테니 있는 그대로의 널 사랑하고 있어 너의 꿈이 내 꿈이 돼 우린 답을 알고 있지 바로 여기 So I make this wish tonight
     </div>
+  </div>
     <div class="list_box2">
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
+            Plusieurs variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard.
         </div>
     </div>
     <div class="list_box3">
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다. 국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다. 명령·규칙 또는 처분이 헌법이나 법률에 위반되는 여부가 재판의 전제가 된 경우에는 대법원은 이를 최종적으로 심사할 권한을 가진다.
         </div>
     </div>
     <div class="list_box4">
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
+            願い事はいつも キミの幸せだけさ 笑顔や涙 大切なすべて いつまでも忘れない この瞬間 心臓の音まで Keep on keep on loving babe 明けない夜はない 飾らないキミを 見つめているよ ユメとユメが Link 答えなら すぐそこにある So I make this wish tonight
         </div>
     </div>
     <div class="list_box5">
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
+            えんしてぃウィッシュはえんしてぃの最後のグループで、2024年2月21日にデビューしました。リーダーはシオンです。メンバーはシオンを含めて合計6人で、リク、ユウシ、ジェヒ、リョウ、サクヤで構成されています。韓国人はシオン、ジェヒの二人で、リク、ユウシ、リョウ、サクヤは日本人です。
         </div>
     </div>
     <div class="list_box6">
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </div>
     </div>
 </div>
-
+</div>
 
 <style type="text/css">
 
@@ -172,12 +160,11 @@ input {
 }
 
 .box3 {
-	background-color: #fff;
     position: absolute;
     width: 180px;
     height: 32px;
-    left: 0px;
-    top: 0px;
+    left: 45%;
+    top: 15px;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -186,61 +173,43 @@ input {
     color: #5e5e5e;
 }
 
-.list_box {
-    width: 620px;
-    height: 243px;
-    position: absolute;
-    left: 975.5px;
-    top: 726.5px;
-    opacity: 0.5;
-    border-radius: 55px;
-    
-	
+.list_box > div {
+  width: 620px;
+  height: 243px;
+  position: absolute;
+  opacity: 0.5;
+  border-radius: 55px;
+  background: white;
 }
 
-.list_box1 > div {
-    width: 620px;
-    height: 243px;
-    position: absolute;
-    opacity: 0.5;
-    border-radius: 55px;
-    background: #e2e2e2;
-
+.list_box1 {
+  left: 22.5px; /* -37.5px + 60px */
+  top: 64.5px; /* 104.5px - 40px */
 }
 
-.list_box1 > div:nth-child(1) {
-    left: 512.5px;
-    top: 104.5px; /* 120.5px - 15px */
-background-color: #fff;
+.list_box2 {
+  left: 674.5px; /* 614.5px + 60px */
+  top: 64.5px; /* 104.5px - 40px */
 }
 
-.list_box1 > div:nth-child(2) {
-    left: 964.5px;
-    top: 104.5px; /* 119.5px - 15px */
-    
+.list_box3 {
+  left: 22.5px; /* -37.5px + 60px */
+  top: 325.5px; /* 365.5px - 40px */
 }
 
-.list_box1 > div:nth-child(3) {
-    left: 312.5px;
-    top: 365.5px; /* 380.5px - 15px */
-    
+.list_box4 {
+  left: 676.5px; /* 616.5px + 60px */
+  top: 325.5px; /* 365.5px - 40px */
 }
 
-.list_box1 > div:nth-child(4) {
-    left: 966.5px;
-    top: 365.5px; /* 380.5px - 15px */
-    
+.list_box5 {
+  left: 33.5px; /* -26.5px + 60px */
+  top: 586.5px; /* 626.5px - 40px */
 }
 
-.list_box1 > div:nth-child(5) {
-    left: 323.5px;
-    top: 626.5px; /* 641.5px - 15px */
-    
-}
-
-.list_box1 > div:nth-child(6) {
-    left: 975.5px;
-    top: 626.5px; /* 641.5px - 15px */
+.list_box6 {
+  left: 685.5px; /* 625.5px + 60px */
+  top: 586.5px; /* 626.5px - 40px */
 }
 
 .content_box {
