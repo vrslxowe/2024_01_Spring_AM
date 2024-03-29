@@ -29,7 +29,7 @@
 </div>
 
 <div class="box">
-<div class="box3">3월 기록 ▽</div>
+<button class="box3">3월 기록 ▽</button>
 <div class="list_box">
   <div class="list_box1">
   <div class="imege_box imege_box1"></div>
@@ -171,9 +171,8 @@ input {
 	position: absolute;
 	left: 292px;
 	top: 35px;
-	opacity: 0.5;
+	background-color: rgba(203, 203, 203, 0.5); /* Adjust the opacity here */
 	border-radius: 65px;
-	background: #e2e2e2;
 	box-shadow: 5px 5px 30px 3px rgba(0, 0, 0, 0.25);
 }
 
@@ -188,10 +187,10 @@ input {
 	width: 180px;
 	height: 32px;
 	left: 43%;
-	top: 15px;
+	top: 16px;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 21px;
 	line-height: 30px;
 	letter-spacing: 0.4em;
 	color: #5e5e5e;
@@ -202,6 +201,7 @@ input {
 	height: 243px;
 	position: absolute;
 	border-radius: 55px;
+	background-color: rgba(231, 231, 231, 0.9);
 	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -244,7 +244,7 @@ input {
 	text-align: center;
 	color: #5e5e5e;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	left: 62%;
+	left: 63%;
 	top: 59%;
 	transform: translate(-50%, -50%);
 	display: flex; /* Flexbox를 사용하여 내부 요소를 가운데 정렬 */
