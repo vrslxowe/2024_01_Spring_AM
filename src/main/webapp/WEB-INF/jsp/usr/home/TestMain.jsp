@@ -69,6 +69,7 @@
 		var button = document.createElement('button');
 		button.type = 'submit';
 		button.textContent = '검색';
+		button.classList.add('search_btn'); // 버튼에 클래스 이름 추가
 
 		// input과 button을 form 안에 추가합니다
 		form.appendChild(input);
@@ -673,36 +674,38 @@ body {
 .search_box {
 	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
 	font-size: 17px;
-	position: absolute; /* 절대 위치 설정 */
 	width: 285px;
 	height: 35px;
 	border-radius: 35px;
 	display: flex;
+	position: relative; /* 상대 위치 설정 */
 	padding-top: 5px;
 	padding-left: 27px;
-	top: 20px;
+	top: 40px;
 	margin-left: 66%;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
 }
+.search_btn {
+  position: absolute;
+}
 
 #search_results {
   list-style: none; /* 기본 목록 마커 제거 */
-  background-color: #fff;
   padding: 0;
   margin-top: 70px;
+  margin-left: -100%;
 }
 
 #search_results li {
-  padding: 8px 0; /* 각 결과 항목의 간격 조정 */
-  background-color: pink;
+  padding: 18px; /* 각 결과 항목의 간격 조정 */
+  width: 380px;
   border-bottom: 1px solid #ccc; /* 각 결과 항목의 아래에 구분선 추가 */
 }
 
 #search_results li:last-child {
-background-color: blue;
   border-bottom: none; /* 마지막 결과 항목의 아래 구분선 제거 */
 }
 
