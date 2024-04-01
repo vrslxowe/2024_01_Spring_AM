@@ -593,11 +593,14 @@
 	<a href="../home/TestLogin">
 		<button class="btn top_btn btn-ghost">🧝‍♀️</button>
 	</a>
+	<a href="../home/TestList">
+		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
+	</a>
 </div>
 
 <div class="top_bar top_bar_right">
 	<a href="../home/TestWrite">
-		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
+		<button class="btn top_btn btn-ghost">글쓰기🖊</button>
 	</a> <a href="../home/TestProfile">
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
@@ -645,7 +648,7 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 95%; /* 왼쪽 여백 설정 */
+	margin-right: 90%; /* 왼쪽 여백 설정 */
 	justify-content: flex-start; /* 왼쪽 정렬 */
 }
 
@@ -661,6 +664,10 @@ body {
 	margin-right: 20px; /* 오른쪽 여백 설정 */
 	display: inline-block; /* 인라인 블록 요소로 표시 */
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+}
+
+.btn_list {
+	width : 78px;
 }
 
 .search_box {
@@ -724,6 +731,8 @@ background-color: blue;
 .header h1 {
 	margin: 0px; /* 바깥 여백 없음 */
 	padding: 10px; /* 안쪽 여백 설정 */
+	padding-left: 10px;
+	margin-left: 35px;
 	font-size: 1em; /* 글꼴 크기 설정 */
 	font-weight: bold; /* 글꼴 두껍기 설정 */
 	line-height: 0px; /* 줄 높이 설정 */
