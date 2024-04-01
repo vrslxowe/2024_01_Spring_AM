@@ -18,16 +18,16 @@
 <div class="login">
 <form action="../home/TestMain" method="post">로그인
 	<div>
-		<input type="text" class="box2"><div></div>
-		<input type="text" class="box2">
+		<input class="box2" type="text" autocomplete="off" placeholder="아이디">
+		<input class="box2" type="text" autocomplete="off" placeholder="비밀번호">
 	</div>
-  <div class="modify_btn"><button class="btn btn-ghost">확인</button></div>
-  </form>
-  <div class="modify_btn">
+	<div>
   <a href="../home/TestJoin">
-  <button class="btn btn-ghost">회원가입</button></a></div>
-
-</div>
+  <button class="btn btn-ghost">회원가입 하러 가기</button>
+  </a>
+  <button class="btn btn-ghost">확인</button>
+  </form>
+  </div>
 
 <style type="text/css">
 
@@ -65,21 +65,17 @@ body {
   display: flex;
   margin-left: 20px;
 }
-.top_btn,
-.modify_btn {
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
-}
+
 .top_btn {
   font-family: "S-CoreDream-3Light";
   margin-top: 15.5px;
   height: 30px;
   margin-right: 20px;
 }
-.modify_btn {
-  margin-top: 30px;
-  margin-left: 0;
-  font-size: 19px;
-  border-radius: 15px;
+
+.btn-ghost {
+	font-family: "S-CoreDream-3Light";
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .login {
@@ -90,16 +86,17 @@ body {
 .box2 {
   margin-top: 50px;
   margin-left: 0;
+  padding-left: 20px;
   background: rgba(226, 226, 226, 1);
   width: 350px;
   height: 47px;
   opacity: 0.5;
+  display: block;
   border-radius: 35px;
   padding-top: 5px;
   font-size: 20px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
-
 
 
 @font-face {

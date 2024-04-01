@@ -9,13 +9,13 @@
 
 <!doctype html>
 
-<div class="top_bar left">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+<div class="top_bar top_bar_left">
 	<a href="../home/TestMain">
 		<button class="btn top_btn btn-ghost">💖</button>
 	</a>
+	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
-<div class="top_bar right">
+<div class="top_bar top_bar_right">
 	<button class="btn top_btn btn-ghost">검색🔍</button>
 	<a href="../home/TestSetting">
 	<button class="btn top_btn btn-ghost">설정⚙</button></a>
@@ -27,12 +27,12 @@
 	<div class="profile">
 		<button class="btn btn-ghost">프로필 사진📷</button>
 	</div>
-	<input type="text" autocomplete="off" placeholder="아이디" class="box2">
-	<input type="text" autocomplete="off" placeholder="별명" class="box2">
-	<input type="text" autocomplete="off" placeholder="이름" class="box2">
-	<input type="text" autocomplete="off" placeholder="생년월일" class="box2">
-	<input type="text" autocomplete="off" placeholder="전화번호" class="box2">
-	<input type="text" autocomplete="off" placeholder="이메일" class="box2">
+	<input class="box2" type="text" autocomplete="off" placeholder="아이디">
+	<input class="box2" type="text" autocomplete="off" placeholder="별명">
+	<input class="box2" type="text" autocomplete="off" placeholder="이름">
+	<input class="box2" type="text" autocomplete="off" placeholder="생년월일">
+	<input class="box2" type="text" autocomplete="off" placeholder="전화번호">
+	<input class="box2" type="text" autocomplete="off" placeholder="이메일">
 	<div class="modify_btn">
 		<button class="btn btn-ghost">정보 수정</button>
 	</div>
@@ -79,14 +79,23 @@ body {
 	display: flex;
 }
 
-.left {
-	margin-right: 91%;
-	justify-content: flex-start;
+.top_bar_left {
+	margin-right: 89%; /* 왼쪽 여백 설정 */
+	justify-content: flex-start; /* 왼쪽 정렬 */
 }
 
-.right {
-	margin-left: 90%;
-	justify-content: flex-end;
+.top_bar_right {
+	margin-left: 89%; /* 오른쪽 여백 설정 */
+	justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.top_btn {
+	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	margin-top: 15.5px; /* 위쪽 여백 설정 */
+	height: 30px; /* 높이 설정 */
+	margin-right: 20px; /* 오른쪽 여백 설정 */
+	display: inline-block; /* 인라인 블록 요소로 표시 */
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
 .box {
@@ -119,7 +128,8 @@ body {
 	opacity: 0.5;
 	border-radius: 35px;
 	display: block;
-	padding-top: 11px;
+	padding-top: 5px;
+	padding-left: 20px;
 	font-size: 20px;
 	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }

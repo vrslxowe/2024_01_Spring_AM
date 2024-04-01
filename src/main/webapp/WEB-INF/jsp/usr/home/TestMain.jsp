@@ -594,16 +594,16 @@
 	<a href="../home/TestLogin">
 		<button class="btn top_btn btn-ghost">🧝‍♀️</button>
 	</a>
-	<a href="../home/TestList">
-		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
+	<a href="../home/TestProfile">
+		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
 </div>
 
 <div class="top_bar top_bar_right">
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost">글쓰기🖊</button>
-	</a> <a href="../home/TestProfile">
-		<button class="btn top_btn btn-ghost">내 정보😀</button>
+	</a> <a href="../home/TestList">
+		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
 	</a>
 </div>
 
@@ -649,12 +649,12 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 90%; /* 왼쪽 여백 설정 */
+	margin-right: 89%; /* 왼쪽 여백 설정 */
 	justify-content: flex-start; /* 왼쪽 정렬 */
 }
 
 .top_bar_right {
-	margin-left: 87%; /* 오른쪽 여백 설정 */
+	margin-left: 89%; /* 오른쪽 여백 설정 */
 	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 

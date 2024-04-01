@@ -52,7 +52,7 @@
     <div class="list_box4">
     <div class="imege_box imege_box4"></div>
         <div class="content_box">
-            願い事はいつも キミの幸せだけさ 笑顔や涙 大切なすべて いつまでも忘れない この瞬間 心臓の音まで Keep on keep on loving babe 明けない夜はない 飾らないキミを 見つめているよ ユメとユメが Link 答えなら すぐそこにある So I make this wish tonight
+            Let's go Fly high in the air Let's WISH it up baby WISH it up, right now 今に世界が変わるよ Keep it up baby Keep it up, uh It's up and down 風に乗って Yeah, We're another one 'Cause we wanna WISH キミと Baby 突き進もう The WISH's complete Yeah yeah ooh Goin' up どんな時だって 突き進もう The WISH's complete
         </div>
     </div>
     <div class="list_box5">
@@ -64,7 +64,7 @@
     <div class="list_box6">
     <div class="imege_box imege_box6"></div>
         <div class="content_box">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
         </div>
     </div>
 </div>
