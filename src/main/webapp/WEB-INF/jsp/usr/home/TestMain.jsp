@@ -43,6 +43,88 @@
 			this.drawMonth();
 		};
 		
+		<!-- 캘린더에 검색 요소 그리기 -->
+		
+		// 캘린더 박스 요소를 찾습니다
+		var calendarBox = document.getElementById('calendar');
+
+		// 새로운 div 요소를 생성합니다
+		var newDiv = document.createElement('div');
+		newDiv.className = 'search_box';
+
+		// form 요소를 생성합니다
+		var form = document.createElement('form');
+		form.onsubmit = function(event) {
+		  submitSearch(event);
+		};
+
+		// input 요소를 생성하고 속성을 설정합니다
+		var input = document.createElement('input');
+		input.type = 'text';
+		input.placeholder = '검색어를 입력하세요';
+		input.name = 'search_query';
+		input.autocomplete = 'off';
+
+		// button 요소를 생성하고 속성을 설정합니다
+		var button = document.createElement('button');
+		button.type = 'submit';
+		button.textContent = '검색';
+
+		// input과 button을 form 안에 추가합니다
+		form.appendChild(input);
+		form.appendChild(button);
+
+		// form을 div 안에 추가합니다
+		newDiv.appendChild(form);
+		
+		// 생성된 HTML 코드를 캘린더 박스 안에 추가합니다
+		calendarBox.appendChild(newDiv);
+		
+		<!-- 검색 결과 리스트로 그리기 -->
+		
+		// 검색어를 입력한 후 검색 결과를 표시할 리스트 요소를 생성합니다
+		var resultList = document.createElement('ul');
+		resultList.id = 'search_results'; // 결과 리스트에 ID 부여
+
+		// 검색어 입력란에 입력한 내용이 변경될 때마다 결과를 업데이트하는 함수를 정의합니다
+		var inputTimer; // 타이머 변수 초기화
+		input.addEventListener('input', function() {
+		  clearTimeout(inputTimer); // 기존 타이머 제거
+
+			  // 0.35초 후에 검색 결과 업데이트하는 타이머 설정
+			  inputTimer = setTimeout(function() {
+			    var searchQuery = input.value.replace(/\s+/g, '').toLowerCase(); // 입력된 검색어에서 모든 공백을 제거하고 소문자로 변환
+
+			    // 검색 결과 초기화
+			    resultList.innerHTML = '';
+
+			 // 만약 검색어가 비어 있지 않다면 검색 결과를 업데이트합니다
+			    if (searchQuery !== '') {
+			      // 실제 검색 로직은 여기에 들어갑니다. 예를 들어, 검색 결과를 가져오고 리스트 아이템으로 추가하는 코드를 작성합니다.
+			      // 여기에 가상의 검색 결과를 생성하여 리스트 아이템으로 추가하는 코드를 작성합니다
+			      var dummyData = ['검색 결과 1', '검색 결과 2', '검색 결과 3', '오시온', '박원빈', '마에다 리쿠']; // 가상의 검색 결과 데이터
+
+			      // 검색 결과를 순회하면서 리스트 아이템으로 추가
+			      dummyData.forEach(function(item) {
+			        if (item.replace(/\s+/g, '').toLowerCase().includes(searchQuery)) { // 검색어가 결과에 포함되어 있는지 확인
+			          var listItem = document.createElement('li');
+			          listItem.textContent = item;
+			          resultList.appendChild(listItem);
+			        }
+			      });
+
+			      // 검색 결과 리스트를 search_box 아래에 추가합니다
+			      newDiv.appendChild(resultList);
+			      
+			      // 검색 결과가 있을 때는 결과 리스트를 표시합니다
+			      resultList.style.display = 'block';
+			    } else {
+			      // 검색어가 비어 있을 때는 결과 리스트를 숨깁니다
+			      resultList.style.display = 'none';
+			    }
+			  }, 350); // 0.35초(350밀리초)의 딜레이 설정
+			});
+		
 		<!-- 달력 헤더 부분  -->
 		
 		Calendar.prototype.drawHeader = function() {
@@ -62,7 +144,7 @@
 				// 왼쪽 화살표 요소 생성 및 클릭 이벤트 추가
 				var left = createElement("div", "left");
 				left.addEventListener("click", function() {
-					self.prevMonth(); 
+					self.prevMonth();
 				});
 
 				// 요소를 헤더에 추가
@@ -396,37 +478,6 @@
 		}
 	})();
 	
-	<!-- 검색 버튼 -->
-	function toggleSearch() {
-        var searchBox = document.querySelector('.search_box');
-        if (searchBox.style.display === 'none' || searchBox.style.display === '') {
-            searchBox.style.display = 'block';
-            searchBox.classList.add('fadeIn');
-            searchBox.classList.remove('fadeOut');
-        } else {
-            searchBox.classList.remove('fadeIn');
-            searchBox.classList.add('fadeOut');
-            setTimeout(function() {
-                searchBox.style.display = 'none';
-            }, 150); // fadeOut 애니메이션 지속 시간
-        }
-    }
-    function hideSearch() {
-        var searchBox = document.querySelector('.search_box');
-        searchBox.classList.remove('fadeIn');
-        searchBox.classList.add('fadeOut');
-        setTimeout(function() {
-            searchBox.style.display = 'none';
-        }, 150); // fadeOut 애니메이션 지속 시간
-    }
-    function submitSearch(event) {
-        event.preventDefault(); // 폼 제출 기본 동작 중단
-        var form = event.target; // 폼 요소 가져오기
-        var searchQuery = form.elements.search_query.value; // 검색어 가져오기
-        // 여기서 검색어를 사용하거나 필요한 작업을 수행합니다.
-        console.log('검색어:', searchQuery);
-    }
-    
 	<!-- 이벤트 데이터를 사용하여 캘린더 생성(이벤트 이름, 캘린더의 종류, 이벤트를 표시할 때 사용할 색)  -->
 	!(function() {
 		var data = [ { // 샘플 이벤트 데이터 배열
@@ -501,13 +552,14 @@
 			color : "green"
 		} ];
 
-		// 날짜를 무작위로 추가하는 함수
+		// 날짜 추가하는 함수
 		function addDate(ev) {
 		}
 		
 		// Calendar 객체 생성
 		var calendar = new Calendar("#calendar", data);
 	})();
+	
     <!-- 글쓰기 -->
 // 글쓰기 버튼 요소 가져오기
 // const write = document.getElementsByClassName('write');
@@ -544,23 +596,15 @@
 </div>
 
 <div class="top_bar top_bar_right">
-	<div class="search_box">
-	<form onsubmit="submitSearch(event)">
-		<input type="text" placeholder="검색어를 입력하세요" name="search_query" autocomplete='off'>
-		<button type="submit">검색</button>
-		</form>
-	</div>
-	<button class="btn top_btn btn-ghost" onclick="toggleSearch()">검색🔍</button>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
-	</a>
-	<a href="../home/TestProfile">
+	</a> <a href="../home/TestProfile">
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
 </div>
 
-
 <style type="text/css">
+
 body {
 	color: #5e5e5e; /* 본문 텍스트 색상 */
 	overflow: hidden; /* 스크롤 막기 */
@@ -582,9 +626,7 @@ body {
 	justify-content: center; /* 가로 중앙 정렬 */
 	align-items: center; /* 세로 중앙 정렬 */
 	flex-wrap: wrap; /* Flexbox 줄 바꿈 */
-	background-image:
-		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
-	/* 배경 이미지 설정 */
+	background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg"); /* 배경 이미지 설정 */
 	background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
 	background-position: center; /* 배경 이미지 가운데 정렬 */
 	background-size: cover; /* 배경 이미지를 컨테이너에 맞추어 표시 */
@@ -608,7 +650,7 @@ body {
 }
 
 .top_bar_right {
-	margin-left: 82%; /* 오른쪽 여백 설정 */
+	margin-left: 87%; /* 오른쪽 여백 설정 */
 	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
@@ -624,38 +666,46 @@ body {
 .search_box {
 	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
 	font-size: 17px;
-	display: none;
 	position: absolute; /* 절대 위치 설정 */
-	margin-top: 22px; /* 위쪽 여백 설정 */
-	margin-right: 350px;
 	width: 285px;
 	height: 35px;
 	border-radius: 35px;
+	display: flex;
 	padding-top: 5px;
+	padding-left: 27px;
+	top: 20px;
+	margin-left: 66%;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
-	opacity: 1;
-	-webkit-animation: fadeIn 0.15s ease-out;
-}
-.fadeIn {
-    -webkit-animation: fadeIn 0.15s ease-out;
-    display: block;
-}
-
-.fadeOut {
-    -webkit-animation: fadeOut 0.15s ease-out;
-    display: block;
-    -webkit-animation-fill-mode: forwards; /* 애니메이션이 끝나고 마지막 프레임을 유지 */
 }
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
 }
+
+#search_results {
+  list-style: none; /* 기본 목록 마커 제거 */
+  background-color: #fff;
+  padding: 0;
+  margin-top: 70px;
+}
+
+#search_results li {
+  padding: 8px 0; /* 각 결과 항목의 간격 조정 */
+  background-color: pink;
+  border-bottom: 1px solid #ccc; /* 각 결과 항목의 아래에 구분선 추가 */
+}
+
+#search_results li:last-child {
+background-color: blue;
+  border-bottom: none; /* 마지막 결과 항목의 아래 구분선 제거 */
+}
+
 #calendar {
 	-webkit-transform: translate3d(0, 0, 0); /* 3D 변환 */
 	-moz-transform: translate3d(0, 0, 0); /* 3D 변환 */
 	transform: translate3d(0, 0, 0); /* 3D 변환 */
-	width: 900px; /* 너비 설정 */
+	width: 1200px; /* 너비 설정 */
 	margin: 0; /* 바깥 여백 없음 */
-	height: 650px; /* 높이 설정 */
+	height: 800px; /* 높이 설정 */
 	overflow: hidden; /* 스크롤 숨김 */
 	backdrop-filter: blur(0px); /* 배경 흐리게 설정 */
 	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
@@ -691,22 +741,22 @@ input {
 
 .left {
 	border-width: 7.5px 10px 7.5px 0; /* 테두리 두께 설정 */
-	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
-	/* 테두리 색상 설정 */
-	left: 20px; /* 왼쪽 여백 설정 */
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent; /* 테두리 색상 설정 */
+	left: 40px; /* 왼쪽 여백 설정 */
 }
 
 .right {
 	border-width: 7.5px 0 7.5px 10px; /* 테두리 두께 설정 */
-	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
-	/* 테두리 색상 설정 */
-	right: 25px; /* 오른쪽 여백 설정 */
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1); /* 테두리 색상 설정 */
+	right: 5px; /* 오른쪽 여백 설정 */
 }
 
 .month {
 	/*overflow: hidden;*/ /* 오버플로우 숨김 설정 */
 	opacity: 0; /* 투명도 설정 */
-	padding-left: 10%; /* 왼쪽 여백 설정 */
+	padding-left: 0%; /* 왼쪽 여백 설정 */
+	margin-top: 30px;
+	width: 700px;
 }
 
 .month.new {
@@ -715,41 +765,30 @@ input {
 }
 
 .month.in.next {
-	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
-	/* 다음 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFadeMonth 0.4s ease-out;
-	/* 다음 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromTopFadeMonth 0.4s ease-out;
-	/* 다음 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.next {
-	-webkit-animation: moveToTopFadeMonth 0.4s ease-in;
-	/* 다음 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFadeMonth 0.4s ease-in;
-	/* 다음 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.in.prev {
-	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
-	/* 이전 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
-	/* 이전 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromBottomFadeMonth 0.4s ease-out;
-	/* 이전 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.prev {
-	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
-	/* 이전 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToBottomFadeMonth 0.4s ease-in;
-	/* 이전 달이 사라질 때의 애니메이션 설정 */
-	animation: moveToBottomFadeMonth 0.4s ease-in;
-	/* 이전 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
@@ -782,7 +821,7 @@ input {
 }
 
 .day-number {
-	font-size: 24px; /* 글꼴 크기 설정 */
+	font-size: 25px; /* 글꼴 크기 설정 */
 	letter-spacing: 1.5px; /* 글자 간격 설정 */
 	font-weight: normal; /* 글꼴 두껍기 설정 */
 }
@@ -791,7 +830,7 @@ input {
 	list-style: none; /* 목록 스타일 없앰 */
 	margin-top: 13px; /* 상단 여백 설정 */
 	text-align: center; /* 가운데 정렬 */
-	height: 12px; /* 높이 설정 */
+	height: 30px; /* 높이 설정 */
 	line-height: 6px; /* 줄 높이 설정 */
 	overflow: hidden; /* 오버플로우 숨김 설정 */
 }
@@ -837,18 +876,14 @@ input {
 }
 
 .details.in {
-	-webkit-animation: moveFromTopFade 0.5s ease both;
-	/* 상세정보가 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFade 0.5s ease both;
-	/* 상세정보가 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
 	animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
 }
 
 .details.out {
-	-webkit-animation: moveToTopFade 0.5s ease both;
-	/* 상세정보가 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFade 0.5s ease both;
-	/* 상세정보가 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
 }
 
@@ -861,8 +896,7 @@ input {
 	height: 0px; /* 높이 없음 */
 	border-style: solid; /* 테두리 스타일 설정 */
 	border-width: 0 5px 5px 5px; /* 테두리 너비 설정 */
-	border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
-	/* 테두리 색상 설정 */
+	border-color: transparent transparent rgba(164, 164, 164, 1) transparent; /* 테두리 색상 설정 */
 	transition: all 0.7s ease; /* 모든 속성에 대한 변화를 0.7초 동안 부드럽게 설정 */
 }
 
@@ -872,11 +906,17 @@ input {
 	overflow-y: auto; /* 세로 스크롤이 필요한 경우 스크롤 표시 */
 	overflow-x: hidden; /* 가로 스크롤은 숨김 */
 	border-radius: 14px; /* 테두리 반경 설정 */
+	/* 스크롤바 숨김 */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+}
+
+.content_box::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera */
 }
 
 .events.in {
-	-webkit-animation: fadeIn 0.3s ease both;
-	/* fade 효과를 통해 나타나는 애니메이션 설정 */
+	-webkit-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 	-moz-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 	animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 }
@@ -888,10 +928,8 @@ input {
 }
 
 .details.out .events {
-	-webkit-animation: fadeOutShrink 0.4s ease both;
-	/* fade 효과와 함께 사라지는 애니메이션 설정 */
-	-moz-animation: fadeOutShink 0.4s ease both;
-	/* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-webkit-animation: fadeOutShrink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-moz-animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
 	animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
 }
 
@@ -926,13 +964,11 @@ input {
 	display: inline-block; /* 인라인 블록 요소로 설정 */
 	padding: 0 0 0 7px; /* 내부 여백 설정 */
 }
-
 .event.dday {
-	position: absolute; /* 절대 위치 설정 */
-	top: 10px; /* 위쪽 여백 설정 */
-	right: 10px; /* 오른쪽 여백 설정 */
+    position: absolute; /* 절대 위치 설정 */
+    top: 10px; /* 위쪽 여백 설정 */
+    right: 10px; /* 오른쪽 여백 설정 */
 }
-
 .legend {
 	position: absolute;
 	bottom: 0;
@@ -1043,6 +1079,7 @@ input {
   }
 }
 
+
 /*화면에 나타나면서 서서히 나타나는 애니메이션*/
 @-webkit-keyframes fadeIn {
   from {
@@ -1067,4 +1104,6 @@ input {
     height: 0px;
   }
 }
+
+
 </style>

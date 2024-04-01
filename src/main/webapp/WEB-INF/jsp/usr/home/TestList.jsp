@@ -167,13 +167,13 @@ input {
 
 .box {
 	width: 1334px;
-	height: 862px;
+	height: 878px;
 	position: absolute;
 	left: 292px;
-	top: 35px;
+	top: 20px;
 	background-color: rgba(203, 203, 203, 0.5); /* Adjust the opacity here */
 	border-radius: 65px;
-	box-shadow: 5px 5px 30px 3px rgba(0, 0, 0, 0.25);
+	box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.25);
 }
 
 .box2 {
@@ -207,32 +207,32 @@ input {
 
 .list_box1 {
 	left: 22.5px; /* -37.5px + 60px */
-	top: 64.5px; /* 104.5px - 40px */
+	top: 79.5px; /* 64.5px + 15px */
 }
 
 .list_box2 {
 	left: 674.5px; /* 614.5px + 60px */
-	top: 64.5px; /* 104.5px - 40px */
+	top: 79.5px; /* 64.5px + 15px */
 }
 
 .list_box3 {
 	left: 22.5px; /* -37.5px + 60px */
-	top: 325.5px; /* 365.5px - 40px */
+	top: 340.5px; /* 325.5px + 15px */
 }
 
 .list_box4 {
 	left: 676.5px; /* 616.5px + 60px */
-	top: 325.5px; /* 365.5px - 40px */
+	top: 340.5px; /* 325.5px + 15px */
 }
 
 .list_box5 {
 	left: 33.5px; /* -26.5px + 60px */
-	top: 586.5px; /* 626.5px - 40px */
+	top: 601.5px; /* 586.5px + 15px */
 }
 
 .list_box6 {
 	left: 685.5px; /* 625.5px + 60px */
-	top: 586.5px; /* 626.5px - 40px */
+	top: 601.5px; /* 586.5px + 15px */
 }
 
 .content_box {
@@ -243,7 +243,7 @@ input {
 	font-size: 18px;
 	text-align: center;
 	color: #5e5e5e;
-	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 	left: 63%;
 	top: 59%;
 	transform: translate(-50%, -50%);
@@ -266,6 +266,7 @@ input {
 	left: 5%;
 	top: 31%;
 	border-radius: 20px;
+	box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.25);
 }
 
 .imege_box1 {
