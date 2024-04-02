@@ -90,7 +90,7 @@ body {
 }
 
 .join_btn {
-	margin-top: -14.5%;
+	margin-top: -16.5%;
 	margin-left: 78%;
 	font-size: 16px;
 }

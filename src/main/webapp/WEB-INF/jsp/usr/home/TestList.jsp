@@ -68,13 +68,13 @@
         </div>
     </div>
     <div class="list_box7">
-    <div class="imege_box imege_box6"></div>
+    <div class="imege_box imege_box7"></div>
         <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
         </div>
     </div>
     <div class="list_box8">
-    <div class="imege_box imege_box6"></div>
+    <div class="imege_box imege_box8"></div>
         <div class="content_box">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
         	</div>
@@ -335,14 +335,14 @@ input {
 
 .imege_box7 {
 
-	background: url('https://blog.kakaocdn.net/dn/bjobPW/btsGbS8Zsqs/REImSzTlkU4Lw1CCtn3HqK/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/qluwt/btsFh8lahwh/9cYfkaoq0qbiBKndfM5Ock/img.jpg') no-repeat;
     background-size: cover;
     
 }
 
 .imege_box8 {
 
-	background: url('https://blog.kakaocdn.net/dn/bjobPW/btsGbS8Zsqs/REImSzTlkU4Lw1CCtn3HqK/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/Ycijv/btsFiqFTigO/ZK7eOkFUMMGQle9ixHdArK/img.jpg') no-repeat;
     background-size: cover;
     
 }
