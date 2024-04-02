@@ -18,16 +18,16 @@
 <div class="member_join">
 <form action="../home/TestLogin" method="post">회원가입
 	<div class="join_box">
-    <input type="text" autocomplete="off" placeholder="아이디" class="box member_id"><div></div>
-    <input type="text" autocomplete="off" placeholder="비밀번호" class="box member_password"><div></div>
-    <input type="text" autocomplete="off" placeholder="비밀번호 확인" class="box member_password_1"><div></div>
-    <input type="text" autocomplete="off" placeholder="별명" class="box member_nikname"><div></div>
-    <input type="text" autocomplete="off" placeholder="이름" class="box member_name"><div></div>
-    <input type="text" autocomplete="off" placeholder="생년월일" class="box member_birth"><div></div>
-    <input type="text" autocomplete="off" placeholder="핸드폰 번호" class="box member_phoneNumber"><div></div>
-    <input type="text" autocomplete="off" placeholder="이메일" class="box member_email"><div></div>
+    <input class="box member_id" type="text" autocomplete="off" placeholder="아이디"><div></div>
+    <input class="box member_password" type="text" autocomplete="off" placeholder="비밀번호"><div></div>
+    <input class="box member_password_1" type="text" autocomplete="off" placeholder="비밀번호 확인"><div></div>
+    <input class="box member_nikname" type="text" autocomplete="off" placeholder="별명"><div></div>
+    <input class="box member_name" type="text" autocomplete="off" placeholder="이름"><div></div>
+    <input class="box member_birth" type="text" autocomplete="off" placeholder="생년월일"><div></div>
+    <input class="box member_phoneNumber" type="text" autocomplete="off" placeholder="핸드폰 번호"><div></div>
+    <input class="box member_email" type="text" autocomplete="off" placeholder="이메일"><div></div>
     </div>
-    <div class="modify_btn"><button class="btn btn-ghost">회원가입</button></div>
+    <button class="btn btn-ghost modify_btn">회원가입</button>
     </form>
   </div>
 
@@ -81,9 +81,6 @@ body {
 }
 .modify_btn {
   margin-top: 15px;
-  margin-left: 0;
-  font-size: 19px;
-  border-radius: 15px;
 }
 
 .member_join {
@@ -94,6 +91,8 @@ body {
 .box {
   margin-top: 30px;
   margin-left: 0;
+  padding-top: 7px;
+  padding-left:20px;
   background: rgba(226, 226, 226, 1);
   width: 350px;
   height: 47px;

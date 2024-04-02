@@ -21,12 +21,12 @@
 		<input class="box2" type="text" autocomplete="off" placeholder="아이디">
 		<input class="box2" type="text" autocomplete="off" placeholder="비밀번호">
 	</div>
-	<div>
-  <a href="../home/TestJoin">
-  <button class="btn btn-ghost">회원가입 하러 가기</button>
-  </a>
-  <button class="btn btn-ghost">확인</button>
+
+  <button class="btn btn-ghost login_btn">확인</button>
   </form>
+  <a href="../home/TestJoin">
+  <button class="join_btn">회원가입</button>
+  </a>
   </div>
 
 <style type="text/css">
@@ -83,8 +83,24 @@ body {
   font-size: 25px;
 }
 
+.login_btn {
+	width: 92px;
+	margin-top: 13%;
+	margin-left: 0%;
+}
+
+.join_btn {
+	margin-top: -14.5%;
+	margin-left: 78%;
+	font-size: 16px;
+}
+
+.join_btn:hover {
+    text-decoration: underline;
+  }
+
 .box2 {
-  margin-top: 50px;
+  margin-top: 45px;
   margin-left: 0;
   padding-left: 20px;
   background: rgba(226, 226, 226, 1);
