@@ -10,10 +10,10 @@
 <!doctype html>
 
 <div class="top_bar">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 	<a href="../home/TestMain">
 		<button class="btn top_btn btn-ghost">💖</button>
 	</a>
+	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 
 <div class="member_join">

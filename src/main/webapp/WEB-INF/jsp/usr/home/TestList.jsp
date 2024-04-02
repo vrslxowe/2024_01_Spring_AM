@@ -9,7 +9,7 @@
 
 <!doctype html>
 
-<div class="top_bar left">
+<div class="top_bar top_bar_left">
 	<a href="../home/TestMain">
 		<button class="btn top_btn btn-ghost">💖</button>
 	</a>
@@ -67,7 +67,19 @@
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
         </div>
     </div>
-</div>
+    <div class="list_box7">
+    <div class="imege_box imege_box6"></div>
+        <div class="content_box">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
+        </div>
+    </div>
+    <div class="list_box8">
+    <div class="imege_box imege_box6"></div>
+        <div class="content_box">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean commodo ligula eget dolor.
+        	</div>
+    	</div>
+	</div>
 </div>
 
 <style type="text/css">
@@ -131,11 +143,6 @@ body {
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
-.left {
-	margin-right: 95%;
-	justify-content: flex-start;
-}
-
 .search_box {
 	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
 	font-size: 17px;
@@ -174,6 +181,10 @@ input {
 	background-color: rgba(203, 203, 203, 0.5); /* Adjust the opacity here */
 	border-radius: 65px;
 	box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.25);
+	overflow: auto;
+	/* 스크롤바 숨김 */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE 10+ */
 }
 
 .box2 {
@@ -183,11 +194,12 @@ input {
 }
 
 .box3 {
-	position: absolute;
-	width: 180px;
-	height: 32px;
-	left: 43%;
-	top: 16px;
+	position: fixed; /* 'box3' 고정 */
+	top: 20px; /* 박스 상단에 고정 */
+	left: 45.5%; /* 박스 왼쪽에 고정 */
+	width: 9%;
+	height: 7%;
+	z-index: 1;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 21px;
@@ -233,6 +245,16 @@ input {
 .list_box6 {
 	left: 685.5px; /* 625.5px + 60px */
 	top: 601.5px; /* 586.5px + 15px */
+}
+
+.list_box7 {
+  left: 33.5px; /* Same as list_box5 */
+  top: 862.5px; /* 847.5px + 15px */
+}
+
+.list_box8 {
+  left: 685.5px; /* Same as list_box6 */
+  top: 862.5px; /* 847.5px + 15px */
 }
 
 .content_box {
@@ -305,6 +327,20 @@ input {
 }
 
 .imege_box6 {
+
+	background: url('https://blog.kakaocdn.net/dn/bjobPW/btsGbS8Zsqs/REImSzTlkU4Lw1CCtn3HqK/img.jpg') no-repeat;
+    background-size: cover;
+    
+}
+
+.imege_box7 {
+
+	background: url('https://blog.kakaocdn.net/dn/bjobPW/btsGbS8Zsqs/REImSzTlkU4Lw1CCtn3HqK/img.jpg') no-repeat;
+    background-size: cover;
+    
+}
+
+.imege_box8 {
 
 	background: url('https://blog.kakaocdn.net/dn/bjobPW/btsGbS8Zsqs/REImSzTlkU4Lw1CCtn3HqK/img.jpg') no-repeat;
     background-size: cover;

@@ -9,13 +9,13 @@
 
 <!doctype html>
 
-<div class="top_bar left">
+<div class="top_bar top_bar_left">
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 	<a href="../home/TestMain">
 		<button class="btn top_btn btn-ghost">💖</button>
 	</a>
 </div>
-<div class="top_bar right">
+<div class="top_bar top_bar_right">
 	<a href="../home/TestDetail">
 	<button class="btn top_btn btn-ghost">등록</button>
 	</a>
@@ -74,6 +74,25 @@ body {
 	display: flex;
 }
 
+.top_bar_left {
+	margin-right: 89.5%; /* 왼쪽 여백 설정 */
+	justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.top_bar_right {
+	margin-left: 95%; /* 오른쪽 여백 설정 */
+	justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.top_btn {
+	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	margin-top: 15.5px; /* 위쪽 여백 설정 */
+	height: 30px; /* 높이 설정 */
+	margin-right: 20px; /* 오른쪽 여백 설정 */
+	display: inline-block; /* 인라인 블록 요소로 표시 */
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+}
+
 .btn-ghost {
 	font-family: "S-CoreDream-3Light";
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
@@ -83,15 +102,6 @@ body {
 	font-family: "S-CoreDream-3Light";
 	opacity: 0.6;
 	box-shadow: 7px 5px 6px 4px rgba(0, 0, 0, 0.25);
-}
-.left {
-	margin-right: 95%;
-	justify-content: flex-start;
-}
-
-.right {
-	margin-left: 95%;
-	justify-content: flex-end;
 }
 
 .box {

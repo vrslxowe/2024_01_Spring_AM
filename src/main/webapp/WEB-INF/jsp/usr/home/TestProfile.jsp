@@ -16,7 +16,6 @@
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 <div class="top_bar top_bar_right">
-	<button class="btn top_btn btn-ghost">검색🔍</button>
 	<a href="../home/TestSetting">
 	<button class="btn top_btn btn-ghost">설정⚙</button></a>
 </div>
@@ -85,7 +84,7 @@ body {
 }
 
 .top_bar_right {
-	margin-left: 89%; /* 오른쪽 여백 설정 */
+	margin-left: 93%; /* 오른쪽 여백 설정 */
 	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
@@ -96,6 +95,11 @@ body {
 	margin-right: 20px; /* 오른쪽 여백 설정 */
 	display: inline-block; /* 인라인 블록 요소로 표시 */
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+}
+
+.btn-ghost {
+	font-family: "S-CoreDream-3Light";
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .box {
@@ -142,12 +146,6 @@ body {
 	font-size: 19px;
 	border-radius: 15px;
 }
-
-.btn-ghost {
-	font-family: "S-CoreDream-3Light";
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
-}
-
 
 @font-face {
      font-family: 'S-CoreDream-3Light';

@@ -600,10 +600,11 @@
 </div>
 
 <div class="top_bar top_bar_right">
+	<a href="../home/TestList">
+		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
+	</a>
 	<a href="../home/TestWrite">
 		<button class="btn top_btn btn-ghost">글쓰기🖊</button>
-	</a> <a href="../home/TestList">
-		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
 	</a>
 </div>
 
