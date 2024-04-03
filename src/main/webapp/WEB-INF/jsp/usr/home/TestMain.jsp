@@ -686,6 +686,7 @@ body {
 	margin-left: 66%;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
+
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
 }

@@ -22,7 +22,7 @@
 </div>
 
 <div class="box box_1"></div>
-	<input class="box content_box" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content" />
+	<textarea class="box content_box scrollBar" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content"></textarea>
 	<input class="box title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
 	<input class="box date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
 	<input class="box address_box" autocomplete="off" type="text" placeholder="주소를 입력해주세요" name="address" />
@@ -123,7 +123,8 @@ body {
 	justify-content: space-between;
 }
 .content_box {
-  padding-left: 25px;
+  padding-left: 40px;
+  padding-top: 25px;
   width: 1050px;
   height: 497px;
   position: fixed;
@@ -131,7 +132,9 @@ body {
   top: 418px;
   box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
   z-index: 1;
+  resize: none;
 }
+
 .title_box,
 .address_box,
 .date_box {
@@ -183,6 +186,33 @@ body {
 	margin-left: 580px;
 	display: flex;
 	justify-content: space-between;
+}
+
+.scrollBar::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #606060; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+.scrollBar::-webkit-scrollbar-track {
+    background: transparent;  /*스크롤바 뒷 배경 색상*/
+}
+
+@-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+@-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    border-radius: 10px;
+}
+
+@-webkit-scrollbar-track {
+    background: transparent;
 }
 
 @font-face {
