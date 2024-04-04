@@ -30,6 +30,7 @@
 
 <div class="box">
 <button class="box3">3월 기록 ▽</button>
+<div class=box_header></div>
 <div class="list_box">
   <div class="list_box1">
   <div class="imege_box imege_box1"></div>
@@ -168,6 +169,7 @@ body {
     display: block;
     -webkit-animation-fill-mode: forwards; /* 애니메이션이 끝나고 마지막 프레임을 유지 */
 }
+
 input {
     background-color: transparent; /* 검색창 배경색 투명하게 설정 */
 }
@@ -199,13 +201,26 @@ input {
 	left: 45.5%; /* 박스 왼쪽에 고정 */
 	width: 9%;
 	height: 7%;
-	z-index: 1;
+	z-index: 2;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 21px;
 	line-height: 30px;
 	letter-spacing: 0.4em;
 	color: #5e5e5e;
+}
+
+.box_header {
+	width: 1334px;
+	height: 55px;
+	top: 20px; /* 박스 상단에 고정 */
+	background-color: rgba(203, 203, 203, 0.5);
+	z-index: 1;
+	position: fixed;
+	border-radius:65px 65px 0px 0px;
+	background: rgba( 255, 255, 255, 0 );
+	backdrop-filter: blur( 4.5px );
+	-webkit-backdrop-filter: blur( 4.5px );
 }
 
 .list_box > div {
@@ -335,14 +350,14 @@ input {
 
 .imege_box7 {
 
-	background: url('https://blog.kakaocdn.net/dn/qluwt/btsFh8lahwh/9cYfkaoq0qbiBKndfM5Ock/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/vnZZX/btsGjXCvvIV/KvsQI0Qphp3PHEwUbDA5p0/img.jpg') no-repeat;
     background-size: cover;
     
 }
 
 .imege_box8 {
 
-	background: url('https://blog.kakaocdn.net/dn/Ycijv/btsFiqFTigO/ZK7eOkFUMMGQle9ixHdArK/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/lEUt4/btsGjPq9Srn/oNsGWVGq9sLpoTjzESJbd1/img.jpg') no-repeat;
     background-size: cover;
     
 }
