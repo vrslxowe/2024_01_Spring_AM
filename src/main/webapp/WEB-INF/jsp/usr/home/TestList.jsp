@@ -7,6 +7,30 @@
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
 
+
+<script>
+  const box = document.getElementById('box');
+  const boxHeader = document.querySelector('.box_header');
+  const box3 = document.querySelector('.box3');
+  const contentBox = document.querySelector('.content');
+
+  box.addEventListener('scroll', function() {
+    const scrolled = box.scrollTop;
+    const scrollHeight = box.scrollHeight - box.clientHeight;
+    const distanceFromBottom = scrollHeight - scrolled;
+
+    // 스크롤이 맨 아래에 도달하면
+    if (distanceFromBottom === 0) {
+      boxHeader.style.top = '40px';
+      box3.style.top = '60px';
+    } else {
+      boxHeader.style.top = '20px';
+      box3.style.top = '20px';
+    }
+  });
+</script>
+
+
 <!doctype html>
 
 <div class="top_bar top_bar_left">
@@ -214,13 +238,13 @@ input {
 	width: 1334px;
 	height: 55px;
 	top: 20px; /* 박스 상단에 고정 */
-	background-color: rgba(203, 203, 203, 0.5);
+	background-color: rgba(203, 203, 203, 0);
 	z-index: 1;
 	position: fixed;
 	border-radius:65px 65px 0px 0px;
 	background: rgba( 255, 255, 255, 0 );
-	backdrop-filter: blur( 4.5px );
-	-webkit-backdrop-filter: blur( 4.5px );
+	backdrop-filter: blur( 5.5px );
+	-webkit-backdrop-filter: blur( 5.5px );
 }
 
 .list_box > div {
@@ -350,14 +374,14 @@ input {
 
 .imege_box7 {
 
-	background: url('https://blog.kakaocdn.net/dn/vnZZX/btsGjXCvvIV/KvsQI0Qphp3PHEwUbDA5p0/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/AMIBo/btsGj1dZoG2/ZfBN0SRVnfD04tzOvIuMN1/img.jpg') no-repeat;
     background-size: cover;
     
 }
 
 .imege_box8 {
 
-	background: url('https://blog.kakaocdn.net/dn/lEUt4/btsGjPq9Srn/oNsGWVGq9sLpoTjzESJbd1/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/bAVP0p/btsGkvMyCnv/EjX98DU2rCZB379rVQt611/img.jpg') no-repeat;
     background-size: cover;
     
 }
