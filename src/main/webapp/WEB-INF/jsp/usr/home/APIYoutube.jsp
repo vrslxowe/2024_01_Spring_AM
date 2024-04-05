@@ -2,16 +2,39 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="API Youtube"></c:set>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com">
 
 <%@ include file="../common/head.jspf"%>
 
 <button onclick="authenticateAndLoadClient()">인증 및 로드</button>
 <button onclick="execute()">실행</button>
-<div id="searchResults"></div>
-<div id="apiData"></div> <!-- New div to display API data -->
+<div id="searchResults">검색결과</div>
+<div id="errorMessage">에러</div>
+<div id="apiData">1</div> <!-- New div to display API data -->
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<a href="#" onclick="signOut();">Sign out</a>
 
-<script src="https://apis.google.com/js/api.js"></script>
 <script>
+
+function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+	
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
+
     // Google API 클라이언트 로드 및 인증
     function authenticateAndLoadClient() {
         authenticate().then(loadClient);
@@ -33,11 +56,11 @@
                   function(err) { console.error("YouTube API 클라이언트 로드 오류", err); });
     }
 
-    // YouTube 비디오 검색 실행
+ // YouTube 비디오 검색 실행
     function execute() {
         return gapi.client.youtube.search.list({
             "maxResults": 5,
-            "q": "치이카와",
+            "q": "nct wish",
             "type": ["video"]
         })
         .then(function(response) {
@@ -77,13 +100,25 @@
             }
         })
         .catch(function(err) {
+            // Handle API error
             console.error("실행 오류", err);
+            
+            // Update an element on the page with the error message
+            const errorElement = document.getElementById("errorMessage");
+            errorElement.textContent = "API 호출 중 오류가 발생했습니다: " + err.message;
         });
     }
-    
+
     // 클라이언트 및 인증 로드
     gapi.load("client:auth2", function() {
-        gapi.auth2.init({client_id: "1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com"});
+        gapi.auth2.init({client_id: "1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com"})
+        .then(function() {
+            // 클라이언트 및 인증이 로드되면 실행
+            execute();
+        })
+        .catch(function(err) {
+            console.error("클라이언트 및 인증 로드 오류", err);
+        });
     });
     
     // Fetch data from the API

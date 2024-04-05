@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS `Spring_AM_01`;
+CREATE DATABASE `Spring_AM_01`;
+USE `Spring_AM_01`;
+
 #Diary_Member 테이블 생성
 CREATE TABLE Diary_Member (
     user_id INT AUTO_INCREMENT NOT NULL,
