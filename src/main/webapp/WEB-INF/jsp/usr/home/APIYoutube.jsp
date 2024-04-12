@@ -9,84 +9,69 @@
 <%@ include file="../common/head.jspf"%>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+    <title>YouTube Video Search</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
 <body>
     <form name="form1" method="post" onsubmit="return false;">
-        <!-- 입력 폼과 버튼 -->
-        <input type="text" id="search_box">
-        <button onclick="fnGetList();">가져오기</button>
+        <input type="text" id="search_box"  autocomplete="off" placeholder="검색어를 입력하세요">
+        <button onclick="searchVideos();">가져오기</button>
     </form>
-    <div id="get_view"></div>
-    <div id="nav_view"></div>
+    <div id="search_results"></div>
+
+    <script>
+        function searchVideos() {
+            var query = $("#search_box").val().trim();
+            if (query === "") {
+                alert("검색어를 입력하세요.");
+                return;
+            }
+
+            var apiKey = "apiKey 넣기";
+            var maxResults = 10; // Number of search results to display
+            var searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + encodeURIComponent(query) + "&key=" + apiKey + "&maxResults=" + maxResults;
+
+            $.ajax({
+                type: "GET",
+                url: searchUrl,
+                dataType: "json",
+                success: function(response) {
+                    displaySearchResults(response.items);
+                },
+                error: function(xhr, textStatus, error) {
+                    console.error("Error fetching search results:", error);
+                }
+            });
+        }
+
+        function displaySearchResults(results) {
+            var searchResultsDiv = $("#search_results");
+            searchResultsDiv.empty();
+
+            if (results.length === 0) {
+                searchResultsDiv.append("<p>No results found.</p>");
+                return;
+            }
+
+            results.forEach(function(result) {
+                var videoId = result.id.videoId;
+                var title = result.snippet.title;
+                var thumbnailUrl = result.snippet.thumbnails.default.url;
+
+                var videoElement = $("<div class='search_result'>" + title + "'><p>" + title + "</p></div>");
+                videoElement.click(function() {
+                    watchVideo(videoId);
+                });
+
+                searchResultsDiv.append(videoElement);
+            });
+        }
+
+        function watchVideo(videoId) {
+            window.location.href = "https://www.youtube.com/watch?v=" + videoId;
+        }
+    </script>
 </body>
-
-
-<script>
-	function fnGetList(sGetToken) {
-		var $getval = $("#search_box").val();
-		if ($getval == "") {
-			alert("검색어를 입력하세요.");
-			$("#search_box").focus();
-			return;
-		}
-		$("#get_view").empty();
-		$("#nav_view").empty();
-		//https://developers.google.com/youtube/v3/docs/search/list
-		var order = "relevance";
-		var maxResults = "50";
-		var key = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
-		var sTargetUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&order="
-				+ order
-				+ "&q="
-				+ encodeURIComponent($getval)
-				+ "&key="
-				+ key
-				+ "&maxResults=" + maxResults;
-		console.log(sGetToken);
-		if (sGetToken != null) {
-			sTargetUrl += "&pageToken=" + sGetToken +"";
-}
-console.log(sTargetUrl);
-$.ajax({
-			type : "POST",
-			url : sTargetUrl,
-			dataType : "jsonp",
-			success : function(jdata) {
-				console.log(jdata);
-				$(jdata.items).each(
-						function(i) {
-							//console.log(this.snippet.channelId);
-							$("#get_view").append(
-									'<p class="box"><a href="https://youtu.be/'+this.id.videoId+'">'
-											+ '<span>' + this.snippet.title
-											+ '</span></a></p>');
-						}).promise().done(
-						function() {
-							if (jdata.prevPageToken) {
-								$("#nav_view").append(
-										'<a href="javascript:fnGetList(\''
-												+ jdata.prevPageToken
-												+ '\');"><이전페이지></a>');
-							}
-							if (jdata.nextPageToken) {
-								$("#nav_view").append(
-										'<a href="javascript:fnGetList(\''
-												+ jdata.nextPageToken
-												+ '\');"><다음페이지></a>');
-							}
-						});
-			},
-			error : function(xhr, textStatus) {
-				console.log(xhr.responseText);
-				alert("에러");
-				return;
-			}
-		});
-	}
-</script>
-
 
 
 
