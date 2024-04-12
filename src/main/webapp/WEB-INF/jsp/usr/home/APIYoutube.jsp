@@ -8,46 +8,96 @@
 
 <%@ include file="../common/head.jspf"%>
 
-<title>YouTube Channel Information</title>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <body>
-<div id="channelInfo"></div>
+    <form name="form1" method="post" onsubmit="return false;">
+        <!-- 입력 폼과 버튼 -->
+        <input type="text" id="search_box">
+        <button onclick="fnGetList();">가져오기</button>
+    </form>
+    <div id="get_view"></div>
+    <div id="nav_view"></div>
+</body>
+
 
 <script>
-// API 키
-const apiKey = 'AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE';
-
-// 채널 ID
-const channelId = 'barbelloper'; 
-
-// 채널 정보를 가져오는 URL
-const channelsUrl = 'https://www.googleapis.com/youtube/v3/channels?key=' + apiKey + '&id=' + channelId + '&part=snippet,contentDetails,statistics';
-
-// fetch를 사용하여 데이터를 가져오고 처리합니다.
-fetch(channelsUrl)
-  .then(res => res.json())
-  .then(data => {
-    if (data.items && data.items.length > 0) {
-      const channelInfoDiv = document.getElementById('channelInfo');
-      const snippet = data.items[0].snippet;
-      const statistics = data.items[0].statistics;
-
-      // 채널 정보를 표시합니다.
-      channelInfoDiv.innerHTML = `
-        <h1>${snippet.title}</h1>
-        <p>${snippet.description}</p>
-        <p>구독자 수: ${statistics.subscriberCount}</p>
-        <p>총 조회수: ${statistics.viewCount}</p>
-        <p>업로드된 동영상 수: ${statistics.videoCount}</p>
-      `;
-    } else {
-      console.error('API 응답에 유효한 데이터가 없습니다.');
-    }
-  })
-  .catch(error => {
-    console.error('API 요청에 실패했습니다:', error);
-  });
+	function fnGetList(sGetToken) {
+		var $getval = $("#search_box").val();
+		if ($getval == "") {
+			alert("검색어를 입력하세요.");
+			$("#search_box").focus();
+			return;
+		}
+		$("#get_view").empty();
+		$("#nav_view").empty();
+		//https://developers.google.com/youtube/v3/docs/search/list
+		var order = "relevance";
+		var maxResults = "50";
+		var key = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
+		var sTargetUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&order="
+				+ order
+				+ "&q="
+				+ encodeURIComponent($getval)
+				+ "&key="
+				+ key
+				+ "&maxResults=" + maxResults;
+		console.log(sGetToken);
+		if (sGetToken != null) {
+			sTargetUrl += "&pageToken=" + sGetToken +"";
+}
+console.log(sTargetUrl);
+$.ajax({
+			type : "POST",
+			url : sTargetUrl,
+			dataType : "jsonp",
+			success : function(jdata) {
+				console.log(jdata);
+				$(jdata.items).each(
+						function(i) {
+							//console.log(this.snippet.channelId);
+							$("#get_view").append(
+									'<p class="box"><a href="https://youtu.be/'+this.id.videoId+'">'
+											+ '<span>' + this.snippet.title
+											+ '</span></a></p>');
+						}).promise().done(
+						function() {
+							if (jdata.prevPageToken) {
+								$("#nav_view").append(
+										'<a href="javascript:fnGetList(\''
+												+ jdata.prevPageToken
+												+ '\');"><이전페이지></a>');
+							}
+							if (jdata.nextPageToken) {
+								$("#nav_view").append(
+										'<a href="javascript:fnGetList(\''
+												+ jdata.nextPageToken
+												+ '\');"><다음페이지></a>');
+							}
+						});
+			},
+			error : function(xhr, textStatus) {
+				console.log(xhr.responseText);
+				alert("에러");
+				return;
+			}
+		});
+	}
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
