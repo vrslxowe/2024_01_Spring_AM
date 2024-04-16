@@ -6,6 +6,89 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
+<meta name="google-signin-client_id" content="1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com">
+
+<div class="search-container">
+    <form name="form1" method="post" onsubmit="return false;">
+        <input type="text" id="search_box" autocomplete="off" placeholder="검색어를 입력하세요">
+        <button id="search_button" onclick="searchVideos();">검색</button>
+    </form>
+</div>
+<div id="search_results" class="search-results"></div>
+
+
+<script>
+function toggleSearchBox() {
+    var searchBox = $("#search_box");
+    var searchButton = $("#search_button");
+
+    if (searchBox.css("display") === "none") {
+        searchBox.css("display", "inline-block");
+        searchButton.css("display", "inline-block");
+    } else {
+        searchBox.css("display", "none");
+        searchButton.css("display", "none");
+    }
+}
+
+function searchVideos() {
+    var query = $("#search_box").val().trim();
+    if (query === "") {
+        alert("검색어를 입력하세요.");
+        return;
+    }
+
+    var apiKey = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
+    var maxResults = 10; // Number of search results to display
+    var searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + encodeURIComponent(query) + "&key=" + apiKey + "&maxResults=" + maxResults;
+
+    $.ajax({
+        type: "GET",
+        url: searchUrl,
+        dataType: "json",
+        success: function(response) {
+            displaySearchResults(response.items);
+        },
+        error: function(xhr, textStatus, error) {
+            console.error("Error fetching search results:", error);
+        }
+    });
+}
+
+function displaySearchResults(results) {
+    var searchResultsDiv = $("#search_results");
+    searchResultsDiv.empty();
+
+    if (results.length === 0) {
+        searchResultsDiv.append("<p>No results found.</p>");
+        return;
+    }
+
+    results.forEach(function(result) {
+        var videoId = result.id.videoId;
+        var title = result.snippet.title;
+        var thumbnailUrl = result.snippet.thumbnails.default.url;
+
+        var videoElement = $("<div class='search-result'>" + title + "'></div>");
+        videoElement.click(function() {
+            watchVideo(videoId);
+        });
+
+        searchResultsDiv.append(videoElement);
+    });
+
+    // Scroll to the bottom of the search results div
+    searchResultsDiv.animate({ scrollTop: searchResultsDiv.prop("scrollHeight") }, 400);
+}
+
+function watchVideo(videoId) {
+    window.location.href = "https://www.youtube.com/watch?v=" + videoId;
+}
+</script>
 
 <!doctype html>
 
@@ -36,7 +119,7 @@
 		<div class="box_4">
 			<button class="btn btn-circle">날씨</button>
 			<button class="btn btn-circle">감정</button>
-			<button class="btn btn-circle">음악</button>
+			<button class="btn btn-circle" onclick="toggleSearchBox()">음악</button>
 		</div>
 	</div>
 </div>
@@ -102,6 +185,38 @@ body {
 	font-family: "S-CoreDream-3Light";
 	opacity: 0.6;
 	box-shadow: 7px 5px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-container {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 2; /* Ensure the search box and button are above other elements */
+}
+
+#search_box {
+	border: 1px solid black;
+	border-radius: 6px;
+}
+
+.search-results {
+	position: fixed;
+    bottom: 20px; /* 아래 여백 조절 */
+    right: calc(50% + 160px); /* 음악 버튼의 가로 길이 + 여백만큼 오른쪽에 위치 */
+    max-height: 150px;
+    max-width: 250px;
+    background-color: skyblue;
+    font-size: 14px;
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    z-index: 2; /* 다른 요소 위에 표시하기 위한 z-index 값 설정 */
+}
+
+.search-result:hover {
+	background-color: #f0f0f0;
 }
 
 .box {
