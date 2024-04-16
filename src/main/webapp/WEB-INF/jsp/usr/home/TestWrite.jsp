@@ -198,6 +198,7 @@ body {
 #search_box {
 	border: 1px solid black;
 	border-radius: 6px;
+	background-color: #F1F1F1;
 }
 
 .search-results {
@@ -207,9 +208,9 @@ body {
     right: 19.5%;
     max-height: 150px;
     max-width: 250px;
-    background-color: #e2e2e2;
+    background-color: #F1F1F1;
     opacity: 0.8;
-    border-radius: 10px;
+    border-radius: 13px;
     font-size: 14px;
     white-space: nowrap; /* Prevent text wrapping */
     text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
