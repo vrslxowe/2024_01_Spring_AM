@@ -86,8 +86,9 @@ function displaySearchResults(results) {
 }
 
 function watchVideo(videoId) {
-    window.location.href = "https://www.youtube.com/watch?v=" + videoId;
+    window.open("https://www.youtube.com/watch?v=" + videoId, "_blank");
 }
+
 </script>
 
 <!doctype html>
@@ -189,8 +190,8 @@ body {
 
 .search-container {
     position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    left: 68%;
+	top: 115px;
     z-index: 2; /* Ensure the search box and button are above other elements */
 }
 
@@ -201,11 +202,14 @@ body {
 
 .search-results {
 	position: fixed;
+	top: 150px;
     bottom: 20px; /* 아래 여백 조절 */
-    right: calc(50% + 160px); /* 음악 버튼의 가로 길이 + 여백만큼 오른쪽에 위치 */
+    right: 19.5%;
     max-height: 150px;
     max-width: 250px;
-    background-color: skyblue;
+    background-color: #e2e2e2;
+    opacity: 0.8;
+    border-radius: 10px;
     font-size: 14px;
     white-space: nowrap; /* Prevent text wrapping */
     text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
@@ -216,7 +220,8 @@ body {
 }
 
 .search-result:hover {
-	background-color: #f0f0f0;
+	background-color: gray;
+	color: white;
 }
 
 .box {
