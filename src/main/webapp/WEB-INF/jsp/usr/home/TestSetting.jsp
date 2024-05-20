@@ -6,6 +6,8 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
+<c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <!doctype html>
 
@@ -15,6 +17,8 @@
 	</a>
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
+
+
 
 <div class="member_join">
 	설정

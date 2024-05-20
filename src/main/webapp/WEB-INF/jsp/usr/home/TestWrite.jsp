@@ -11,6 +11,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
 <meta name="google-signin-client_id" content="1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com">
+<c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
+<c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <div class="search-container">
     <form name="form1" method="post" onsubmit="return false;">
@@ -100,6 +102,9 @@ function watchVideo(videoId) {
 	</a>
 </div>
 <div class="top_bar top_bar_right">
+<c:if test="${rq.isLogined() }">
+<button class="">${loggedInMemberName}님</button>
+</c:if>
 	<a href="../home/TestDetail">
 	<button class="btn top_btn btn-ghost">등록</button>
 	</a>

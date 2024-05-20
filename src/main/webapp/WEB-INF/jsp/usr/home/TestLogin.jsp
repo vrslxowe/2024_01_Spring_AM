@@ -16,17 +16,16 @@
   </div>
 
 <div class="login">
-<form action="../home/TestMain" method="post">로그인
+<form action="../member/doLogin" method="POST">로그인
+<input type="hidden" name="afterLoginUri" value="${param.afterLoginUri }"/>
 	<div>
-		<input class="box2" type="text" autocomplete="off" placeholder="아이디">
-		<input class="box2" type="text" autocomplete="off" placeholder="비밀번호">
+		<input class="box2" type="text" autocomplete="off" placeholder="아이디"  name="loginId">
+		<input class="box2" type="text" autocomplete="off" placeholder="비밀번호" name="loginPw">
 	</div>
-
-  <button class="btn btn-ghost login_btn">확인</button>
+  <input class="btn btn-ghost login_btn" type="submit" value="로그인" />
   </form>
-  <a href="../home/TestJoin">
-  <button class="join_btn">회원가입</button>
-  </a>
+  
+  <a href="../home/TestJoin" class="join_btn">회원가입</a>
   </div>
 
 <style type="text/css">
@@ -90,8 +89,9 @@ body {
 }
 
 .join_btn {
-	margin-top: -16.5%;
-	margin-left: 78%;
+position: relative;
+	top: -53px;
+	left: 36%;
 	font-size: 16px;
 }
 
