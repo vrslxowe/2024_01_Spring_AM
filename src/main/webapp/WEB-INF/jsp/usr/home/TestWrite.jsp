@@ -15,10 +15,10 @@
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <div class="search-container">
-    <form name="form1" method="post" onsubmit="return false;">
-        <input type="text" id="search_box" autocomplete="off" placeholder="검색어를 입력하세요">
-        <button id="search_button" onclick="searchVideos();">검색</button>
-    </form>
+	<form name="form1" method="post" onsubmit="return false;">
+		<input type="text" id="search_box" autocomplete="off" placeholder="검색어를 입력하세요">
+		<button id="search_button" onclick="searchVideos();">검색</button>
+	</form>
 </div>
 <div id="search_results" class="search-results"></div>
 
@@ -45,7 +45,7 @@ function searchVideos() {
     }
 
     var apiKey = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
-    var maxResults = 10; // Number of search results to display
+    var maxResults = 10;
     var searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + encodeURIComponent(query) + "&key=" + apiKey + "&maxResults=" + maxResults;
 
     $.ajax({
@@ -93,6 +93,48 @@ function watchVideo(videoId) {
 
 </script>
 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            var addr = data.userSelectedType === 'R' ? data.roadAddress : data.jibunAddress;
+            var addressInput = document.getElementById("sample6_address");
+
+            if (addressInput) {
+                addressInput.value = addr;
+                addressInput.focus();
+            } else {
+                console.error("sample6_address element not found");
+            }
+        }
+    }).open();
+}
+
+function handleFileSelect(event) {
+    var files = event.target.files;
+    var preview = document.getElementById('photo_preview');
+    preview.innerHTML = ''; // Clear any existing previews
+
+    for (var i = 0, f; f = files[i]; i++) {
+        if (!f.type.match('image.*')) {
+            continue;
+        }
+
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+            return function(e) {
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                  '" title="', escape(theFile.name), '"/>'].join('');
+                preview.insertBefore(span, null);
+            };
+        })(f);
+        reader.readAsDataURL(f);
+    }
+}
+</script>
+
 <!doctype html>
 
 <div class="top_bar top_bar_left">
@@ -102,26 +144,26 @@ function watchVideo(videoId) {
 	</a>
 </div>
 <div class="top_bar top_bar_right">
-<c:if test="${rq.isLogined() }">
-<button class="">${loggedInMemberName}님</button>
-</c:if>
 	<a href="../home/TestDetail">
-	<button class="btn top_btn btn-ghost">등록</button>
+		<button class="btn top_btn btn-ghost">등록</button>
 	</a>
 </div>
 
+
 <div class="box box_1"></div>
-	<textarea class="box content_box scrollBar" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content"></textarea>
-	<input class="box title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
-	<input class="box date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
-	<input class="box address_box" autocomplete="off" type="text" placeholder="주소를 입력해주세요" name="address" />
+<textarea class="box content_box scrollBar" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="content"></textarea>
+<div id="photo_preview" style="z-index:8;"></div>
+<input class="box title_box" autocomplete="off" type="text" placeholder="제목을 입력해주세요" name="title" />
+<input class="box date_box" autocomplete="off" type="text" placeholder="날짜를 입력해주세요" name="date" />
+<input class="box address_box" autocomplete="off" type="text" id="sample6_address" placeholder="주소를 입력해주세요" name="address" />
 
 <div class="box_1">
 	<div class="box_3">
 		<button class="btn btn-circle">글꼴</button>
-		<button class="btn btn-circle">사진</button>
+		<input class="btn btn-circle" type="file" id="photo_input" name="photos" multiple accept="image/*" onchange="handleFileSelect(event)" value="사진">
 		<button class="btn btn-circle">링크</button>
-		<button class="btn btn-circle">지도</button>
+		<input class="btn btn-circle" type="button" onclick="sample6_execDaumPostcode()" value="지도">
+		<br>
 		<div class="box_4">
 			<button class="btn btn-circle">날씨</button>
 			<button class="btn btn-circle">감정</button>
@@ -164,22 +206,22 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 89.5%; /* 왼쪽 여백 설정 */
-	justify-content: flex-start; /* 왼쪽 정렬 */
+	margin-right: 89.5%;
+	justify-content: flex-start;
 }
 
 .top_bar_right {
-	margin-left: 95%; /* 오른쪽 여백 설정 */
-	justify-content: flex-end; /* 오른쪽 정렬 */
+	margin-left: 95%;
+	justify-content: flex-end;
 }
 
 .top_btn {
-	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
-	margin-top: 15.5px; /* 위쪽 여백 설정 */
-	height: 30px; /* 높이 설정 */
-	margin-right: 20px; /* 오른쪽 여백 설정 */
-	display: inline-block; /* 인라인 블록 요소로 표시 */
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+	font-family: "S-CoreDream-3Light";
+	margin-top: 15.5px;
+	height: 30px;
+	margin-right: 20px;
+	display: inline-block;
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .btn-ghost {
@@ -194,10 +236,10 @@ body {
 }
 
 .search-container {
-    position: fixed;
-    left: 68%;
+	position: fixed;
+	left: 68%;
 	top: 115px;
-    z-index: 2; /* Ensure the search box and button are above other elements */
+	z-index: 2;
 }
 
 #search_box {
@@ -209,20 +251,20 @@ body {
 .search-results {
 	position: fixed;
 	top: 150px;
-    bottom: 20px; /* 아래 여백 조절 */
-    right: 19.5%;
-    max-height: 150px;
-    max-width: 250px;
-    background-color: #F1F1F1;
-    opacity: 0.8;
-    border-radius: 13px;
-    font-size: 14px;
-    white-space: nowrap; /* Prevent text wrapping */
-    text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    z-index: 2; /* 다른 요소 위에 표시하기 위한 z-index 값 설정 */
+	bottom: 20px;
+	right: 19.5%;
+	max-height: 150px;
+	max-width: 250px;
+	background-color: #F1F1F1;
+	opacity: 0.8;
+	border-radius: 13px;
+	font-size: 14px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	z-index: 2;
 }
 
 .search-result:hover {
@@ -248,34 +290,32 @@ body {
 	display: flex;
 	justify-content: space-between;
 }
+
 .content_box {
-  padding-left: 40px;
-  padding-top: 25px;
-  width: 1050px;
-  height: 497px;
-  position: fixed;
-  left: 424px;
-  top: 418px;
-  box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
-  z-index: 1;
-  resize: none;
+	padding-left: 40px;
+	padding-top: 25px;
+	width: 1050px;
+	height: 497px;
+	position: fixed;
+	left: 424px;
+	top: 418px;
+	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+	z-index: 1;
+	resize: none;
 }
 
-.title_box,
-.address_box,
-.date_box {
-  padding-top: 8px;
-  padding-left: 25px;
-  opacity: 0.5;
-  border-radius: 35px;
-  height: 47px;
-  background: #e2e2e2;
-  box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
-  z-index: 1;
+.title_box, .address_box, .date_box {
+	padding-top: 8px;
+	padding-left: 25px;
+	opacity: 0.5;
+	border-radius: 35px;
+	height: 47px;
+	background: #e2e2e2;
+	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+	z-index: 1;
 }
 
-.title_box,
-.date_box {
+.title_box, .date_box {
 	margin-top: 255px;
 	width: 450px;
 }
@@ -284,10 +324,18 @@ body {
 	margin-right: 32%;
 }
 
+ .thumb {
+        max-width: 200px;
+        max-height: 200px;
+        width: auto;
+        height: auto;
+    }
+
 .address_box {
 	margin-top: 185px;
 	width: 329px;
 	margin-right: 38.3%;
+	z-index: 7;
 }
 
 .date_box {
@@ -349,4 +397,5 @@ body {
 	font-weight: normal;
 	font-style: normal;
 }
+
 </style>
