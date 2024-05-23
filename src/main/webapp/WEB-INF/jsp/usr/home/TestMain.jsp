@@ -592,9 +592,14 @@
 <!doctype html>
 
 <div class="top_bar top_bar_left">
+<c:if test="${!rq.isLogined() }">
 	<a href="../home/TestLogin">
 		<button class="btn top_btn btn-ghost">🧝‍♀️</button>
 	</a>
+	</c:if>
+	<c:if test="${rq.isLogined() }">
+		<a class="btn top_btn btn-ghost" onclick="if(confirm('로그아웃 하시겠어요?') == false) return false;" href="../member/doLogout">로그아웃</a>
+	</c:if>
 	<a href="../home/TestProfile">
 		<button class="btn top_btn btn-ghost">내 정보😀</button>
 	</a>
@@ -602,7 +607,7 @@
 
 <div class="top_bar top_bar_right">
 <c:if test="${rq.isLogined() }">
-<button class="">${loggedInMemberName}님</button>
+<button class="top_bar_nickname">${loggedInMemberName}&nbsp님</button>
 </c:if>
 	<a href="../home/TestList">
 		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
@@ -659,7 +664,7 @@ body {
 }
 
 .top_bar_right {
-	margin-left: 89%; /* 오른쪽 여백 설정 */
+	margin-left: 84%; /* 오른쪽 여백 설정 */
 	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
@@ -670,6 +675,31 @@ body {
 	margin-right: 20px; /* 오른쪽 여백 설정 */
 	display: inline-block; /* 인라인 블록 요소로 표시 */
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+}
+
+.top_bar_nickname {
+	position: relative;
+	font-family: "S-CoreDream-3Light";
+	top: 27px;
+	right: 10px;
+	height: 30px;
+	width: 100px;
+}
+.top_bar_nickname::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;  /* 기본적으로 밑줄을 숨깁니다 */
+	height: 1px;
+	background: #828282;
+	bottom: 2.5px;
+	left: 50%;
+	transition: width 0.2s ease, left 0.2s ease;  /* 애니메이션 추가 */
+}
+
+.top_bar_nickname:hover::after {
+	width: 70%;  /* 밑줄 길이 조절 */
+	left: 16%;   /* 밑줄을 가운데로 정렬 */
 }
 
 .btn_list {

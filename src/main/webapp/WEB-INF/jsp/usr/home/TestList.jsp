@@ -41,9 +41,6 @@
 </div>
 
 <div class="top_bar top_bar_right">
-<c:if test="${rq.isLogined() }">
-<button class="">${loggedInMemberName}님</button>
-</c:if>
 	<div class="search_box">
 		<form onsubmit="submitSearch(event)">
 			<input type="text" placeholder="검색어를 입력하세요" name="search_query" autocomplete='off'>

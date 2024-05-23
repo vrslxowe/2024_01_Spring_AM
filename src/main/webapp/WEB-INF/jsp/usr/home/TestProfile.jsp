@@ -18,9 +18,6 @@
 	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 <div class="top_bar top_bar_right">
-<c:if test="${rq.isLogined() }">
-<button class="">${loggedInMemberName}님</button>
-</c:if>
 	<a href="../home/TestSetting">
 	<button class="btn top_btn btn-ghost">설정⚙</button></a>
 </div>
@@ -31,12 +28,34 @@
 	<div class="profile">
 		<button class="btn btn-ghost">프로필 사진📷</button>
 	</div>
-	<input class="box2" type="text" autocomplete="off" placeholder="아이디">
-	<input class="box2" type="text" autocomplete="off" placeholder="별명">
-	<input class="box2" type="text" autocomplete="off" placeholder="이름">
-	<input class="box2" type="text" autocomplete="off" placeholder="생년월일">
-	<input class="box2" type="text" autocomplete="off" placeholder="전화번호">
-	<input class="box2" type="text" autocomplete="off" placeholder="이메일">
+	
+<div class="box2">
+	<div class="info1">이름</div>
+	<div class="info2">${rq.loginedMember.name }</div>
+</div>
+
+<div class="box2">
+	<div class="info1">아이디</div>
+	<div class="info2">${rq.loginedMember.loginId }</div>
+</div>
+
+<div class="box3">
+	<div class="info3">비밀번호</div>
+	<button class="info2 pw_btn">
+		<a href="../member/checkPw">변경하기</a>
+	</button>
+</div>
+
+<div class="box2">
+	<div class="info1">핸드폰 번호</div>
+	<div class="info2">${rq.loginedMember.cellphoneNum }</div>
+</div>
+
+<div class="box2">
+	<div class="info1">이메일</div>
+	<div class="info2">${rq.loginedMember.email }</div>
+	</div>
+	
 	<div class="modify_btn">
 		<button class="btn btn-ghost">정보 수정</button>
 	</div>
@@ -116,19 +135,18 @@ body {
 	overflow: hidden;
 	backdrop-filter: blur(0px);
 	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
-	border-top-left-radius: 55px;
-	border-top-right-radius: 55px;
-	border-bottom-left-radius: 55px;
-	border-bottom-right-radius: 55px;
+	border-radius: 55px;
 	text-align: center;
 }
 
 .profile {
-	margin-top: 55px;
+	margin-top: 40px;
 	margin-bottom: 65px;
 }
 
 .box2 {
+	position: relative;
+	top: -10px;
 	background: #e2e2e2;
 	margin-top: 40px;
 	margin-left: 39.5%;
@@ -142,12 +160,48 @@ body {
 	font-size: 20px;
 	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
 }
+.box3 {
+	position: relative;
+	top: -10px;
+	background: #e2e2e2;
+	margin-top: 40px;
+	margin-left: 45%;
+	width: 130px;
+	height: 47px;
+	opacity: 0.5;
+	border-radius: 35px;
+	display: block;
+	padding-top: 5px;
+	padding-left: 20px;
+	font-size: 20px;
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.box3:hover {
+	box-shadow: 10px 5px 7px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.info1 {
+	position: relative;
+	left: -85%;
+}
+
+.info2 {
+	position: relative;
+	top: -55%;
+	left: -5%;
+}
+.info3 {
+	position: relative;
+	top: 10%;
+	left: -200%;
+}
 
 .modify_btn {
 	color: #5e5e5e;
 	padding-top: 14px;
-	margin-top: -45px;
-	margin-left: 85%;
+	margin-top: 20px;
+	margin-left: 0%;
 	font-size: 19px;
 	border-radius: 15px;
 }
