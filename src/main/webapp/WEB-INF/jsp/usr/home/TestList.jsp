@@ -41,7 +41,7 @@
         event.preventDefault();
         const query = document.querySelector('input[name="search_query"]').value;
         alert('검색어: ' + query);
-        // 실제 검색을 수행하는 코드 추가 예정
+        // 리스트에서 검색 수행하는 코드 추가 예정
     }
   </script>
 
@@ -420,14 +420,14 @@ input {
 
 .imege_box7 {
 
-	background: url('https://blog.kakaocdn.net/dn/AMIBo/btsGj1dZoG2/ZfBN0SRVnfD04tzOvIuMN1/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/cRw0Cm/btsHCbLx33T/eI5tnr3BEw4ngpVt8hs9w1/img.jpg') no-repeat;
     background-size: cover;
     
 }
 
 .imege_box8 {
 
-	background: url('https://blog.kakaocdn.net/dn/bAVP0p/btsGkvMyCnv/EjX98DU2rCZB379rVQt611/img.jpg') no-repeat;
+	background: url('https://blog.kakaocdn.net/dn/7neeP/btsHBnMNOw9/XhkVC2MyD3kb8Vt1qGbFAK/img.jpg') no-repeat;
     background-size: cover;
     
 }
