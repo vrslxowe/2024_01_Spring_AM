@@ -30,3 +30,6 @@
 ![회원가입](https://velog.velcdn.com/images/vrslxowe/post/22fd5696-7e16-4a69-b1f6-bed85daec121/image.png)
 ![프로필](https://velog.velcdn.com/images/vrslxowe/post/caca907d-eb56-4531-ad18-7cae35fe50ef/image.png)
 ![리스트](https://velog.velcdn.com/images/vrslxowe/post/521c828b-f096-42e0-a187-be2f682adecc/image.png)
+
+## 구글 API 가이드
+https://docs.google.com/document/d/1dDR9qL7Z-yemALelaiA1OnYmIZ2pVFwQa36RzveIIcc/edit?usp=sharing
