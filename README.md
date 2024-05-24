@@ -1,22 +1,22 @@
-## 달음(DalEum) - 달'과 '음악'의 합성어로, 다이어리와 음악을 기록하는 웹사이트
+## 달음(DalEum) 
 [산업구조변화대응 특화훈련] 공공데이터를 활용한 웹앱개발자 양성 과정 중 진행한 개인 프로젝트입니다.
 
 ## 프로젝트 소개
-일상 기록과 할 일 체크 및 원하는 음악 기록을 할 수 있는 웹사이트
-
+- 달'과 '음악'의 합성어로, 다이어리와 음악을 기록하는 웹사이트
+- 일상 기록과 할 일 체크 및 원하는 음악 기록을 할 수 있습니다
 ## 개발 기간
-2024.03.01(월) ~ 2024.05.24(금)
-주제 선정
-피그마 제작
-발표평가
+- 2024.03.01(월) ~ 2024.05.24(금)
+- 주제 선정
+- 피그마 제작
+- 발표평가
 
 ## 개발환경 및 사용 언어
-Version : Java 17
-IDE : Spring Tool Suite
-Framework : SpringBoot 3.1.9-SNAPSHOT
-ORM : MyBatis
-Server : Tomcat
-DataBase : MySQL, lucidchart
+- Version : Java 17
+- IDE : Spring Tool Suite
+- Framework : SpringBoot 3.1.9-SNAPSHOT
+- ORM : MyBatis
+- Server : Tomcat
+- DataBase : MySQL, lucidchart
 
 ## 주요 기능
 - 회원가입
