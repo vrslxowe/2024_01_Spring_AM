@@ -18,16 +18,15 @@
   </div>
 
 <div class="member_join">
-<form action="../home/TestLogin" method="post">회원가입
+<form action="../member/doJoin" method="post">회원가입
 	<div class="join_box">
-    <input class="box member_id" type="text" autocomplete="off" placeholder="아이디"><div></div>
-    <input class="box member_password" type="text" autocomplete="off" placeholder="비밀번호"><div></div>
+    <input class="box member_id" type="text" autocomplete="off" placeholder="아이디" name="loginId"><div></div>
+    <input class="box member_password" type="text" autocomplete="off" placeholder="비밀번호" name="loginPw"><div></div>
     <input class="box member_password_1" type="text" autocomplete="off" placeholder="비밀번호 확인"><div></div>
-    <input class="box member_nikname" type="text" autocomplete="off" placeholder="별명"><div></div>
-    <input class="box member_name" type="text" autocomplete="off" placeholder="이름"><div></div>
-    <input class="box member_birth" type="text" autocomplete="off" placeholder="생년월일"><div></div>
-    <input class="box member_phoneNumber" type="text" autocomplete="off" placeholder="핸드폰 번호"><div></div>
-    <input class="box member_email" type="text" autocomplete="off" placeholder="이메일"><div></div>
+    <input class="box member_nikname" type="text" autocomplete="off" placeholder="별명" name="nickname"><div></div>
+    <input class="box member_name" type="text" autocomplete="off" placeholder="이름" name="name"><div></div>
+    <input class="box member_phoneNumber" type="text" autocomplete="off" placeholder="전화번호" name="cellphoneNum"><div></div>
+    <input class="box member_email" type="text" autocomplete="off" placeholder="이메일" name="email"><div></div>
     </div>
     <button class="btn btn-ghost modify_btn">회원가입</button>
     </form>

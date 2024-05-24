@@ -127,19 +127,7 @@ public class UsrMemberController {
 
 		Member member = memberService.getMember(joinRd.getData1());
 
-		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "../member/login");
-	}
-
-	@RequestMapping("/usr/member/myPage")
-	public String showMyPage() {
-
-		return "usr/member/myPage";
-	}
-	
-	@RequestMapping("/usr/member/mySchedule")
-	public String mySchedule() {
-
-		return "usr/member/mySchedule";
+		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "../home/TestLogin");
 	}
 	
 	@RequestMapping("/usr/member/checkPw")
