@@ -41,7 +41,7 @@
         event.preventDefault();
         const query = document.querySelector('input[name="search_query"]').value;
         alert('검색어: ' + query);
-        // 실제 검색을 수행하는 코드를 여기에 추가하세요
+        // 실제 검색을 수행하는 코드 추가 예정
     }
   </script>
 

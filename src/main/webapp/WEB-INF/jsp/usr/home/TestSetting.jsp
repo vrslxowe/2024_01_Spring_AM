@@ -7,9 +7,6 @@
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
-<c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
-
 <!doctype html>
 
 <div class="top_bar">

@@ -12,8 +12,6 @@
 	crossorigin="anonymous"></script>
 <meta name="google-signin-client_id" content="1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
-<c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <div class="search-container">
 	<form name="form1" method="post" onsubmit="return false;">
@@ -125,7 +123,7 @@
             }
         });
 
-        // Prevent search results from hiding when clicking inside the search results div
+        // 검색 결과 div 내부를 클릭할 때 검색 결과가 숨겨지지 않도록 방지
         $("#search_results").click(function(event) {
             event.stopPropagation();
         });
@@ -153,7 +151,7 @@ function sample6_execDaumPostcode() {
 function handleFileSelect(event) {
     var files = event.target.files;
     var preview = document.getElementById('photo_preview');
-    preview.innerHTML = ''; // Clear any existing previews
+    preview.innerHTML = '';
 
     for (var i = 0, f; f = files[i]; i++) {
         if (!f.type.match('image.*')) {
@@ -173,8 +171,6 @@ function handleFileSelect(event) {
     }
 }
 </script>
-
-<!doctype html>
 
 <div class="top_bar top_bar_left">
 	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
