@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
 <meta name="google-signin-client_id" content="1072992421270-13sb2i51ts3ti3fda94gq55qnkjvv1a2.apps.googleusercontent.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
@@ -138,9 +139,9 @@ function handleFileSelect(event) {
 <!doctype html>
 
 <div class="top_bar top_bar_left">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
 	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+		<span class="material-symbols-outlined main_btn">home</span>
 	</a>
 </div>
 <div class="top_bar top_bar_right">
@@ -206,8 +207,24 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 89.5%;
-	justify-content: flex-start;
+	right: 97%; /* 왼쪽 여백 설정 */
+	justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: -20px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 25px;
 }
 
 .top_bar_right {

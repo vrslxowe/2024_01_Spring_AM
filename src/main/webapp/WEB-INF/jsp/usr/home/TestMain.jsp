@@ -6,6 +6,8 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 <script>
@@ -104,7 +106,7 @@
 			    if (searchQuery !== '') {
 			      // 실제 검색 로직은 여기에 들어갑니다. 예를 들어, 검색 결과를 가져오고 리스트 아이템으로 추가하는 코드를 작성합니다.
 			      // 여기에 가상의 검색 결과를 생성하여 리스트 아이템으로 추가하는 코드를 작성합니다
-			      var dummyData = ['검색 결과 1', '검색 결과 2', '검색 결과 3', '오시온', '박원빈', '마에다 리쿠', '토쿠노 유우시']; // 가상의 검색 결과 데이터
+			      var dummyData = ['검색 결과 1', '검색 결과 2', '검색 결과 3', '오늘']; // 가상의 검색 결과 데이터
 
 			      // 검색 결과를 순회하면서 리스트 아이템으로 추가
 			      dummyData.forEach(function(item) {
@@ -592,55 +594,56 @@
 <!doctype html>
 
 <div class="top_bar top_bar_left">
-<c:if test="${!rq.isLogined() }">
-	<a href="../home/TestLogin">
-		<button class="btn top_btn btn-ghost">🧝‍♀️</button>
+	<a href="../home/TestList">
+		<span class="material-symbols-outlined list_btn">format_list_bulleted</span>
 	</a>
-	</c:if>
-	<c:if test="${rq.isLogined() }">
-		<a class="btn top_btn btn-ghost" onclick="if(confirm('로그아웃 하시겠어요?') == false) return false;" href="../member/doLogout">로그아웃</a>
-	</c:if>
-	<a href="../home/TestProfile">
-		<button class="btn top_btn btn-ghost">내 정보😀</button>
+	<a href="../home/TestWrite">
+		<span class="material-symbols-outlined write_btn">edit_square</span>
 	</a>
 </div>
 
 <div class="top_bar top_bar_right">
-<c:if test="${rq.isLogined() }">
-<button class="top_bar_nickname">${loggedInMemberName}&nbsp님</button>
-</c:if>
-	<a href="../home/TestList">
-		<button class="btn top_btn btn-ghost btn_list">목록📄</button>
-	</a>
-	<a href="../home/TestWrite">
-		<button class="btn top_btn btn-ghost">글쓰기🖊</button>
-	</a>
+	<c:if test="${rq.isLogined() }">
+		<a href="../home/TestProfile">
+			<button class="top_bar_nickname">${loggedInMemberName}&nbsp님</button>
+		</a>
+	</c:if>
+	<c:if test="${!rq.isLogined() }">
+		<a href="../home/TestLogin">
+			<span class="material-symbols-outlined login_btn">login</span>
+		</a>
+	</c:if>
+	<c:if test="${rq.isLogined() }">
+		<span class="material-symbols-outlined logout_btn"
+			onclick="if(confirm('로그아웃 하시겠어요?')) { window.location.href='../member/doLogout'; }">logout</span>
+	</c:if>
 </div>
 
 <style type="text/css">
-
 body {
-	color: #5e5e5e; /* 본문 텍스트 색상 */
-	overflow: hidden; /* 스크롤 막기 */
-	font-family: "Exo 2", "S-CoreDream-3Light"; /* 글꼴 설정 */
-	font-weight: normal; /* 글꼴 두껍기 설정 */
-	margin: 0; /* 바깥 여백 설정 */
-	padding: 0; /* 안쪽 여백 설정 */
+	color: #5e5e5e;
+	overflow: hidden;
+	font-family: "Exo 2", "S-CoreDream-3Light";
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
 	-webkit-touch-callout: none; /* iOS 길게 누르면 메뉴 뜨는 것 막기 */
 	-webkit-user-select: none; /* 텍스트 선택 방지 */
 	-khtml-user-select: none; /* 텍스트 선택 방지 (KHTML 엔진) */
 	-moz-user-select: none; /* 텍스트 선택 방지 (Gecko 엔진) */
 	-ms-user-select: none; /* 텍스트 선택 방지 (마이크로소프트 엔진) */
 	user-select: none; /* 텍스트 선택 방지 */
-	width: 100%; /* 너비 100% 설정 */
-	height: 100%; /* 높이 100% 설정 */
-	min-height: 100vh; /* 최소 높이 100% 설정 */
-	position: relative; /* 상대 위치 설정 */
-	display: flex; /* Flexbox 사용 */
-	justify-content: center; /* 가로 중앙 정렬 */
-	align-items: center; /* 세로 중앙 정렬 */
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap; /* Flexbox 줄 바꿈 */
-	background-image: url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg"); /* 배경 이미지 설정 */
+	background-image:
+		url("https://blog.kakaocdn.net/dn/R9biv/btsFioNqNuy/EOMko5QGySmhKmVFJKwYa0/img.jpg");
+	/* 배경 이미지 설정 */
 	background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
 	background-position: center; /* 배경 이미지 가운데 정렬 */
 	background-size: cover; /* 배경 이미지를 컨테이너에 맞추어 표시 */
@@ -659,90 +662,111 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 89%; /* 왼쪽 여백 설정 */
+	right: 95.5%; /* 왼쪽 여백 설정 */
 	justify-content: flex-start; /* 왼쪽 정렬 */
-}
-
-.top_bar_right {
-	margin-left: 84%; /* 오른쪽 여백 설정 */
-	justify-content: flex-end; /* 오른쪽 정렬 */
-}
-
-.top_btn {
-	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
-	margin-top: 15.5px; /* 위쪽 여백 설정 */
-	height: 30px; /* 높이 설정 */
-	margin-right: 20px; /* 오른쪽 여백 설정 */
-	display: inline-block; /* 인라인 블록 요소로 표시 */
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
 .top_bar_nickname {
 	position: relative;
 	font-family: "S-CoreDream-3Light";
-	top: 27px;
-	right: 10px;
+	font-size: 16.5px;
+	top: 22.5px;
+	left: 60px;
 	height: 30px;
 	width: 100px;
 }
+
 .top_bar_nickname::after {
 	content: "";
 	display: block;
 	position: absolute;
-	width: 0;  /* 기본적으로 밑줄을 숨깁니다 */
+	width: 0; /* 기본적으로 밑줄을 숨깁니다 */
 	height: 1px;
 	background: #828282;
 	bottom: 2.5px;
 	left: 50%;
-	transition: width 0.2s ease, left 0.2s ease;  /* 애니메이션 추가 */
+	transition: width 0.2s ease, left 0.2s ease; /* 애니메이션 추가 */
 }
 
 .top_bar_nickname:hover::after {
-	width: 70%;  /* 밑줄 길이 조절 */
-	left: 16%;   /* 밑줄을 가운데로 정렬 */
+	width: 70%; /* 밑줄 길이 조절 */
+	left: 15%; /* 밑줄을 가운데로 정렬 */
 }
 
-.btn_list {
-	width : 78px;
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.login_btn, .logout_btn {
+	position: absolute;
+	top: 23px;
+	left: 160px;
+}
+
+.list_btn {
+	position: relative;
+	top: 23px;
+}
+
+.write_btn {
+	position: relative;
+	top: 23px;
+	left: 30px;
+}
+
+.top_bar_right {
+	left: 88%; /* 오른쪽 여백 설정 */
+	justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.top_btn {
+	font-family: "S-CoreDream-3Light";
+	margin-top: 15.5px;
+	height: 30px;
+	margin-right: 20px;
+	display: inline-block;
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 }
 
 .search_box {
-	font-family: "S-CoreDream-3Light"; /* 글꼴 설정 */
+	font-family: "S-CoreDream-3Light";
 	font-size: 17px;
 	width: 285px;
 	height: 35px;
 	border-radius: 35px;
 	display: flex;
-	position: relative; /* 상대 위치 설정 */
+	position: relative;
 	padding-top: 5px;
 	padding-left: 27px;
 	top: 40px;
 	margin-left: 66%;
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
+	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
 }
 
 input {
-    background-color: transparent; /* 검색창 배경색 투명하게 설정 */
+	background-color: transparent; /* 검색창 배경색 투명하게 설정 */
 }
+
 .search_btn {
-  position: absolute;
+	position: absolute;
 }
 
 #search_results {
-  list-style: none; /* 기본 목록 마커 제거 */
-  padding: 0;
-  margin-top: 70px;
-  margin-left: -100%;
+	list-style: none; /* 기본 목록 마커 제거 */
+	padding: 0;
+	margin-top: 70px;
+	margin-left: -100%;
 }
 
 #search_results li {
-  padding: 18px; /* 각 결과 항목의 간격 조정 */
-  width: 380px;
-  border-bottom: 1px solid #ccc; /* 각 결과 항목의 아래에 구분선 추가 */
+	padding: 18px; /* 각 결과 항목의 간격 조정 */
+	width: 380px;
+	border-bottom: 1px solid #ccc; /* 각 결과 항목의 아래에 구분선 추가 */
 }
 
 #search_results li:last-child {
-  border-bottom: none; /* 마지막 결과 항목의 아래 구분선 제거 */
+	border-bottom: none; /* 마지막 결과 항목의 아래 구분선 제거 */
 }
 
 #calendar {
@@ -789,13 +813,15 @@ input {
 
 .left {
 	border-width: 7.5px 10px 7.5px 0; /* 테두리 두께 설정 */
-	border-color: transparent rgba(160, 159, 160, 1) transparent transparent; /* 테두리 색상 설정 */
+	border-color: transparent rgba(160, 159, 160, 1) transparent transparent;
+	/* 테두리 색상 설정 */
 	left: 40px; /* 왼쪽 여백 설정 */
 }
 
 .right {
 	border-width: 7.5px 0 7.5px 10px; /* 테두리 두께 설정 */
-	border-color: transparent transparent transparent rgba(160, 159, 160, 1); /* 테두리 색상 설정 */
+	border-color: transparent transparent transparent rgba(160, 159, 160, 1);
+	/* 테두리 색상 설정 */
 	right: 5px; /* 오른쪽 여백 설정 */
 }
 
@@ -813,30 +839,41 @@ input {
 }
 
 .month.in.next {
-	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromTopFadeMonth 0.4s ease-out; /* 다음 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromTopFadeMonth 0.4s ease-out;
+	/* 다음 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.next {
-	-webkit-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFadeMonth 0.4s ease-in;
+	/* 다음 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFadeMonth 0.4s ease-in;
+	/* 다음 달이 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFadeMonth 0.4s ease-in; /* 다음 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.in.prev {
-	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
-	animation: moveFromBottomFadeMonth 0.4s ease-out; /* 이전 달이 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
+	animation: moveFromBottomFadeMonth 0.4s ease-out;
+	/* 이전 달이 나타날 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
 .month.out.prev {
-	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
-	animation: moveToBottomFadeMonth 0.4s ease-in; /* 이전 달이 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
+	animation: moveToBottomFadeMonth 0.4s ease-in;
+	/* 이전 달이 사라질 때의 애니메이션 설정 */
 	opacity: 1; /* 투명도 설정 */
 }
 
@@ -924,14 +961,18 @@ input {
 }
 
 .details.in {
-	-webkit-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
-	-moz-animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
+	-webkit-animation: moveFromTopFade 0.5s ease both;
+	/* 상세정보가 나타날 때의 애니메이션 설정 */
+	-moz-animation: moveFromTopFade 0.5s ease both;
+	/* 상세정보가 나타날 때의 애니메이션 설정 */
 	animation: moveFromTopFade 0.5s ease both; /* 상세정보가 나타날 때의 애니메이션 설정 */
 }
 
 .details.out {
-	-webkit-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
-	-moz-animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
+	-webkit-animation: moveToTopFade 0.5s ease both;
+	/* 상세정보가 사라질 때의 애니메이션 설정 */
+	-moz-animation: moveToTopFade 0.5s ease both;
+	/* 상세정보가 사라질 때의 애니메이션 설정 */
 	animation: moveToTopFade 0.5s ease both; /* 상세정보가 사라질 때의 애니메이션 설정 */
 }
 
@@ -944,7 +985,8 @@ input {
 	height: 0px; /* 높이 없음 */
 	border-style: solid; /* 테두리 스타일 설정 */
 	border-width: 0 5px 5px 5px; /* 테두리 너비 설정 */
-	border-color: transparent transparent rgba(164, 164, 164, 1) transparent; /* 테두리 색상 설정 */
+	border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+	/* 테두리 색상 설정 */
 	transition: all 0.7s ease; /* 모든 속성에 대한 변화를 0.7초 동안 부드럽게 설정 */
 }
 
@@ -964,7 +1006,8 @@ input {
 }
 
 .events.in {
-	-webkit-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
+	-webkit-animation: fadeIn 0.3s ease both;
+	/* fade 효과를 통해 나타나는 애니메이션 설정 */
 	-moz-animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 	animation: fadeIn 0.3s ease both; /* fade 효과를 통해 나타나는 애니메이션 설정 */
 }
@@ -976,8 +1019,10 @@ input {
 }
 
 .details.out .events {
-	-webkit-animation: fadeOutShrink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
-	-moz-animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-webkit-animation: fadeOutShrink 0.4s ease both;
+	/* fade 효과와 함께 사라지는 애니메이션 설정 */
+	-moz-animation: fadeOutShink 0.4s ease both;
+	/* fade 효과와 함께 사라지는 애니메이션 설정 */
 	animation: fadeOutShink 0.4s ease both; /* fade 효과와 함께 사라지는 애니메이션 설정 */
 }
 
@@ -1012,11 +1057,13 @@ input {
 	display: inline-block; /* 인라인 블록 요소로 설정 */
 	padding: 0 0 0 7px; /* 내부 여백 설정 */
 }
+
 .event.dday {
-    position: absolute; /* 절대 위치 설정 */
-    top: 10px; /* 위쪽 여백 설정 */
-    right: 10px; /* 오른쪽 여백 설정 */
+	position: absolute; /* 절대 위치 설정 */
+	top: 10px; /* 위쪽 여백 설정 */
+	right: 10px; /* 오른쪽 여백 설정 */
 }
+
 .legend {
 	position: absolute;
 	bottom: 0;
@@ -1069,8 +1116,7 @@ input {
 	font-style: normal;
 }
 
-/* Animations are cool!  */
-
+/* 달력 애니메이션 */
 /*화면 위에서 아래로 이동하면서 페이드 인되는 애니메이션(WebKit(Chrome, Safari 등)에서 작동)*/
 @-webkit-keyframes moveFromTopFade {
   from {
@@ -1152,6 +1198,5 @@ input {
     height: 0px;
   }
 }
-
 
 </style>

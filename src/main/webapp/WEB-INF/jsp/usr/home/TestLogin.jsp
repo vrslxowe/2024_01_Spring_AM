@@ -6,13 +6,15 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <!doctype html>
 
   <div class="top_bar">
-    <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
-    <a href="../home/TestMain">
-    <button class="btn top_btn btn-ghost">💖</button></a>
+    <span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
+	<a href="../home/TestMain">
+		<span class="material-symbols-outlined main_btn">home</span>
+	</a>
   </div>
 
 <div class="login">
@@ -20,7 +22,7 @@
 <input type="hidden" name="afterLoginUri" value="${param.afterLoginUri }"/>
 	<div>
 		<input class="box2" type="text" autocomplete="off" placeholder="아이디"  name="loginId">
-		<input class="box2" type="text" autocomplete="off" placeholder="비밀번호" name="loginPw">
+		<input class="box2" type="password" autocomplete="off" placeholder="비밀번호" name="loginPw">
 	</div>
   <input class="btn btn-ghost login_btn" type="submit" value="로그인" />
   </form>
@@ -63,6 +65,22 @@ body {
   font-weight: normal;
   display: flex;
   margin-left: 20px;
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: 15px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 55px;
 }
 
 .top_btn {

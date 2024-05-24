@@ -6,13 +6,15 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <!doctype html>
 
   <div class="top_bar">
-    <button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
-    <a href="../home/TestMain">
-    <button class="btn top_btn btn-ghost">💖</button></a>
+   <span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
+	<a href="../home/TestMain">
+		<span class="material-symbols-outlined main_btn">home</span>
+	</a>
   </div>
 
 <div class="member_join">
@@ -69,6 +71,23 @@ body {
   display: flex;
   margin-left: 20px;
 }
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: 15px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 55px;
+}
+
 .top_btn,
 .modify_btn {
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);

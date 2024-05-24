@@ -152,11 +152,11 @@ public class UsrMemberController {
 	public String doCheckPw(String loginPw) {
 
 		if (Ut.isNullOrEmpty(loginPw)) {
-			return rq.historyBackOnView("비번 입력해");
+			return rq.historyBackOnView("비밀번호를 입력해주세요.");
 		}
 
 		if (rq.getLoginedMember().getLoginPw().equals(loginPw) == false) {
-			return rq.historyBackOnView("비번 틀림");
+			return rq.historyBackOnView("비밀번호가 다릅니다.");
 		}
 
 		return "usr/member/modify";
@@ -193,6 +193,6 @@ public class UsrMemberController {
 			modifyRd = memberService.modify(rq.getLoginedMemberId(), loginPw, name, nickname, cellphoneNum, email);
 		}
 
-		return Ut.jsReplace(modifyRd.getResultCode(), modifyRd.getMsg(), "../member/myPage");
+		return Ut.jsReplace(modifyRd.getResultCode(), modifyRd.getMsg(), "../home/TestProfile");
 	}
 }

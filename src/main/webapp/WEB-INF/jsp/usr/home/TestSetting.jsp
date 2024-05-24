@@ -6,16 +6,17 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <!doctype html>
 
 <div class="top_bar">
+	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
 	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+		<span class="material-symbols-outlined main_btn">home</span>
 	</a>
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 
 
@@ -66,7 +67,23 @@ body {
 	font-family: "Exo 2";
 	font-weight: normal;
 	display: flex;
-	margin-left: 20px;
+	margin-left: 100px;
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: -20px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 25px;
 }
 
 .top_btn,

@@ -1,50 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="Check Password"></c:set>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<div id="calendar"></div>
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
-<c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
-<c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 
 <div class="top_bar top_bar_left">
+	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
 	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+		<span class="material-symbols-outlined main_btn">home</span>
 	</a>
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
 </div>
 <div class="top_bar top_bar_right">
 	<a href="../home/TestSetting">
-		<button class="btn top_btn btn-ghost">설정⚙</button>
+		<span class="material-symbols-outlined set_btn">settings</span>
 	</a>
 </div>
 <form action="../member/doCheckPw" method="POST">
-	<table class="login-box table-box-1" border="1">
-		<tbody>
-			<tr>
-				<th>아이디</th>
-				<td>${rq.loginedMember.loginId }</td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td>
-					<input class="info2" autocomplete="off" type="text"
-						placeholder="기존 비밀번호를 입력해주세요" name="loginPw" />
-				</td>
-			</tr>
-			<tr>
-				<th></th>
-				<td>
-					<input class="modify_btn" type="submit" value="확인" />
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="box2">
+		<div class="info1">아이디</div>
+		<div class="info2">${rq.loginedMember.loginId }</div>
+		<div class="info1">비밀번호</div>
+		<input class="info2" autocomplete="off" type="text" placeholder="기존 비밀번호를 입력해주세요" name="loginPw" />
+		<input class="btn btn-ghost login_btn" type="submit" value="확인" />
+	</div>
 </form>
-<div class="btns">
-	<button class="modify_btn" type="button" onclick="history.back();">뒤로가기</button>
-</div>
 
 <style type="text/css">
 body {
@@ -88,8 +72,30 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 89%; /* 왼쪽 여백 설정 */
+	right: 97%; /* 왼쪽 여백 설정 */
 	justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn {
+	position: absolute;
+	top: 23px;
+	left: -20px;
+}
+
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 25px;
+}
+
+.set_btn {
+	position: absolute;
+	top: 23px;
 }
 
 .top_bar_right {
@@ -108,7 +114,9 @@ body {
 
 .btn-ghost {
 	font-family: "S-CoreDream-3Light";
-	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25);
+	margin-top: 15.5px;
+	height: 30px;
+	margin-right: 20px;
 }
 
 .box {
@@ -184,13 +192,10 @@ body {
 	left: -200%;
 }
 
-.modify_btn {
-	color: #5e5e5e;
-	padding-top: 14px;
-	margin-top: 20px;
+.login_btn {
+	width: 92px;
+	margin-top: 13%;
 	margin-left: 0%;
-	font-size: 19px;
-	border-radius: 15px;
 }
 
 @font-face {

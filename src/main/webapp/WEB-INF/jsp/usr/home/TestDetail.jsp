@@ -6,34 +6,29 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <!doctype html>
 
 <div class="top_bar left">
-	<button class="btn top_btn btn-ghost" onclick="history.back();">뒤로가기</button>
+	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
 	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+		<span class="material-symbols-outlined main_btn">home</span>
 	</a>
 </div>
 <div class="top_bar right">
-	<c:if test="${rq.isLogined() }">
-		<button class="username">${loggedInMemberName}님</button>
-	</c:if>
 	<a href="../home/TestWrite">
-		<button class="btn top_btn btn-ghost">수정하기</button>
-	</a>
-	<a href="../home/TestWrite">
-		<button class="btn top_btn btn-ghost">글쓰기</button>
+		<span class="material-symbols-outlined modify_btn">edit</span>
 	</a>
 </div>
 
 <div class="box box_1"></div>
-<div class="box box_2"></div>
+<div class="box box_2">${article.body }</div>
 
 <div class="box_1">
-	<div class="diary_text">제목</div>
+	<div class="diary_text">제목 ${article.title }</div>
 	<div class="date_text">날짜</div>
 </div>
 
@@ -90,21 +85,37 @@ body {
 }
 
 .left {
-	margin-right: 95%;
-	justify-content: flex-start;
+	right: 97%; /* 왼쪽 여백 설정 */
+	justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: -20px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 25px;
 }
 
 .right {
-	margin-left: 91%;
-	justify-content: flex-end;
+	left: 88%; /* 오른쪽 여백 설정 */
+	justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
-.username{
-	width: 100px;
-	height: 50px;
-	position: relative;
-	left: -20px;
+.modify_btn {
+	position: absolute;
+	top: 23px;
+	left: 160px;
 }
+
 
 /* 박스 스타일 */
 .box {

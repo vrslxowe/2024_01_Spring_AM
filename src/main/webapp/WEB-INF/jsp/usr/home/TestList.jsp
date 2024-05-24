@@ -6,52 +6,69 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <script>
-  const box = document.getElementById('box');
-  const boxHeader = document.querySelector('.box_header');
-  const box3 = document.querySelector('.box3');
-  const contentBox = document.querySelector('.content');
+    const box = document.getElementById('box');
+    const boxHeader = document.querySelector('.box_header');
+    const box3 = document.querySelector('.box3');
+    const contentBox = document.querySelector('.content');
 
-  box.addEventListener('scroll', function() {
-    const scrolled = box.scrollTop;
-    const scrollHeight = box.scrollHeight - box.clientHeight;
-    const distanceFromBottom = scrollHeight - scrolled;
+    box.addEventListener('scroll', function () {
+      const scrolled = box.scrollTop;
+      const scrollHeight = box.scrollHeight - box.clientHeight;
+      const distanceFromBottom = scrollHeight - scrolled;
 
-    // 스크롤이 맨 아래에 도달하면
-    if (distanceFromBottom === 0) {
-      boxHeader.style.top = '40px';
-      box3.style.top = '60px';
-    } else {
-      boxHeader.style.top = '20px';
-      box3.style.top = '20px';
+      // 스크롤이 맨 아래에 도달하면
+      if (distanceFromBottom === 0) {
+        boxHeader.style.top = '40px';
+        box3.style.top = '60px';
+      } else {
+        boxHeader.style.top = '20px';
+        box3.style.top = '20px';
+      }
+    });
+
+    function toggleSearch() {
+        const searchBox = document.querySelector('.search_box');
+        const isVisible = searchBox.style.display === 'block';
+        searchBox.style.display = isVisible ? 'none' : 'block';
     }
-  });
-</script>
 
+    function submitSearch(event) {
+        event.preventDefault();
+        const query = document.querySelector('input[name="search_query"]').value;
+        alert('검색어: ' + query);
+        // 실제 검색을 수행하는 코드를 여기에 추가하세요
+    }
+  </script>
+
+
+<title>Search Toggle Example</title>
 
 <!doctype html>
 
 <div class="top_bar top_bar_left">
+	<span class="material-symbols-outlined back_btn" onclick="history.back();">arrow_back_ios</span>
 	<a href="../home/TestMain">
-		<button class="btn top_btn btn-ghost">💖</button>
+		<span class="material-symbols-outlined main_btn">home</span>
 	</a>
 </div>
 
 <div class="top_bar top_bar_right">
-	<div class="search_box">
-		<form onsubmit="submitSearch(event)">
-			<input type="text" placeholder="검색어를 입력하세요" name="search_query" autocomplete='off'>
-			<button type="submit">검색</button>
-		</form>
-	</div>
-	<button class="btn top_btn btn-ghost" onclick="toggleSearch()">검색🔍</button>
-	<a href="../home/TestWrite">
-		<button class="btn top_btn btn-ghost write">글쓰기🖊</button>
-	</a>
-</div>
+    <div class="search_box">
+      <form onsubmit="submitSearch(event)">
+        <input type="text" placeholder="검색어를 입력하세요" name="search_query" autocomplete='off'>
+        <button type="submit">검색</button>
+      </form>
+    </div>
+    <span class="material-symbols-outlined search_btn" onclick="toggleSearch()">search</span>
+    <a href="../home/TestWrite">
+      <span class="material-symbols-outlined write_btn">edit_square</span>
+    </a>
+  </div>
 
 <div class="box">
 <button class="box3">3월 기록 ▽</button>
@@ -60,7 +77,7 @@
   <div class="list_box1">
   <div class="imege_box imege_box1"></div>
     <div class="content_box">
-      늘 바라왔던 작은 소원 네가 행복했으면 좋겠어 네 웃음과 눈물과 모든 것들이 소중해 이 순간의 심장 소리와 떨림을 난 영원히 기억할래 Keep on keep on loving babe 밤은 길지 않을 테니 있는 그대로의 널 사랑하고 있어 너의 꿈이 내 꿈이 돼 우린 답을 알고 있지 바로 여기 So I make this wish tonight
+      Plusieurs variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard.
     </div>
   </div>
     <div class="list_box2">
@@ -72,19 +89,19 @@
     <div class="list_box3">
     <div class="imege_box imege_box3"></div>
         <div class="content_box">
-            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 모든 국민은 사생활의 비밀과 자유를 침해받지 아니한다. 국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다. 명령·규칙 또는 처분이 헌법이나 법률에 위반되는 여부가 재판의 전제가 된 경우에는 대법원은 이를 최종적으로 심사할 권한을 가진다.
+           Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie d'entre elless variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la majeure partie d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard.
         </div>
     </div>
     <div class="list_box4">
     <div class="imege_box imege_box4"></div>
         <div class="content_box">
-            Let's go Fly high in the air Let's WISH it up baby WISH it up, right now 今に世界が変わるよ Keep it up baby Keep it up, uh It's up and down 風に乗って Yeah, We're another one 'Cause we wanna WISH キミと Baby 突き進もう The WISH's complete Yeah yeah ooh Goin' up どんな時だって 突き進もう The WISH's complete
+            rouvées ici ou là, mais la majeure partie d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard.
         </div>
     </div>
     <div class="list_box5">
     <div class="imege_box imege_box5"></div>
         <div class="content_box">
-            えんしてぃウィッシュはえんしてぃの最後のグループで、2024年2月21日にデビューしました。リーダーはシオンです。メンバーはシオンを含めて合計6人で、リク、ユウシ、ジェヒ、リョウ、サクヤで構成されています。韓国人はシオン、ジェヒの二人で、リク、ユウシ、リョウ、サクヤは日本人です。
+            d'entre elles a été altérée par l'addition d'humour ou de mots aléatoires qui ne ressemblent pas une seconde à du texte standard.
         </div>
     </div>
     <div class="list_box6">
@@ -151,13 +168,40 @@ body {
 }
 
 .top_bar_left {
-	margin-right: 95%; /* 왼쪽 여백 설정 */
+	right: 97%; /* 왼쪽 여백 설정 */
 	justify-content: flex-start; /* 왼쪽 정렬 */
 }
 
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	font-size: 27px;
+}
+
+.back_btn{
+	position: absolute;
+	top: 23px;
+	left: -20px;
+}
+.main_btn {
+	position: absolute;
+	top: 23px;
+	left: 25px;
+}
+
 .top_bar_right {
-	margin-left: 88%; /* 오른쪽 여백 설정 */
+	left: 95%; /* 오른쪽 여백 설정 */
 	justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.search_btn {
+	position: relative;
+	top: 23px;
+	left: -10px;
+}
+.write_btn {
+	position: relative;
+	top: 23px;
+	left: 10px;
 }
 
 .top_btn {
@@ -174,15 +218,16 @@ body {
 	font-size: 17px;
 	display: none;
 	position: absolute; /* 절대 위치 설정 */
-	margin-top: 22px; /* 위쪽 여백 설정 */
-	margin-right: 350px;
-	width: 285px;
+	top: 60px; /* 검색 버튼 바로 아래에 위치 */
+    right: -30px;
+	width: 250px;
 	height: 35px;
 	border-radius: 35px;
 	padding-top: 5px;
 	box-shadow: 7px 5px 7.1px 0px rgba(0, 0, 0, 0.25); /* 그림자 설정 */
 	opacity: 1;
 	-webkit-animation: fadeIn 0.15s ease-out;
+	z-index: 10;
 }
 .fadeIn {
     -webkit-animation: fadeIn 0.15s ease-out;
