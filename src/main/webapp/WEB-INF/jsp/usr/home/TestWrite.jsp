@@ -23,77 +23,115 @@
 </div>
 <div id="search_results" class="search-results"></div>
 
-
-<script>
-function toggleSearchBox() {
-    var searchBox = $("#search_box");
-    var searchButton = $("#search_button");
-
-    if (searchBox.css("display") === "none") {
-        searchBox.css("display", "inline-block");
-        searchButton.css("display", "inline-block");
-    } else {
-        searchBox.css("display", "none");
-        searchButton.css("display", "none");
-    }
-}
-
-function searchVideos() {
-    var query = $("#search_box").val().trim();
-    if (query === "") {
-        alert("검색어를 입력하세요.");
-        return;
-    }
-
-    var apiKey = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
-    var maxResults = 10;
-    var searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + encodeURIComponent(query) + "&key=" + apiKey + "&maxResults=" + maxResults;
-
-    $.ajax({
-        type: "GET",
-        url: searchUrl,
-        dataType: "json",
-        success: function(response) {
-            displaySearchResults(response.items);
-        },
-        error: function(xhr, textStatus, error) {
-            console.error("Error fetching search results:", error);
+<!-- 유튜브 검색창 -->
+<title>검색 기능</title>
+    <style>
+        #search_box, #search_button {
+            display: none;
         }
-    });
-}
+        .search-result {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button onclick="toggleSearchBox()">검색창 토글</button>
+    <input type="text" id="search_box" placeholder="검색어를 입력하세요">
+    <button id="search_button" onclick="searchVideos()">검색</button>
+    <div id="search_results"></div>
 
-function displaySearchResults(results) {
-    var searchResultsDiv = $("#search_results");
-    searchResultsDiv.empty();
+    <script>
+        function toggleSearchBox() {
+            var searchBox = $("#search_box");
+            var searchButton = $("#search_button");
 
-    if (results.length === 0) {
-        searchResultsDiv.append("<p>No results found.</p>");
-        return;
-    }
+            if (searchBox.css("display") === "none") {
+                searchBox.css("display", "inline-block");
+                searchButton.css("display", "inline-block");
+            } else {
+                searchBox.css("display", "none");
+                searchButton.css("display", "none");
+            }
+        }
 
-    results.forEach(function(result) {
-        var videoId = result.id.videoId;
-        var title = result.snippet.title;
-        var thumbnailUrl = result.snippet.thumbnails.default.url;
+        function searchVideos() {
+            var query = $("#search_box").val().trim();
+            if (query === "") {
+                alert("검색어를 입력하세요.");
+                return;
+            }
 
-        var videoElement = $("<div class='search-result'>" + title + "'></div>");
-        videoElement.click(function() {
-            watchVideo(videoId);
+            var apiKey = "AIzaSyAnW6wrkzoAtz9y-G9oainLtxUruRV9kzE";
+            var maxResults = 10;
+            var searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + encodeURIComponent(query) + "&key=" + apiKey + "&maxResults=" + maxResults;
+
+            $.ajax({
+                type: "GET",
+                url: searchUrl,
+                dataType: "json",
+                success: function(response) {
+                    displaySearchResults(response.items);
+                },
+                error: function(xhr, textStatus, error) {
+                    console.error("Error fetching search results:", error);
+                }
+            });
+        }
+
+        function displaySearchResults(results) {
+            var searchResultsDiv = $("#search_results");
+            searchResultsDiv.empty();
+
+            if (results.length === 0) {
+                searchResultsDiv.append("<p>No results found.</p>");
+                return;
+            }
+
+            results.forEach(function(result) {
+                var videoId = result.id.videoId;
+                var title = result.snippet.title;
+                var thumbnailUrl = result.snippet.thumbnails.default.url;
+
+                var videoElement = $("<div class='search-result'>" + title + "</div>");
+                videoElement.click(function() {
+                    watchVideo(videoId);
+                });
+
+                searchResultsDiv.append(videoElement);
+            });
+
+            // Scroll to the bottom of the search results div
+            searchResultsDiv.animate({ scrollTop: searchResultsDiv.prop("scrollHeight") }, 400);
+        }
+
+        function watchVideo(videoId) {
+            window.open("https://www.youtube.com/watch?v=" + videoId, "_blank");
+        }
+
+     // 외부 클릭 시 검색 상자, 버튼 및 검색 결과 숨김
+        $(document).click(function(event) {
+            var searchBox = $("#search_box");
+            var searchButton = $("#search_button");
+            var searchResultsDiv = $("#search_results");
+            if (!$(event.target).closest('#search_box').length && 
+                !$(event.target).closest('#search_button').length && 
+                !$(event.target).closest('#search_results').length && 
+                !$(event.target).closest('button').length) {
+                searchBox.css("display", "none");
+                searchButton.css("display", "none");
+                searchResultsDiv.css("display", "none");
+            }
         });
 
-        searchResultsDiv.append(videoElement);
-    });
+        // Prevent search results from hiding when clicking inside the search results div
+        $("#search_results").click(function(event) {
+            event.stopPropagation();
+        });
+    </script>
 
-    // Scroll to the bottom of the search results div
-    searchResultsDiv.animate({ scrollTop: searchResultsDiv.prop("scrollHeight") }, 400);
-}
-
-function watchVideo(videoId) {
-    window.open("https://www.youtube.com/watch?v=" + videoId, "_blank");
-}
-
-</script>
-
+<!-- 다음 주소 검색창 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function sample6_execDaumPostcode() {
