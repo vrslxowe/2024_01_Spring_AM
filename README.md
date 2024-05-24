@@ -17,6 +17,7 @@
 - ORM : MyBatis
 - Server : Tomcat
 - DataBase : MySQL, lucidchart
+- API : google cloud YouTube Data API v3
 
 ## 주요 기능
 - 회원가입
